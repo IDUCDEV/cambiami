@@ -4,8 +4,8 @@
     {
       "type": "frame",
       "id": "p5Tfuf",
-      "x": 0,
-      "y": 0,
+      "x": -808,
+      "y": -691,
       "name": "Foundations",
       "width": 1367,
       "fill": "$bg/canvas",
@@ -1675,8 +1675,8 @@
     {
       "type": "frame",
       "id": "vZ7AZ",
-      "x": 0,
-      "y": 1620,
+      "x": -808,
+      "y": 1227,
       "name": "Components",
       "width": 1883,
       "height": 1609,
@@ -3335,8 +3335,8 @@
     {
       "type": "frame",
       "id": "UkygU",
-      "x": -808,
-      "y": 3480,
+      "x": 1854,
+      "y": -691,
       "name": "Board · Pantallas por historia",
       "fill": "#d9d9d9ff",
       "layout": "vertical",
