@@ -152,6 +152,22 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 
 ---
 
+### HU-11 · Consultar las tasas en detalle
+> **Como** usuario, **quiero** ver de cada tasa cuándo se publicó, desde cuándo rige, de qué fuente sale y cuándo la consulté, **para** decidir si el dato es de fiar antes de operar.
+
+**Criterios de aceptación:**
+- Cada tasa muestra `published_at` (`Publicado`) y `effective_from` (`Vigente desde`) dentro de la tarjeta, y `fetched_at` (`Actualizado…`) en la franja de la vista.
+- El estado (`al día` / `desactualizado` / `sin conexión`) es visible en todas las vistas, sin depender del color: punto + palabra.
+- 05 y 06 se alternan con el selector `BCV | USDT`; el tab `Tasas` mantiene su estado activo en ambas.
+- La brecha de 06 muestra el porcentaje, la fórmula `(USDT promedio − BCV) ÷ BCV` y los dos valores usados.
+- Cada tarjeta enlaza a su fuente (`bcv.org.ve`, `binance.com`) y el bloque "Cómo se calcula" explica la metodología.
+- Carga y error están dibujados: skeleton de dos tarjetas y error con `Reintentar`.
+- No se muestra ningún dato que no exista en `rate_snapshots` (sin histórico, sin mín/máx, sin nº de anuncios).
+
+**Mapeo:** F-02 · APP-SCR-03 Tasas BCV, APP-SCR-04 Tasas USDT
+
+---
+
 ## 3. Features críticas (M1–M5) mapeadas a historias
 
 | ID | Feature | Historia de usuario | Pantallas | Prioridad |

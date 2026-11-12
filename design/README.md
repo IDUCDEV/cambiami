@@ -18,7 +18,7 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 
 | Frame | Contenido |
 |:--|:--|
-| `Foundations` | 18 swatches en 3 filas (marca, superficie/texto, estados), escala tipográfica Nunito de 7 niveles, escala de radios 8/12/16/20/pill |
+| `Foundations` | 23 swatches en 4 filas (marca, superficie/texto, estados, tintes de identidad), escala tipográfica Nunito de 7 niveles, escala de radios 8/12/16/20/pill |
 | `Components` | `RateCard`, `RateChip/Default`, `RateChip/Selected`, `StatusBanner`, `AmountCard`, `AmountCard/Default`, `Button/Primary`, `Button/Secondary` y las tres variantes de `TabBar` — todos como componentes reutilizables con instancias en las pantallas |
 
 ### Pantallas
@@ -30,8 +30,8 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 | 02b | Calculadora · escribiendo (teclado numérico) | ✅ |
 | 03 | Calculadora · desactualizado | ✅ |
 | 04 | Calculadora · sin conexión | ✅ |
-| 05 | Tasas BCV | ✅ (faltan los estados cargando y error) |
-| 06 | Tasas USDT | ✅ (faltan los estados cargando y error) |
+| 05 | Tasas BCV | ✅ (ficha completa + estados) |
+| 06 | Tasas USDT | ✅ (ficha completa + brecha verificable + estados) |
 | 07 | Configuración | ✅ |
 | 08 | Información (legal) | ✅ |
 | 09 | Monedas (modal) | ✅ |
@@ -55,7 +55,7 @@ El frame `Board · Pantallas por historia` agrupa las 11 pantallas por las HU de
 | HU-07 · Elegir mi moneda predeterminada | 07 |
 | HU-08 · Saber de dónde vienen los datos | 08 |
 | HU-10 · Compartir el cálculo por WhatsApp | 10 |
-| Sin historia asignada | 05, 06 |
+| HU-11 · Consultar las tasas en detalle | 05, 06 + `Estados · Tasas` |
 
 **Matriz de apariciones** (una pantalla puede salir en varias historias sin duplicarse):
 
@@ -66,8 +66,8 @@ El frame `Board · Pantallas por historia` agrupa las 11 pantallas por las HU de
 | 02b Calculadora · escribiendo | HU-02 | — |
 | 03 Calculadora · desactualizado | HU-03 | HU-04 |
 | 04 Calculadora · sin conexión | HU-04 | HU-03 |
-| 05 Tasas BCV | **pendiente** | HU-03 |
-| 06 Tasas USDT | **pendiente** | HU-03 |
+| 05 Tasas BCV | HU-11 | HU-03 (estado del dato) |
+| 06 Tasas USDT | HU-11 | HU-03 (estado del dato) |
 | 07 Configuración | HU-07 | HU-08 (se entra a Información desde ahí) |
 | 08 Información | HU-08 | — |
 | 09 Monedas | HU-06 | — |
@@ -97,7 +97,13 @@ La navegación **no se cablea** en el archivo: pen.dev no tiene un modo de proto
 ## Notas de implementación
 
 - Los colores de marca saturados (`#FFD166`, `#FF705F`, `#20C6C8`) **no se usan como texto**. Para texto van sus variantes `-ink` (`#7A5200`, `#C93B2A`, `#0B7C7E`), que cumplen AA sobre el fondo del banner.
+- **Reparto de color 60/30/10** (`DESIGN_SYSTEM.md` §3.6): 60 % neutro, 30 % tintes suaves, 10 % acento. Máximo 3 acentos fuertes por pantalla.
+- **Identidad por fuente:** chip de 40 px en `RateCard` y de 32 px en las filas de Monedas — BCV índigo, Euro ámbar, USDT/Promedio lavanda, Mi tasa coral. El chip es identidad, nunca estado.
+- **Tinte por estado:** el `Content` de 03 va en ámbar suave y el de 04 en coral suave; el banner conserva sus tokens `state/*`. En 06, Compra va en teal suave y Venta en coral suave.
 - El estado del dato siempre es icono + texto, nunca solo color.
+- **Tres fechas, tres sitios** (`DESIGN_SYSTEM.md` §7.2/§7.8): `published_at` → `Publicado` en la tarjeta, `effective_from` → `Vigente desde` en la tarjeta, `fetched_at` → franja de frescura. Ninguna se repite.
+- **Brecha verificable:** el porcentaje se acompaña siempre de la fórmula y de los dos valores con los que se calculó (`(USDT promedio − BCV) ÷ BCV`). Un porcentaje sin sus operandos no se muestra.
+- **Nada fuera de `rate_snapshots`:** no hay histórico, ni mín/máx, ni número de anuncios. Si el modelo no lo tiene, no se dibuja.
 - Formato es-VE: coma decimal, punto de miles, `Bs` después del número (`889,58 Bs`), `$` antes (`$ 1,00`).
 - Cero emojis en la UI. Todos los iconos son Lucide.
 - La pantalla `02b` conserva el monto al cambiar de tasa: es la regla de negocio que el clon rompía.

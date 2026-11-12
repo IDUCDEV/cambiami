@@ -896,6 +896,250 @@
         },
         {
           "type": "frame",
+          "id": "wp4kw",
+          "name": "Colors · Tintes de identidad",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "s9RGNe",
+              "name": "Section Label",
+              "fill": "$text/primary",
+              "content": "Tintes de identidad",
+              "fontFamily": "$font/family",
+              "fontSize": 16,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "j7W0p",
+              "name": "Row",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "WiVjI",
+                  "name": "Token palette/indigo-900",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "cqJGx",
+                      "name": "Swatch palette/indigo-900",
+                      "fill": "#1D0F50",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "fPHS7",
+                      "name": "Name palette/indigo-900",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "palette/indigo-900",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gweYx",
+                      "name": "Hex palette/indigo-900",
+                      "fill": "$text/secondary",
+                      "content": "#1D0F50",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "t74Xj",
+                  "name": "Token palette/indigo-soft",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "h2RVT",
+                      "name": "Swatch palette/indigo-soft",
+                      "fill": "#EDE9F7",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "DHlBt",
+                      "name": "Name palette/indigo-soft",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "palette/indigo-soft",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M4yqtB",
+                      "name": "Hex palette/indigo-soft",
+                      "fill": "$text/secondary",
+                      "content": "#EDE9F7",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XeOGb",
+                  "name": "Token palette/teal-soft",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "b5ciQ",
+                      "name": "Swatch palette/teal-soft",
+                      "fill": "#E3F8F8",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "Fg1tj",
+                      "name": "Name palette/teal-soft",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "palette/teal-soft",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "w9mXE",
+                      "name": "Hex palette/teal-soft",
+                      "fill": "$text/secondary",
+                      "content": "#E3F8F8",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "z1ZEcm",
+                  "name": "Token palette/amber-soft",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "b3fpl",
+                      "name": "Swatch palette/amber-soft",
+                      "fill": "#FFF6E0",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "dlf8K",
+                      "name": "Name palette/amber-soft",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "palette/amber-soft",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "F6LdM",
+                      "name": "Hex palette/amber-soft",
+                      "fill": "$text/secondary",
+                      "content": "#FFF6E0",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ZnVWh",
+                  "name": "Token palette/coral-soft",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "F72EI",
+                      "name": "Swatch palette/coral-soft",
+                      "fill": "#FFF4F2",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "R2Lnf",
+                      "name": "Name palette/coral-soft",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "palette/coral-soft",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "p3teh",
+                      "name": "Hex palette/coral-soft",
+                      "fill": "$text/secondary",
+                      "content": "#FFF4F2",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "L9RoR",
           "name": "Typography · Nunito",
           "width": "fill_container",
@@ -1460,7 +1704,7 @@
             {
               "type": "frame",
               "id": "y39TzM",
-              "name": "RateCard",
+              "name": "RateCard / Ficha",
               "reusable": true,
               "width": 350,
               "fill": "$bg/surface",
@@ -1473,13 +1717,37 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "U9n8z",
+                  "id": "O0gQkd",
                   "name": "Head",
                   "width": "fill_container",
-                  "gap": 8,
-                  "justifyContent": "space_between",
+                  "height": 40,
+                  "gap": 10,
                   "alignItems": "center",
                   "children": [
+                    {
+                      "type": "frame",
+                      "id": "hLMcH",
+                      "name": "Source chip",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "$palette/indigo-soft",
+                      "cornerRadius": 12,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "zcA4b",
+                          "x": 10,
+                          "y": 10,
+                          "name": "Source icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "landmark",
+                          "library": "lucide",
+                          "fill": "$palette/indigo-900"
+                        }
+                      ]
+                    },
                     {
                       "type": "text",
                       "id": "WAUHE",
@@ -1494,7 +1762,9 @@
                       "type": "frame",
                       "id": "LHpMl",
                       "name": "Value group",
+                      "width": "fill_container",
                       "gap": 4,
+                      "justifyContent": "end",
                       "alignItems": "center",
                       "children": [
                         {
@@ -1532,14 +1802,136 @@
                   "fontWeight": "600"
                 },
                 {
-                  "type": "text",
-                  "id": "mAGAE",
-                  "name": "Source",
-                  "fill": "$text/secondary",
-                  "content": "BCV · Lunes, 02/11/26 · al día",
-                  "fontFamily": "$font/family",
-                  "fontSize": 12,
-                  "fontWeight": "600"
+                  "type": "frame",
+                  "id": "E99ie",
+                  "name": "Details",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "rbGmv",
+                      "name": "Divider",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "$border/subtle"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "Hi0pv",
+                      "name": "Meta",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "MAQMm",
+                          "name": "Meta / Publicado",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "dEegh",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Publicado",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "STDJI",
+                              "name": "Value",
+                              "fill": "$text/primary",
+                              "content": "02/11/26 · 5:00 p. m.",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "PAI2O",
+                          "name": "Meta / Vigente desde",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "NZk8P",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Vigente desde",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "H5X3t",
+                              "name": "Value",
+                              "fill": "$text/primary",
+                              "content": "03/11/26",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "eopPD",
+                      "name": "Foot",
+                      "width": "fill_container",
+                      "height": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Y7Gc1x",
+                          "name": "Source link",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "mAGAE",
+                              "name": "Source",
+                              "fill": "$text/secondary",
+                              "content": "BCV · bcv.org.ve",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "lHUtW",
+                              "name": "External",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "external-link",
+                              "library": "lucide",
+                              "fill": "$text/secondary"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -1639,7 +2031,7 @@
           "name": "Banner / desactualizado",
           "fill": "$state/warn-bg",
           "x": 40,
-          "y": 303,
+          "y": 370,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -1662,7 +2054,7 @@
           "name": "Banner / sin conexion",
           "fill": "$state/offline-bg",
           "x": 40,
-          "y": 363,
+          "y": 430,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2760,6 +3152,30 @@
                               "alignItems": "center",
                               "children": [
                                 {
+                                  "type": "frame",
+                                  "id": "EPlPB",
+                                  "name": "Source chip",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$palette/indigo-soft",
+                                  "cornerRadius": 8,
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "D9yjrA",
+                                      "name": "Source icon",
+                                      "width": 16,
+                                      "height": 16,
+                                      "icon": "landmark",
+                                      "library": "lucide",
+                                      "fill": "$palette/indigo-900"
+                                    }
+                                  ]
+                                },
+                                {
                                   "type": "text",
                                   "id": "yqUDe",
                                   "name": "Rate name",
@@ -3078,6 +3494,30 @@
                               "gap": 8,
                               "alignItems": "center",
                               "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "TUDDt",
+                                  "name": "Source chip",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$palette/indigo-soft",
+                                  "cornerRadius": 8,
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "eWYOi",
+                                      "name": "Source icon",
+                                      "width": 16,
+                                      "height": 16,
+                                      "icon": "landmark",
+                                      "library": "lucide",
+                                      "fill": "$palette/indigo-900"
+                                    }
+                                  ]
+                                },
                                 {
                                   "type": "text",
                                   "id": "Odlun",
@@ -3680,7 +4120,7 @@
                   "id": "i568wB",
                   "name": "Content",
                   "width": "fill_container",
-                  "fill": "$bg/brand-soft",
+                  "fill": "$palette/amber-soft",
                   "layout": "vertical",
                   "gap": 24,
                   "padding": [
@@ -3782,6 +4222,30 @@
                           "gap": 8,
                           "alignItems": "center",
                           "children": [
+                            {
+                              "type": "frame",
+                              "id": "ZyGTN",
+                              "name": "Source chip",
+                              "width": 28,
+                              "height": 28,
+                              "fill": "$palette/indigo-soft",
+                              "cornerRadius": 8,
+                              "layout": "vertical",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "A3lhc",
+                                  "name": "Source icon",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "landmark",
+                                  "library": "lucide",
+                                  "fill": "$palette/indigo-900"
+                                }
+                              ]
+                            },
                             {
                               "type": "text",
                               "id": "i6ZKu7",
@@ -4071,7 +4535,7 @@
                       "id": "Yle5x",
                       "name": "Content",
                       "width": "fill_container",
-                      "fill": "$bg/brand-soft",
+                      "fill": "$palette/coral-soft",
                       "layout": "vertical",
                       "gap": 24,
                       "padding": [
@@ -4107,7 +4571,9 @@
                           "ref": "hqf68",
                           "width": "fill_container",
                           "name": "Banner / sin conexion",
-                          "fill": "$state/offline-bg",
+                          "fill": "$bg/surface",
+                          "stroke": "$border/subtle",
+                          "strokeWidth": 1,
                           "descendants": {
                             "AeskJ": {
                               "icon": "cloud-off",
@@ -4143,6 +4609,30 @@
                               "gap": 8,
                               "alignItems": "center",
                               "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "bJGxS",
+                                  "name": "Source chip",
+                                  "width": 28,
+                                  "height": 28,
+                                  "fill": "$palette/indigo-soft",
+                                  "cornerRadius": 8,
+                                  "layout": "vertical",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "EQTDq",
+                                      "name": "Source icon",
+                                      "width": 16,
+                                      "height": 16,
+                                      "icon": "landmark",
+                                      "library": "lucide",
+                                      "fill": "$palette/indigo-900"
+                                    }
+                                  ]
+                                },
                                 {
                                   "type": "text",
                                   "id": "VrChY",
@@ -4506,27 +4996,60 @@
                                   "type": "frame",
                                   "id": "Jilpt",
                                   "name": "Left",
-                                  "layout": "vertical",
+                                  "gap": 12,
+                                  "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "text",
-                                      "id": "ghNbD",
-                                      "name": "Name",
-                                      "fill": "$brand/primary-pressed",
-                                      "content": "Dólar BCV",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
+                                      "type": "frame",
+                                      "id": "ynmJ1",
+                                      "name": "Identity chip",
+                                      "width": 32,
+                                      "height": 32,
+                                      "fill": "$palette/indigo-soft",
+                                      "cornerRadius": 10,
+                                      "layout": "vertical",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "hgxAZ",
+                                          "name": "Identity icon",
+                                          "width": 16,
+                                          "height": 16,
+                                          "icon": "landmark",
+                                          "library": "lucide",
+                                          "fill": "$palette/indigo-900"
+                                        }
+                                      ]
                                     },
                                     {
-                                      "type": "text",
-                                      "id": "KOP6J",
-                                      "name": "Hint",
-                                      "fill": "$brand/primary",
-                                      "content": "En calculadora",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 11,
-                                      "fontWeight": "700"
+                                      "type": "frame",
+                                      "id": "Bjxiv",
+                                      "name": "Labels",
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "ghNbD",
+                                          "name": "Name",
+                                          "fill": "$brand/primary-pressed",
+                                          "content": "Dólar BCV",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 16,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "KOP6J",
+                                          "name": "Hint",
+                                          "fill": "$brand/primary",
+                                          "content": "En calculadora",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 11,
+                                          "fontWeight": "700"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -4572,17 +5095,50 @@
                                   "type": "frame",
                                   "id": "NRFg3",
                                   "name": "Left",
-                                  "layout": "vertical",
+                                  "gap": 12,
+                                  "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "text",
-                                      "id": "Q4CZ6",
-                                      "name": "Name",
-                                      "fill": "$text/primary",
-                                      "content": "Euro",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
+                                      "type": "frame",
+                                      "id": "Nv6fA",
+                                      "name": "Identity chip",
+                                      "width": 32,
+                                      "height": 32,
+                                      "fill": "$palette/amber-soft",
+                                      "cornerRadius": 10,
+                                      "layout": "vertical",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "cFS97",
+                                          "name": "Identity icon",
+                                          "width": 16,
+                                          "height": 16,
+                                          "icon": "euro",
+                                          "library": "lucide",
+                                          "fill": "$state/warn-ink"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "pDje3",
+                                      "name": "Labels",
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "Q4CZ6",
+                                          "name": "Name",
+                                          "fill": "$text/primary",
+                                          "content": "Euro",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 16,
+                                          "fontWeight": "600"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -4628,17 +5184,50 @@
                                   "type": "frame",
                                   "id": "fP4VJ",
                                   "name": "Left",
-                                  "layout": "vertical",
+                                  "gap": 12,
+                                  "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "text",
-                                      "id": "wyP8K",
-                                      "name": "Name",
-                                      "fill": "$text/primary",
-                                      "content": "Promedio",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
+                                      "type": "frame",
+                                      "id": "qOpk2",
+                                      "name": "Identity chip",
+                                      "width": 32,
+                                      "height": 32,
+                                      "fill": "$bg/brand-soft",
+                                      "cornerRadius": 10,
+                                      "layout": "vertical",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "ipi7v",
+                                          "name": "Identity icon",
+                                          "width": 16,
+                                          "height": 16,
+                                          "icon": "trending-up",
+                                          "library": "lucide",
+                                          "fill": "$brand/primary-pressed"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "sWDnx",
+                                      "name": "Labels",
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "wyP8K",
+                                          "name": "Name",
+                                          "fill": "$text/primary",
+                                          "content": "Promedio",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 16,
+                                          "fontWeight": "600"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -4684,17 +5273,50 @@
                                   "type": "frame",
                                   "id": "KrPTx",
                                   "name": "Left",
-                                  "layout": "vertical",
+                                  "gap": 12,
+                                  "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "text",
-                                      "id": "xTeuQ",
-                                      "name": "Name",
-                                      "fill": "$text/primary",
-                                      "content": "USDT",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
+                                      "type": "frame",
+                                      "id": "my9pg",
+                                      "name": "Identity chip",
+                                      "width": 32,
+                                      "height": 32,
+                                      "fill": "$bg/brand-soft",
+                                      "cornerRadius": 10,
+                                      "layout": "vertical",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "mY7dh",
+                                          "name": "Identity icon",
+                                          "width": 16,
+                                          "height": 16,
+                                          "icon": "circle-dollar-sign",
+                                          "library": "lucide",
+                                          "fill": "$brand/primary-pressed"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "RaUEx",
+                                      "name": "Labels",
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "xTeuQ",
+                                          "name": "Name",
+                                          "fill": "$text/primary",
+                                          "content": "USDT",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 16,
+                                          "fontWeight": "600"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -4740,17 +5362,50 @@
                                   "type": "frame",
                                   "id": "z0tPJ",
                                   "name": "Left",
-                                  "layout": "vertical",
+                                  "gap": 12,
+                                  "alignItems": "center",
                                   "children": [
                                     {
-                                      "type": "text",
-                                      "id": "b8ANg",
-                                      "name": "Name",
-                                      "fill": "$text/primary",
-                                      "content": "Mi tasa",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
+                                      "type": "frame",
+                                      "id": "C4jaX",
+                                      "name": "Identity chip",
+                                      "width": 32,
+                                      "height": 32,
+                                      "fill": "$palette/coral-soft",
+                                      "cornerRadius": 10,
+                                      "layout": "vertical",
+                                      "justifyContent": "center",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "cUZW1",
+                                          "name": "Identity icon",
+                                          "width": 16,
+                                          "height": 16,
+                                          "icon": "star",
+                                          "library": "lucide",
+                                          "fill": "$state/offline-ink"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "frame",
+                                      "id": "Qg1Rs",
+                                      "name": "Labels",
+                                      "layout": "vertical",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "b8ANg",
+                                          "name": "Name",
+                                          "fill": "$text/primary",
+                                          "content": "Mi tasa",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 16,
+                                          "fontWeight": "600"
+                                        }
+                                      ]
                                     }
                                   ]
                                 },
@@ -5857,7 +6512,7 @@
         {
           "type": "frame",
           "id": "s4rqAR",
-          "name": "Sin historia asignada",
+          "name": "HU-11 · Consultar las tasas en detalle",
           "layout": "vertical",
           "gap": 16,
           "children": [
@@ -5868,7 +6523,7 @@
               "fill": "$text/primary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "Sin historia asignada",
+              "content": "HU-11 · Consultar las tasas en detalle",
               "fontFamily": "$font/family",
               "fontSize": 18,
               "fontWeight": "700"
@@ -5880,7 +6535,7 @@
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "05 y 06 pendientes: asignar a HU-03 o crear HU-11.",
+              "content": "Ficha completa: tres fechas, estado por vista, brecha verificable y entrada cruzada 05 ⇄ 06.",
               "fontFamily": "$font/family",
               "fontSize": 12,
               "fontWeight": "600"
@@ -5980,41 +6635,190 @@
                       "children": [
                         {
                           "type": "frame",
-                          "id": "glfSV",
-                          "name": "Header",
+                          "id": "UgSiV",
+                          "name": "Top",
                           "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
+                          "layout": "vertical",
+                          "gap": 8,
                           "children": [
                             {
-                              "type": "text",
-                              "id": "a9eEHc",
-                              "name": "Title",
-                              "fill": "$text/primary",
-                              "content": "Tasas BCV",
-                              "fontFamily": "$font/family",
-                              "fontSize": 22,
-                              "fontWeight": "800"
-                            },
-                            {
                               "type": "frame",
-                              "id": "SUpX5",
-                              "name": "Icon button",
-                              "width": 48,
-                              "height": 48,
-                              "cornerRadius": 12,
-                              "justifyContent": "center",
+                              "id": "glfSV",
+                              "name": "Header",
+                              "width": "fill_container",
+                              "justifyContent": "space_between",
                               "alignItems": "center",
                               "children": [
                                 {
-                                  "type": "icon",
-                                  "id": "M2k4h",
-                                  "name": "Icon",
-                                  "width": 24,
-                                  "height": 24,
-                                  "icon": "info",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
+                                  "type": "text",
+                                  "id": "a9eEHc",
+                                  "name": "Title",
+                                  "fill": "$text/primary",
+                                  "content": "Tasas BCV",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 22,
+                                  "fontWeight": "800"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "SUpX5",
+                                  "name": "Icon button",
+                                  "width": 48,
+                                  "height": 48,
+                                  "cornerRadius": 12,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "M2k4h",
+                                      "name": "Icon",
+                                      "width": 24,
+                                      "height": 24,
+                                      "icon": "info",
+                                      "library": "lucide",
+                                      "fill": "$text/secondary"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "h16RuE",
+                              "name": "Subtitle",
+                              "fill": "$text/secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Tasa oficial del Banco Central de Venezuela",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "pkvTe",
+                              "name": "Source selector",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg/surface",
+                              "cornerRadius": "$radius/pill",
+                              "stroke": "$border/subtle",
+                              "strokeWidth": 1,
+                              "gap": 4,
+                              "padding": 3,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "XRMn2",
+                                  "name": "Segment / BCV",
+                                  "width": "fill_container",
+                                  "height": "fill_container",
+                                  "fill": "$bg/brand-soft",
+                                  "cornerRadius": "$radius/pill",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "YeO1l",
+                                      "name": "Label",
+                                      "fill": "$brand/primary-pressed",
+                                      "content": "BCV",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 14,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "eGjyB",
+                                  "name": "Segment / USDT",
+                                  "width": "fill_container",
+                                  "height": "fill_container",
+                                  "cornerRadius": "$radius/pill",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "KHKsA",
+                                      "name": "Label",
+                                      "fill": "$text/secondary",
+                                      "content": "USDT",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 14,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Epd9l",
+                              "name": "Freshness",
+                              "width": "fill_container",
+                              "height": 20,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "MEDAV",
+                                  "name": "Updated",
+                                  "width": "fill_container",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "b5RSNW",
+                                      "name": "Clock",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "refresh-cw",
+                                      "library": "lucide",
+                                      "fill": "$text/secondary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "z87Cs",
+                                      "name": "Text",
+                                      "fill": "$text/secondary",
+                                      "content": "Actualizado hoy · 9:41 a. m.",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "neWPu",
+                                  "name": "Status",
+                                  "gap": 5,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "ellipse",
+                                      "id": "gT1d2",
+                                      "name": "Dot",
+                                      "fill": "$state/ok-ink",
+                                      "width": 6,
+                                      "height": 6
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "RnjpZ",
+                                      "name": "Label",
+                                      "fill": "$state/ok-ink",
+                                      "content": "al día",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 11,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -6035,17 +6839,17 @@
                               "width": "fill_container",
                               "name": "RateCard / Dólar",
                               "descendants": {
-                                "WAUHE": {
-                                  "content": "Dólar"
-                                },
-                                "zKRA8": {
-                                  "content": "889,5754 Bs"
-                                },
                                 "uRYcd": {
                                   "content": "+0,32 Bs (0,04 %)"
                                 },
+                                "STDJI": {
+                                  "content": "02/11/26 · 5:00 p. m."
+                                },
+                                "H5X3t": {
+                                  "content": "03/11/26"
+                                },
                                 "mAGAE": {
-                                  "content": "BCV · Lunes, 02/11/26 · al día"
+                                  "content": "BCV · bcv.org.ve"
                                 }
                               }
                             },
@@ -6056,22 +6860,31 @@
                               "width": "fill_container",
                               "name": "RateCard / Euro",
                               "descendants": {
+                                "hLMcH": {
+                                  "fill": "$palette/amber-soft"
+                                },
+                                "zcA4b": {
+                                  "fill": "$state/warn-ink",
+                                  "icon": "euro"
+                                },
                                 "WAUHE": {
                                   "content": "Euro"
                                 },
                                 "zKRA8": {
                                   "content": "991,2539 Bs"
                                 },
-                                "Ue6Lj": {
-                                  "icon": "arrow-down-right",
-                                  "fill": "$variation/down"
-                                },
                                 "uRYcd": {
                                   "content": "−1,55 Bs (−0,16 %)",
                                   "fill": "$variation/down"
                                 },
+                                "STDJI": {
+                                  "content": "02/11/26 · 5:00 p. m."
+                                },
+                                "H5X3t": {
+                                  "content": "03/11/26"
+                                },
                                 "mAGAE": {
-                                  "content": "BCV · Lunes, 02/11/26 · al día"
+                                  "content": "BCV · bcv.org.ve"
                                 }
                               }
                             }
@@ -6079,32 +6892,81 @@
                         },
                         {
                           "type": "frame",
-                          "id": "wq9w3",
-                          "name": "Disclaimer",
+                          "id": "w9lPlX",
+                          "name": "Method note",
                           "width": "fill_container",
+                          "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
-                              "type": "icon",
-                              "id": "fyfaa",
-                              "name": "Info",
-                              "width": 16,
-                              "height": 16,
-                              "icon": "info",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
+                              "type": "frame",
+                              "id": "lwEKn",
+                              "name": "Head",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "bMczL",
+                                  "name": "Icon",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "info",
+                                  "library": "lucide",
+                                  "fill": "$text/secondary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "GfHNg",
+                                  "name": "Title",
+                                  "fill": "$text/primary",
+                                  "content": "Cómo se calcula",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 14,
+                                  "fontWeight": "700"
+                                }
+                              ]
                             },
                             {
                               "type": "text",
-                              "id": "BQZFt",
-                              "name": "Text",
+                              "id": "JWZK8",
+                              "name": "Body",
                               "fill": "$text/secondary",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "La fecha de valor indica cuándo entra en vigencia la tasa publicada por el BCV.",
+                              "content": "El BCV publica en días hábiles a las 5:00 p. m. La fecha de valor indica desde cuándo rige la tasa.",
                               "fontFamily": "$font/family",
                               "fontSize": 12,
                               "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "gDuA1",
+                              "name": "Link",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "aTb3H",
+                                  "name": "Label",
+                                  "fill": "$brand/primary",
+                                  "content": "Ver en bcv.org.ve",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 12,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "frX6A",
+                                  "name": "External",
+                                  "width": 12,
+                                  "height": 12,
+                                  "icon": "external-link",
+                                  "library": "lucide",
+                                  "fill": "$brand/primary"
+                                }
+                              ]
                             }
                           ]
                         },
@@ -6236,41 +7098,190 @@
                       "children": [
                         {
                           "type": "frame",
-                          "id": "lkhnn",
-                          "name": "Header",
+                          "id": "W9ctXp",
+                          "name": "Top",
                           "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
+                          "layout": "vertical",
+                          "gap": 8,
                           "children": [
                             {
-                              "type": "text",
-                              "id": "hCCNm",
-                              "name": "Title",
-                              "fill": "$text/primary",
-                              "content": "Tasas USDT",
-                              "fontFamily": "$font/family",
-                              "fontSize": 22,
-                              "fontWeight": "800"
-                            },
-                            {
                               "type": "frame",
-                              "id": "xztKd",
-                              "name": "Icon button",
-                              "width": 48,
-                              "height": 48,
-                              "cornerRadius": 12,
-                              "justifyContent": "center",
+                              "id": "lkhnn",
+                              "name": "Header",
+                              "width": "fill_container",
+                              "justifyContent": "space_between",
                               "alignItems": "center",
                               "children": [
                                 {
-                                  "type": "icon",
-                                  "id": "nCTrX",
-                                  "name": "Icon",
-                                  "width": 24,
-                                  "height": 24,
-                                  "icon": "info",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
+                                  "type": "text",
+                                  "id": "hCCNm",
+                                  "name": "Title",
+                                  "fill": "$text/primary",
+                                  "content": "Tasas USDT",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 22,
+                                  "fontWeight": "800"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "xztKd",
+                                  "name": "Icon button",
+                                  "width": 48,
+                                  "height": 48,
+                                  "cornerRadius": 12,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "nCTrX",
+                                      "name": "Icon",
+                                      "width": 24,
+                                      "height": 24,
+                                      "icon": "info",
+                                      "library": "lucide",
+                                      "fill": "$text/secondary"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "rKaEo",
+                              "name": "Subtitle",
+                              "fill": "$text/secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "Referencia del mercado P2P de Binance",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "Pi3WJ",
+                              "name": "Source selector",
+                              "width": "fill_container",
+                              "height": 36,
+                              "fill": "$bg/surface",
+                              "cornerRadius": "$radius/pill",
+                              "stroke": "$border/subtle",
+                              "strokeWidth": 1,
+                              "gap": 4,
+                              "padding": 3,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "R57u2",
+                                  "name": "Segment / BCV",
+                                  "width": "fill_container",
+                                  "height": "fill_container",
+                                  "cornerRadius": "$radius/pill",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "fzASh",
+                                      "name": "Label",
+                                      "fill": "$text/secondary",
+                                      "content": "BCV",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 14,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "pxrHi",
+                                  "name": "Segment / USDT",
+                                  "width": "fill_container",
+                                  "height": "fill_container",
+                                  "fill": "$bg/brand-soft",
+                                  "cornerRadius": "$radius/pill",
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "TUxOH",
+                                      "name": "Label",
+                                      "fill": "$brand/primary-pressed",
+                                      "content": "USDT",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 14,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "HZGBD",
+                              "name": "Freshness",
+                              "width": "fill_container",
+                              "height": 20,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "KsE47",
+                                  "name": "Updated",
+                                  "width": "fill_container",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "RNa6t",
+                                      "name": "Clock",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "refresh-cw",
+                                      "library": "lucide",
+                                      "fill": "$text/secondary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "Ly28a",
+                                      "name": "Text",
+                                      "fill": "$text/secondary",
+                                      "content": "Actualizado hoy · 9:41 a. m.",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "Z7EUGe",
+                                  "name": "Status",
+                                  "gap": 5,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "ellipse",
+                                      "id": "v3ufft",
+                                      "name": "Dot",
+                                      "fill": "$state/ok-ink",
+                                      "width": 6,
+                                      "height": 6
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "QiByy",
+                                      "name": "Label",
+                                      "fill": "$state/ok-ink",
+                                      "content": "al día",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 11,
+                                      "fontWeight": "700"
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -6288,7 +7299,7 @@
                               "id": "hTnat",
                               "name": "Card / Compra",
                               "width": "fill_container",
-                              "fill": "$bg/surface",
+                              "fill": "$palette/teal-soft",
                               "cornerRadius": 16,
                               "stroke": "$border/subtle",
                               "strokeWidth": 1,
@@ -6300,7 +7311,7 @@
                                   "type": "text",
                                   "id": "sohBE",
                                   "name": "Label",
-                                  "fill": "$text/secondary",
+                                  "fill": "$state/ok-ink",
                                   "content": "Compra",
                                   "fontFamily": "$font/family",
                                   "fontSize": 12,
@@ -6352,7 +7363,7 @@
                               "id": "Blw0t",
                               "name": "Card / Venta",
                               "width": "fill_container",
-                              "fill": "$bg/surface",
+                              "fill": "$palette/coral-soft",
                               "cornerRadius": 16,
                               "stroke": "$border/subtle",
                               "strokeWidth": 1,
@@ -6364,7 +7375,7 @@
                                   "type": "text",
                                   "id": "i55C6",
                                   "name": "Label",
-                                  "fill": "$text/secondary",
+                                  "fill": "$state/offline-ink",
                                   "content": "Venta",
                                   "fontFamily": "$font/family",
                                   "fontSize": 12,
@@ -6422,86 +7433,180 @@
                           "fill": "$bg/brand-soft",
                           "stroke": "$brand/primary",
                           "descendants": {
+                            "hLMcH": {
+                              "fill": "$bg/surface"
+                            },
+                            "zcA4b": {
+                              "fill": "$brand/primary-pressed",
+                              "icon": "circle-dollar-sign"
+                            },
                             "WAUHE": {
                               "content": "Promedio"
                             },
                             "zKRA8": {
-                              "content": "995,92 Bs"
+                              "content": "995,90 Bs"
                             },
                             "uRYcd": {
                               "content": "+2,19 Bs (+0,22 %)"
                             },
+                            "STDJI": {
+                              "content": "02/11/26 · 9:38 a. m."
+                            },
+                            "H5X3t": {
+                              "content": "02/11/26"
+                            },
                             "mAGAE": {
-                              "content": "Binance P2P · Lunes, 02/11/26 · 09:00 a. m."
+                              "content": "Binance P2P · binance.com"
                             }
                           }
                         },
                         {
                           "type": "frame",
-                          "id": "uEBqp",
-                          "name": "Brecha",
+                          "id": "OBjWu",
+                          "name": "Brecha card",
                           "width": "fill_container",
                           "fill": "$bg/surface",
-                          "cornerRadius": 12,
+                          "cornerRadius": "$radius/lg",
                           "stroke": "$border/subtle",
                           "strokeWidth": 1,
-                          "padding": [
-                            14,
-                            16
-                          ],
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
+                          "layout": "vertical",
+                          "gap": 8,
+                          "padding": 16,
                           "children": [
                             {
+                              "type": "frame",
+                              "id": "f2Sdsx",
+                              "name": "Head",
+                              "width": "fill_container",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "Fwpvg",
+                                  "name": "Label",
+                                  "fill": "$text/primary",
+                                  "textGrowth": "fixed-width",
+                                  "width": "fill_container",
+                                  "content": "Brecha BCV ↔ USDT",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 14,
+                                  "fontWeight": "600"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "GS4hF",
+                                  "name": "Value",
+                                  "fill": "$text/primary",
+                                  "content": "+11,95 %",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 18,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            },
+                            {
                               "type": "text",
-                              "id": "eiodh",
-                              "name": "Label",
+                              "id": "PpDK2",
+                              "name": "Formula",
                               "fill": "$text/secondary",
-                              "content": "Brecha ($/USDT)",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "(USDT promedio − BCV) ÷ BCV",
                               "fontFamily": "$font/family",
-                              "fontSize": 14,
+                              "fontSize": 12,
                               "fontWeight": "600"
                             },
                             {
                               "type": "text",
-                              "id": "B3cUz",
-                              "name": "Value",
-                              "fill": "$text/primary",
-                              "content": "11,95 %",
+                              "id": "W1fh3",
+                              "name": "Reference",
+                              "fill": "$text/secondary",
+                              "textGrowth": "fixed-width",
+                              "width": "fill_container",
+                              "content": "BCV 889,5754 Bs · USDT 995,90 Bs",
                               "fontFamily": "$font/family",
-                              "fontSize": 16,
+                              "fontSize": 12,
                               "fontWeight": "600"
                             }
                           ]
                         },
                         {
                           "type": "frame",
-                          "id": "xxPDR",
-                          "name": "Disclaimer",
+                          "id": "YHWXf",
+                          "name": "Method note",
                           "width": "fill_container",
+                          "layout": "vertical",
                           "gap": 8,
                           "children": [
                             {
-                              "type": "icon",
-                              "id": "jtZYG",
-                              "name": "Info",
-                              "width": 16,
-                              "height": 16,
-                              "icon": "info",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
+                              "type": "frame",
+                              "id": "TEb68",
+                              "name": "Head",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "lf65c",
+                                  "name": "Icon",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "info",
+                                  "library": "lucide",
+                                  "fill": "$text/secondary"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "E1x8N",
+                                  "name": "Title",
+                                  "fill": "$text/primary",
+                                  "content": "Cómo se calcula",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 14,
+                                  "fontWeight": "700"
+                                }
+                              ]
                             },
                             {
                               "type": "text",
-                              "id": "m2cV5",
-                              "name": "Text",
+                              "id": "lFbnv",
+                              "name": "Body",
                               "fill": "$text/secondary",
                               "textGrowth": "fixed-width",
                               "width": "fill_container",
-                              "content": "1 USDT ≠ 1 USD. Promedio estadístico del mercado P2P de Binance.",
+                              "content": "Promedio de los anuncios de compra y venta de USDT en Binance P2P. La brecha compara ese promedio con el dólar oficial. 1 USDT ≠ 1 USD.",
                               "fontFamily": "$font/family",
                               "fontSize": 12,
                               "fontWeight": "600"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "MVa3t",
+                              "name": "Link",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "dp2Pg",
+                                  "name": "Label",
+                                  "fill": "$brand/primary",
+                                  "content": "Ver en binance.com",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 12,
+                                  "fontWeight": "700"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "R4wWq",
+                                  "name": "External",
+                                  "width": 12,
+                                  "height": 12,
+                                  "icon": "external-link",
+                                  "library": "lucide",
+                                  "fill": "$brand/primary"
+                                }
+                              ]
                             }
                           ]
                         },
@@ -6539,6 +7644,302 @@
                           "ref": "FihiG",
                           "name": "Tab bar",
                           "width": "fill_container"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HhxEv",
+              "name": "Estados · Tasas",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "q0A73B",
+                  "name": "Label",
+                  "fill": "$text/primary",
+                  "content": "Estados · Carga y error",
+                  "fontFamily": "$font/family",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "RvjZy",
+                  "name": "Note",
+                  "fill": "$text/secondary",
+                  "content": "Skeleton de dos tarjetas mientras se actualiza y error con reintento. §13.4.",
+                  "fontFamily": "$font/family",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "oI1fg",
+                  "name": "Row",
+                  "gap": 24,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "iarmF",
+                      "name": "Carga",
+                      "clip": true,
+                      "width": 390,
+                      "height": 488,
+                      "fill": "$bg/canvas",
+                      "cornerRadius": 16,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 8,
+                          "id": "uDdHu",
+                          "name": "Skeleton / Title",
+                          "fill": "$border/strong",
+                          "width": 120,
+                          "height": 28
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": "$radius/pill",
+                          "id": "oxxtS",
+                          "name": "Skeleton / Selector",
+                          "fill": "$border/subtle",
+                          "width": "fill_container",
+                          "height": 36
+                        },
+                        {
+                          "type": "frame",
+                          "id": "NEwTd",
+                          "name": "Skeleton / Card 1",
+                          "width": "fill_container",
+                          "height": 164,
+                          "fill": "$bg/surface",
+                          "cornerRadius": 16,
+                          "stroke": "$border/subtle",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "HME0w",
+                              "name": "Head",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 12,
+                                  "id": "QdTtD",
+                                  "name": "Skeleton / Chip",
+                                  "fill": "$border/subtle",
+                                  "width": 40,
+                                  "height": 40
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 6,
+                                  "id": "JY1kT",
+                                  "name": "Skeleton / Name",
+                                  "fill": "$border/subtle",
+                                  "width": 80,
+                                  "height": 20
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "U7nM2H",
+                              "name": "Skeleton / Change",
+                              "fill": "$border/subtle",
+                              "width": 120,
+                              "height": 16
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "vRmVk",
+                              "name": "Skeleton / Rule",
+                              "fill": "$border/subtle",
+                              "width": "fill_container",
+                              "height": 1
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "DsvHz",
+                              "name": "Skeleton / Meta 1",
+                              "fill": "$border/subtle",
+                              "width": 140,
+                              "height": 12
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "YjUyg",
+                              "name": "Skeleton / Meta 2",
+                              "fill": "$border/subtle",
+                              "width": 180,
+                              "height": 12
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "BTCHH",
+                          "name": "Skeleton / Card 2",
+                          "width": "fill_container",
+                          "height": 164,
+                          "fill": "$bg/surface",
+                          "cornerRadius": 16,
+                          "stroke": "$border/subtle",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "DMGid",
+                              "name": "Head",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 12,
+                                  "id": "N78lzp",
+                                  "name": "Skeleton / Chip",
+                                  "fill": "$border/subtle",
+                                  "width": 40,
+                                  "height": 40
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 6,
+                                  "id": "gxJqD",
+                                  "name": "Skeleton / Name",
+                                  "fill": "$border/subtle",
+                                  "width": 80,
+                                  "height": 20
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "D9PzBn",
+                              "name": "Skeleton / Change",
+                              "fill": "$border/subtle",
+                              "width": 120,
+                              "height": 16
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "TjHTk",
+                              "name": "Skeleton / Rule",
+                              "fill": "$border/subtle",
+                              "width": "fill_container",
+                              "height": 1
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "QNzTG",
+                              "name": "Skeleton / Meta 1",
+                              "fill": "$border/subtle",
+                              "width": 140,
+                              "height": 12
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "o14xXO",
+                              "name": "Skeleton / Meta 2",
+                              "fill": "$border/subtle",
+                              "width": 180,
+                              "height": 12
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "tc1c6",
+                      "name": "Error",
+                      "clip": true,
+                      "width": 390,
+                      "height": 488,
+                      "fill": "$bg/canvas",
+                      "cornerRadius": 16,
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": 24,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "QOWjm",
+                          "name": "Title",
+                          "fill": "$text/primary",
+                          "content": "Tasas BCV",
+                          "fontFamily": "$font/family",
+                          "fontSize": 22,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "iRAOK",
+                          "name": "Error block",
+                          "width": "fill_container",
+                          "height": "fill_container",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "icon",
+                              "id": "uS8K2",
+                              "name": "Icon",
+                              "width": 32,
+                              "height": 32,
+                              "icon": "cloud-off",
+                              "library": "lucide",
+                              "fill": "$text/tertiary"
+                            },
+                            {
+                              "type": "text",
+                              "id": "v6tTH",
+                              "name": "Message",
+                              "fill": "$text/primary",
+                              "content": "No pudimos actualizar las tasas.",
+                              "fontFamily": "$font/family",
+                              "fontSize": 16,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "id": "Z08OEb",
+                              "type": "ref",
+                              "ref": "VC83g",
+                              "name": "Button / Reintentar",
+                              "width": 160,
+                              "descendants": {
+                                "dA4U5": {
+                                  "content": "Reintentar"
+                                }
+                              }
+                            }
+                          ]
                         }
                       ]
                     }
@@ -6719,6 +8120,26 @@
     "state/warn-bg": {
       "type": "color",
       "value": "#FFD166"
+    },
+    "palette/indigo-900": {
+      "type": "color",
+      "value": "#1D0F50"
+    },
+    "palette/indigo-soft": {
+      "type": "color",
+      "value": "#EDE9F7"
+    },
+    "palette/amber-soft": {
+      "type": "color",
+      "value": "#FFF6E0"
+    },
+    "palette/coral-soft": {
+      "type": "color",
+      "value": "#FFF4F2"
+    },
+    "palette/teal-soft": {
+      "type": "color",
+      "value": "#E3F8F8"
     }
   },
   "fileToken": "0700474d-91a6-4f6b-ada5-4619b35cc356"
