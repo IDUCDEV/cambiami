@@ -1678,8 +1678,8 @@
       "x": 0,
       "y": 1620,
       "name": "Components",
-      "width": 1544,
-      "height": 1194,
+      "width": 1883,
+      "height": 1609,
       "fill": "$bg/canvas",
       "layout": "vertical",
       "gap": 24,
@@ -2288,85 +2288,361 @@
         },
         {
           "type": "frame",
-          "id": "M6vcW",
-          "name": "Row · Chips",
+          "id": "RisH4",
+          "name": "Row · Rate card compacta",
           "gap": 24,
           "children": [
             {
               "type": "frame",
-              "id": "c4F9of",
-              "name": "RateChip/Default",
+              "id": "g9HvFu",
+              "name": "RateCard / Compacta",
               "reusable": true,
-              "width": 80,
+              "width": 342,
               "fill": "$bg/surface",
-              "cornerRadius": 12,
+              "cornerRadius": 16,
               "stroke": "$border/subtle",
               "strokeWidth": 1,
               "layout": "vertical",
               "gap": 2,
               "padding": [
                 10,
-                12
+                16
               ],
               "children": [
                 {
-                  "type": "text",
-                  "id": "CH0OT",
-                  "name": "Name",
-                  "fill": "$text/secondary",
-                  "content": "BCV",
-                  "fontFamily": "$font/family",
-                  "fontSize": 11,
-                  "fontWeight": "700"
+                  "type": "frame",
+                  "id": "hIli0",
+                  "name": "Head",
+                  "width": "fill_container",
+                  "height": 28,
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "z7acl",
+                      "name": "Source chip",
+                      "width": 28,
+                      "height": 28,
+                      "fill": "$palette/indigo-soft",
+                      "cornerRadius": 8,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "feP39",
+                          "x": 6,
+                          "y": 6,
+                          "name": "Source icon",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "landmark",
+                          "library": "lucide",
+                          "fill": "$palette/indigo-900"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mO5PY",
+                      "name": "Label",
+                      "gap": 4,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "G1PZM3",
+                          "name": "Name",
+                          "fill": "$text/primary",
+                          "content": "Dólar",
+                          "fontFamily": "$font/family",
+                          "fontSize": 16,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "FxJJo",
+                          "name": "Chevron",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "chevron-down",
+                          "library": "lucide",
+                          "fill": "$text/secondary"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "j6XRC",
+                      "name": "Value group",
+                      "width": "fill_container",
+                      "gap": 4,
+                      "justifyContent": "end",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "A4a2O",
+                          "name": "Value",
+                          "fill": "$text/primary",
+                          "content": "889,5754 Bs",
+                          "fontFamily": "$font/family",
+                          "fontSize": 16,
+                          "fontWeight": "800"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "fPg6k",
+                          "name": "Arrow",
+                          "width": 14,
+                          "height": 14,
+                          "icon": "arrow-up-right",
+                          "library": "lucide",
+                          "fill": "$variation/up"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "icon",
+                      "id": "GrPrf",
+                      "name": "Swap",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "arrow-up-down",
+                      "library": "lucide",
+                      "fill": "$text/secondary"
+                    }
+                  ]
                 },
                 {
-                  "type": "text",
-                  "id": "d7gBW",
-                  "name": "Value",
-                  "fill": "$text/primary",
-                  "content": "889,58",
-                  "fontFamily": "$font/family",
-                  "fontSize": 14,
-                  "fontWeight": "600"
+                  "type": "frame",
+                  "id": "OKiNp",
+                  "name": "Meta",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jn8QV",
+                      "name": "Change",
+                      "fill": "$variation/up",
+                      "content": "+0,32 Bs (0,04 %)",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "XOvNh",
+                      "name": "Source",
+                      "fill": "$text/secondary",
+                      "content": "BCV · bcv.org.ve",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
                 }
               ]
-            },
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "sMfxf",
+          "name": "Row · Calculator",
+          "gap": 24,
+          "children": [
             {
               "type": "frame",
-              "id": "YJ264",
-              "name": "RateChip/Selected",
+              "id": "vAkxT",
+              "name": "Calculator / Body",
               "reusable": true,
-              "width": 80,
-              "fill": "$bg/brand-soft",
-              "cornerRadius": 12,
-              "stroke": "$brand/primary",
-              "strokeWidth": 2,
+              "width": 342,
               "layout": "vertical",
-              "gap": 2,
-              "padding": [
-                10,
-                12
-              ],
+              "gap": 24,
               "children": [
                 {
-                  "type": "text",
-                  "id": "cAQOq",
-                  "name": "Name",
-                  "fill": "$brand/primary-pressed",
-                  "content": "BCV",
-                  "fontFamily": "$font/family",
-                  "fontSize": 11,
-                  "fontWeight": "700"
+                  "type": "frame",
+                  "id": "cugzt",
+                  "name": "Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Gmnuu",
+                      "name": "Title",
+                      "fill": "$text/primary",
+                      "content": "Calculadora",
+                      "fontFamily": "$font/family",
+                      "fontSize": 22,
+                      "fontWeight": "800"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "x6OC7",
+                      "name": "Clock",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "refresh-cw",
+                      "library": "lucide",
+                      "fill": "$text/secondary"
+                    }
+                  ]
                 },
                 {
-                  "type": "text",
-                  "id": "C9oOq0",
-                  "name": "Value",
-                  "fill": "$text/primary",
-                  "content": "889,58",
-                  "fontFamily": "$font/family",
-                  "fontSize": 14,
-                  "fontWeight": "600"
+                  "id": "zbgP0",
+                  "type": "ref",
+                  "ref": "hqf68",
+                  "name": "Banner / estado",
+                  "width": "fill_container(342)",
+                  "enabled": false,
+                  "fill": "$state/warn-bg",
+                  "descendants": {
+                    "AeskJ": {
+                      "icon": "clock",
+                      "fill": "$state/warn-ink"
+                    },
+                    "O2v6zf": {
+                      "content": "Tasa de ayer · se actualiza a las 5:00 p. m.",
+                      "fill": "$state/warn-ink"
+                    }
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "xs4RT",
+                  "name": "Rate block",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "c0qdFR",
+                      "name": "Freshness",
+                      "width": "fill_container",
+                      "height": 16,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "cbBsZ",
+                          "name": "Updated",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "B6gQ74",
+                              "name": "Time",
+                              "fill": "$text/secondary",
+                              "content": "Actualizado hoy · 9:41 a. m.",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "HFkqi",
+                          "name": "Status pill",
+                          "gap": 6,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "wykk0",
+                              "name": "Dot",
+                              "width": 6,
+                              "height": 6,
+                              "fill": "$state/ok-ink",
+                              "cornerRadius": 3
+                            },
+                            {
+                              "type": "text",
+                              "id": "IAFUp",
+                              "name": "Status",
+                              "fill": "$state/ok-ink",
+                              "content": "al día",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "k7TgfD",
+                      "type": "ref",
+                      "ref": "g9HvFu",
+                      "name": "RateCard / Dólar",
+                      "width": "fill_container"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "A5VrAM",
+                  "name": "Amounts",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "id": "mli7Z",
+                      "type": "ref",
+                      "ref": "X4UWt",
+                      "name": "Amount / Dólares",
+                      "width": "fill_container",
+                      "descendants": {
+                        "X8Tt2": {
+                          "content": "Dólares"
+                        },
+                        "LANZP": {
+                          "content": "$"
+                        },
+                        "IqR3S": {
+                          "content": "1,00"
+                        }
+                      }
+                    },
+                    {
+                      "id": "oFUw3",
+                      "type": "ref",
+                      "ref": "X4UWt",
+                      "name": "Amount / Bolívares",
+                      "width": "fill_container",
+                      "stroke": "$brand/primary",
+                      "strokeWidth": 2,
+                      "descendants": {
+                        "X8Tt2": {
+                          "content": "Bolívares",
+                          "fill": "$brand/primary-pressed"
+                        },
+                        "LANZP": {
+                          "content": "Bs",
+                          "fill": "$brand/primary-pressed"
+                        },
+                        "IqR3S": {
+                          "content": "889,58"
+                        }
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "P1e4S9",
+                  "type": "ref",
+                  "ref": "JMxpJ",
+                  "name": "Share CTA",
+                  "width": "fill_container"
                 }
               ]
             }
@@ -2380,7 +2656,7 @@
           "name": "Banner / desactualizado",
           "fill": "$state/warn-bg",
           "x": 40,
-          "y": 419,
+          "y": 889,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2403,7 +2679,7 @@
           "name": "Banner / sin conexion",
           "fill": "$state/offline-bg",
           "x": 40,
-          "y": 479,
+          "y": 949,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -3318,7 +3594,7 @@
                   "name": "Screen / 02 · Calculadora / al_dia",
                   "clip": true,
                   "width": 390,
-                  "height": 800,
+                  "height": 763,
                   "fill": "$bg/canvas",
                   "layout": "none",
                   "children": [
@@ -3446,228 +3722,29 @@
                       "name": "Content",
                       "clip": true,
                       "width": 390,
-                      "height": 506,
                       "fill": "$bg/brand-soft",
                       "cornerRadius": "$radius/lg",
                       "layout": "vertical",
                       "gap": 24,
                       "padding": [
                         12,
+                        24,
+                        20,
                         24
                       ],
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "JIOuZ",
-                          "name": "Header",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "hHIsp",
-                              "name": "Title",
-                              "fill": "$text/primary",
-                              "content": "Calculadora",
-                              "fontFamily": "$font/family",
-                              "fontSize": 22,
-                              "fontWeight": "800"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "UdLk4",
-                          "name": "RateSelector",
-                          "width": "fill_container",
-                          "height": 56,
-                          "fill": "$bg/surface",
-                          "cornerRadius": 12,
-                          "stroke": "$border/strong",
-                          "strokeWidth": 1,
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "l90IND",
-                              "name": "Selected",
-                              "gap": 8,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "EPlPB",
-                                  "name": "Source chip",
-                                  "width": 28,
-                                  "height": 28,
-                                  "fill": "$palette/indigo-soft",
-                                  "cornerRadius": 8,
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "D9yjrA",
-                                      "name": "Source icon",
-                                      "width": 16,
-                                      "height": 16,
-                                      "icon": "landmark",
-                                      "library": "lucide",
-                                      "fill": "$palette/indigo-900"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "yqUDe",
-                                  "name": "Rate name",
-                                  "fill": "$text/primary",
-                                  "content": "Dólar BCV",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 16,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "hWJtE",
-                                  "name": "Chevron",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "chevron-down",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "icon",
-                              "id": "EnJEJ",
-                              "name": "Swap",
-                              "width": 20,
-                              "height": 20,
-                              "icon": "arrow-up-down",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "a6lIY",
-                          "name": "Amounts",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "id": "Eus8b",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Dólares",
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Dólares"
-                                },
-                                "LANZP": {
-                                  "content": "$"
-                                },
-                                "IqR3S": {
-                                  "content": "125,00"
-                                }
-                              }
-                            },
-                            {
-                              "id": "mnBrM",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Bolívares",
-                              "stroke": "$brand/primary",
-                              "strokeWidth": 2,
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Bolívares",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "LANZP": {
-                                  "content": "Bs",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "IqR3S": {
-                                  "content": "111.197,00"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "QKWec",
-                          "name": "Meta",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "LT8l7",
-                              "name": "Change row",
-                              "gap": 4,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "XRbpe",
-                                  "name": "Arrow",
-                                  "width": 14,
-                                  "height": 14,
-                                  "icon": "arrow-up-right",
-                                  "library": "lucide",
-                                  "fill": "$variation/up"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "GRFIJ",
-                                  "name": "Change",
-                                  "fill": "$variation/up",
-                                  "content": "+0,32 Bs (0,04 %)",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "600"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "SA0d3",
-                              "name": "Source",
-                              "fill": "$text/secondary",
-                              "content": "BCV · Lunes, 02/11/26 · al día",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "DtjTe",
+                          "id": "dO4nY",
                           "type": "ref",
-                          "ref": "JMxpJ",
-                          "width": "fill_container",
-                          "name": "Share CTA",
-                          "x": 24,
-                          "y": 428,
+                          "ref": "vAkxT",
+                          "name": "Calculator / Body",
+                          "width": 342,
                           "descendants": {
-                            "dKS1G": {
-                              "content": "Compartir cálculo"
+                            "mli7Z/IqR3S": {
+                              "content": "125,00"
+                            },
+                            "oFUw3/IqR3S": {
+                              "content": "111.197,00"
                             }
                           }
                         }
@@ -3677,7 +3754,7 @@
                       "type": "frame",
                       "id": "U6LGqQ",
                       "x": 0,
-                      "y": 716,
+                      "y": 679,
                       "name": "Tab wrap",
                       "width": 390,
                       "height": 84,
@@ -3800,215 +3877,14 @@
                       ],
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "c7gpvG",
-                          "name": "Header",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "O1tQz",
-                              "name": "Title",
-                              "fill": "$text/primary",
-                              "content": "Calculadora",
-                              "fontFamily": "$font/family",
-                              "fontSize": 22,
-                              "fontWeight": "800"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "alYKe",
-                          "name": "RateSelector",
-                          "width": "fill_container",
-                          "height": 56,
-                          "fill": "$bg/surface",
-                          "cornerRadius": 12,
-                          "stroke": "$border/strong",
-                          "strokeWidth": 1,
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "XmUks",
-                              "name": "Selected",
-                              "gap": 8,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "TUDDt",
-                                  "name": "Source chip",
-                                  "width": 28,
-                                  "height": 28,
-                                  "fill": "$palette/indigo-soft",
-                                  "cornerRadius": 8,
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "eWYOi",
-                                      "name": "Source icon",
-                                      "width": 16,
-                                      "height": 16,
-                                      "icon": "landmark",
-                                      "library": "lucide",
-                                      "fill": "$palette/indigo-900"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "Odlun",
-                                  "name": "Rate name",
-                                  "fill": "$text/primary",
-                                  "content": "Dólar BCV",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 16,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "jLjjD",
-                                  "name": "Chevron",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "chevron-down",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "icon",
-                              "id": "Mr2dJ",
-                              "name": "Swap",
-                              "width": 20,
-                              "height": 20,
-                              "icon": "arrow-up-down",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "i5Fk4",
-                          "name": "Amounts",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "id": "IwKnj",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Dólares",
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Dólares"
-                                },
-                                "LANZP": {
-                                  "content": "$"
-                                },
-                                "IqR3S": {
-                                  "content": "1,00"
-                                }
-                              }
-                            },
-                            {
-                              "id": "ZT84A",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Bolívares",
-                              "stroke": "$brand/primary",
-                              "strokeWidth": 2,
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Bolívares",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "LANZP": {
-                                  "content": "Bs",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "IqR3S": {
-                                  "content": "889,58"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "a3VYX",
-                          "name": "Meta",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "DkMlE",
-                              "name": "Change row",
-                              "gap": 4,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "IlvdI",
-                                  "name": "Arrow",
-                                  "width": 14,
-                                  "height": 14,
-                                  "icon": "arrow-up-right",
-                                  "library": "lucide",
-                                  "fill": "$variation/up"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "ElnDt",
-                                  "name": "Change",
-                                  "fill": "$variation/up",
-                                  "content": "+0,32 Bs (0,04 %)",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "600"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "wIrP0",
-                              "name": "Source",
-                              "fill": "$text/secondary",
-                              "content": "BCV · Lunes, 02/11/26 · al día",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "DBTPv",
+                          "id": "wzZGM",
                           "type": "ref",
-                          "ref": "JMxpJ",
-                          "width": "fill_container",
-                          "name": "Share CTA",
+                          "ref": "vAkxT",
+                          "name": "Calculator / Body",
+                          "width": 342,
                           "descendants": {
-                            "dKS1G": {
-                              "content": "Compartir cálculo"
+                            "k7TgfD": {
+                              "enabled": false
                             }
                           }
                         }
@@ -4388,7 +4264,6 @@
           "type": "frame",
           "id": "TEzgh",
           "name": "Screens",
-          "height": 723,
           "gap": 70,
           "children": [
             {
@@ -4480,263 +4355,24 @@
                   ],
                   "children": [
                     {
-                      "type": "frame",
-                      "id": "sGezg",
-                      "name": "Header",
-                      "width": "fill_container",
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "wQ4GP",
-                          "name": "Title",
-                          "fill": "$text/primary",
-                          "content": "Calculadora",
-                          "fontFamily": "$font/family",
-                          "fontSize": 22,
-                          "fontWeight": "800"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "PZTXC",
-                          "name": "Actions",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "Zg42p",
-                              "name": "Share button",
-                              "width": 48,
-                              "height": 48,
-                              "cornerRadius": 12,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "KNyzV",
-                                  "name": "Icon",
-                                  "width": 24,
-                                  "height": 24,
-                                  "icon": "share-2",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "id": "HKqsg",
+                      "id": "Puv0J",
                       "type": "ref",
-                      "ref": "hqf68",
-                      "width": "fill_container",
-                      "name": "Banner / desactualizado",
-                      "fill": "$state/warn-bg",
+                      "ref": "vAkxT",
+                      "name": "Calculator / Body",
+                      "width": 342,
                       "descendants": {
-                        "AeskJ": {
-                          "icon": "clock",
+                        "zbgP0": {
+                          "enabled": true
+                        },
+                        "B6gQ74": {
+                          "content": "Actualizado ayer · 5:02 p. m."
+                        },
+                        "wykk0": {
                           "fill": "$state/warn-ink"
                         },
-                        "O2v6zf": {
-                          "content": "Tasa de ayer · se actualiza a las 5:00 p. m.",
+                        "IAFUp": {
+                          "content": "desactualizado",
                           "fill": "$state/warn-ink"
-                        }
-                      }
-                    },
-                    {
-                      "type": "frame",
-                      "id": "RXLn3",
-                      "name": "RateSelector",
-                      "width": "fill_container",
-                      "height": 56,
-                      "fill": "$bg/surface",
-                      "cornerRadius": 12,
-                      "stroke": "$border/strong",
-                      "strokeWidth": 1,
-                      "padding": [
-                        0,
-                        16
-                      ],
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "NL4qn",
-                          "name": "Selected",
-                          "gap": 8,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "ZyGTN",
-                              "name": "Source chip",
-                              "width": 28,
-                              "height": 28,
-                              "fill": "$palette/indigo-soft",
-                              "cornerRadius": 8,
-                              "layout": "vertical",
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "A3lhc",
-                                  "name": "Source icon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "icon": "landmark",
-                                  "library": "lucide",
-                                  "fill": "$palette/indigo-900"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "i6ZKu7",
-                              "name": "Rate name",
-                              "fill": "$text/primary",
-                              "content": "Dólar BCV",
-                              "fontFamily": "$font/family",
-                              "fontSize": 16,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "icon",
-                              "id": "FehfU",
-                              "name": "Chevron",
-                              "width": 20,
-                              "height": 20,
-                              "icon": "chevron-down",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "icon",
-                          "id": "Y4GuSr",
-                          "name": "Swap",
-                          "width": 20,
-                          "height": 20,
-                          "icon": "arrow-up-down",
-                          "library": "lucide",
-                          "fill": "$text/secondary"
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "faa31",
-                      "name": "Amounts",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 12,
-                      "children": [
-                        {
-                          "id": "dUP7X",
-                          "type": "ref",
-                          "ref": "X4UWt",
-                          "width": "fill_container",
-                          "name": "Amount / Dólares",
-                          "descendants": {
-                            "X8Tt2": {
-                              "content": "Dólares"
-                            },
-                            "LANZP": {
-                              "content": "$"
-                            },
-                            "IqR3S": {
-                              "content": "1,00"
-                            }
-                          }
-                        },
-                        {
-                          "id": "adBRm",
-                          "type": "ref",
-                          "ref": "X4UWt",
-                          "width": "fill_container",
-                          "name": "Amount / Bolívares",
-                          "stroke": "$brand/primary",
-                          "strokeWidth": 2,
-                          "descendants": {
-                            "X8Tt2": {
-                              "content": "Bolívares",
-                              "fill": "$brand/primary-pressed"
-                            },
-                            "LANZP": {
-                              "content": "Bs",
-                              "fill": "$brand/primary-pressed"
-                            },
-                            "IqR3S": {
-                              "content": "889,58"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "r4Apu",
-                      "name": "Meta",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 4,
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "rVjbc",
-                          "name": "Change row",
-                          "gap": 4,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "sJiGo",
-                              "name": "Arrow",
-                              "width": 14,
-                              "height": 14,
-                              "icon": "arrow-up-right",
-                              "library": "lucide",
-                              "fill": "$variation/up"
-                            },
-                            {
-                              "type": "text",
-                              "id": "gu07e",
-                              "name": "Change",
-                              "fill": "$variation/up",
-                              "content": "+0,32 Bs (0,04 %)",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "YRntY",
-                          "name": "Source",
-                          "fill": "$text/secondary",
-                          "content": "BCV · Domingo, 01/11/26 · desactualizado",
-                          "fontFamily": "$font/family",
-                          "fontSize": 12,
-                          "fontWeight": "600"
-                        }
-                      ]
-                    },
-                    {
-                      "id": "L5aXI",
-                      "type": "ref",
-                      "ref": "JMxpJ",
-                      "width": "fill_container",
-                      "name": "Share CTA",
-                      "descendants": {
-                        "dKS1G": {
-                          "content": "Compartir cálculo"
                         }
                       }
                     }
@@ -4895,235 +4531,33 @@
                       ],
                       "children": [
                         {
-                          "type": "frame",
-                          "id": "EI7jC",
-                          "name": "Header",
-                          "width": "fill_container",
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "KFygR",
-                              "name": "Title",
-                              "fill": "$text/primary",
-                              "content": "Calculadora",
-                              "fontFamily": "$font/family",
-                              "fontSize": 22,
-                              "fontWeight": "800"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "MZO7y",
+                          "id": "o5efai",
                           "type": "ref",
-                          "ref": "hqf68",
-                          "width": "fill_container",
-                          "name": "Banner / sin conexion",
-                          "fill": "$bg/surface",
-                          "stroke": "$border/subtle",
-                          "strokeWidth": 1,
+                          "ref": "vAkxT",
+                          "name": "Calculator / Body",
+                          "width": 342,
                           "descendants": {
-                            "AeskJ": {
+                            "zbgP0": {
+                              "enabled": true,
+                              "fill": "$state/offline-bg"
+                            },
+                            "zbgP0/AeskJ": {
                               "icon": "cloud-off",
                               "fill": "$state/offline-ink"
                             },
-                            "O2v6zf": {
+                            "zbgP0/O2v6zf": {
                               "content": "Sin conexión · mostrando la tasa del 01/11/26",
                               "fill": "$state/offline-ink"
-                            }
-                          }
-                        },
-                        {
-                          "type": "frame",
-                          "id": "iWZJ8",
-                          "name": "RateSelector",
-                          "width": "fill_container",
-                          "height": 56,
-                          "fill": "$bg/surface",
-                          "cornerRadius": 12,
-                          "stroke": "$border/strong",
-                          "strokeWidth": 1,
-                          "padding": [
-                            0,
-                            16
-                          ],
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "r6jR1t",
-                              "name": "Selected",
-                              "gap": 8,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "bJGxS",
-                                  "name": "Source chip",
-                                  "width": 28,
-                                  "height": 28,
-                                  "fill": "$palette/indigo-soft",
-                                  "cornerRadius": 8,
-                                  "layout": "vertical",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "EQTDq",
-                                      "name": "Source icon",
-                                      "width": 16,
-                                      "height": 16,
-                                      "icon": "landmark",
-                                      "library": "lucide",
-                                      "fill": "$palette/indigo-900"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "VrChY",
-                                  "name": "Rate name",
-                                  "fill": "$text/primary",
-                                  "content": "Dólar BCV",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 16,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "J6EfT",
-                                  "name": "Chevron",
-                                  "width": 20,
-                                  "height": 20,
-                                  "icon": "chevron-down",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
-                                }
-                              ]
                             },
-                            {
-                              "type": "icon",
-                              "id": "m4zydN",
-                              "name": "Swap",
-                              "width": 20,
-                              "height": 20,
-                              "icon": "arrow-up-down",
-                              "library": "lucide",
-                              "fill": "$text/secondary"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "VxTZy",
-                          "name": "Amounts",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "id": "XYn5a",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Dólares",
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Dólares"
-                                },
-                                "LANZP": {
-                                  "content": "$"
-                                },
-                                "IqR3S": {
-                                  "content": "1,00"
-                                }
-                              }
+                            "B6gQ74": {
+                              "content": "Actualizado ayer · 5:02 p. m."
                             },
-                            {
-                              "id": "F5dJB",
-                              "type": "ref",
-                              "ref": "X4UWt",
-                              "width": "fill_container",
-                              "name": "Amount / Bolívares",
-                              "stroke": "$brand/primary",
-                              "strokeWidth": 2,
-                              "descendants": {
-                                "X8Tt2": {
-                                  "content": "Bolívares",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "LANZP": {
-                                  "content": "Bs",
-                                  "fill": "$brand/primary-pressed"
-                                },
-                                "IqR3S": {
-                                  "content": "889,58"
-                                }
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "yqXpx",
-                          "name": "Meta",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 4,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "RTGs8",
-                              "name": "Change row",
-                              "gap": 4,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "sU3R8",
-                                  "name": "Arrow",
-                                  "width": 14,
-                                  "height": 14,
-                                  "icon": "arrow-up-right",
-                                  "library": "lucide",
-                                  "fill": "$variation/up"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "iTMfB",
-                                  "name": "Change",
-                                  "fill": "$variation/up",
-                                  "content": "+0,32 Bs (0,04 %)",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "600"
-                                }
-                              ]
+                            "wykk0": {
+                              "fill": "$state/offline-ink"
                             },
-                            {
-                              "type": "text",
-                              "id": "U8kgI",
-                              "name": "Source",
-                              "fill": "$text/secondary",
-                              "content": "BCV · Domingo, 01/11/26 · sin conexión",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "id": "G4CEX",
-                          "type": "ref",
-                          "ref": "JMxpJ",
-                          "width": "fill_container",
-                          "name": "Share CTA",
-                          "descendants": {
-                            "dKS1G": {
-                              "content": "Compartir cálculo"
+                            "IAFUp": {
+                              "content": "sin conexión",
+                              "fill": "$state/offline-ink"
                             }
                           }
                         }

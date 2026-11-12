@@ -44,6 +44,7 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 - Escribir en el campo `$` y ver el resultado en `Bs` al instante (cálculo < 100 ms).
 - No hay botón "calcular"; el resultado se actualiza solo al escribir.
 - El cálculo es bidireccional (también se puede escribir en Bs y ver en $).
+- La tasa con la que se calcula se ve en una ficha compacta sobre los montos; tocarla abre Monedas y el cálculo se mantiene.
 
 **Mapeo:** F-01, F-04 · APP-SCR-02 Calculadora
 
@@ -54,9 +55,9 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 
 **Criterios de aceptación:**
 - Cada tasa muestra fuente (BCV o Binance P2P).
-- Cada tasa muestra fecha/hora de publicación (ej: `Lunes, 02/11/26`).
+- Cada tasa muestra fecha/hora de publicación: `Lunes, 02/11/26` en Tasas; `Actualizado hoy · 9:41 a. m.` en la calculadora.
 - Cada tasa muestra estado visible: `al_dia`, `desactualizado` o `sin_conexión`.
-- La tasa del dólar en la calculadora muestra `Dólar BCV`, `+0,32 Bs (0,04%)`, `Lunes, 02/11/26`.
+- La calculadora muestra, sobre los montos, la franja de frescura (hora + pill) y la ficha de la tasa (`Dólar`, `889,5754 Bs`, `+0,32 Bs (0,04 %)`, `BCV · bcv.org.ve`). La fecha absoluta de publicación vive en Tasas y no se repite aquí.
 
 **Mapeo:** F-02 · APP-SCR-02, APP-SCR-03, APP-SCR-04
 
@@ -69,6 +70,7 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 - Activar modo avión: la app abre y muestra la última tasa cacheada.
 - Se puede calcular sin internet.
 - Aparece un banner indicando "sin conexión".
+- El banner no sustituye la frescura: la franja sigue diciendo de cuándo es la tasa y el pill pasa a `sin conexión`.
 - Al recuperar internet, la app se actualiza sola sin reiniciar.
 
 **Mapeo:** F-03 · APP-SCR-02, APP-SCR-03

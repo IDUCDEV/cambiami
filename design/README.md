@@ -19,7 +19,7 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 | Frame | Contenido |
 |:--|:--|
 | `Foundations` | 23 swatches en 4 filas (marca, superficie/texto, estados, tintes de identidad), escala tipográfica Nunito de 7 niveles, escala de radios 8/12/16/20/pill |
-| `Components` | `RateCard`, `RateChip/Default`, `RateChip/Selected`, `StatusBanner`, `AmountCard`, `AmountCard/Default`, `Button/Primary`, `Button/Secondary` y las tres variantes de `TabBar` — todos como componentes reutilizables con instancias en las pantallas |
+| `Components` | `RateCard` (ficha completa), `RateCard / Compacta` (ficha de la calculadora y selector de tasa), `Calculator / Body` (cuerpo de la calculadora), `RateChip/Default`, `RateChip/Selected`, `StatusBanner`, `AmountCard`, `AmountCard/Default`, `Button/Primary`, `Button/Secondary` y las tres variantes de `TabBar` — todos como componentes reutilizables con instancias en las pantallas |
 
 ### Pantallas
 
@@ -36,7 +36,7 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 | 09 | Monedas (modal) | ✅ |
 | 10 | Compartir (sheet) | ✅ |
 
-Las cuatro pantallas de Calculadora llevan una sola acción en la cabecera: `Share button` (`share-2`, abre Compartir). Configuración ya no se alcanza desde ahí.
+Las cuatro pantallas de Calculadora son **la misma instancia de `Calculator / Body`**: la cabecera solo lleva el título y la única acción de compartir es el CTA `Compartir cálculo`. La ficha `RateCard / Compacta` hace de selector de tasa (chevron en el nombre) y sigue a la tasa elegida; en 02b se oculta mientras se escribe.
 
 **Barra inferior:** 72 px flotante con la **Calculadora elevada en el centro** (FAB circular de 60 px que sobresale 16 px), tres destinos (`Tasas`, `Calculadora`, `Configuración`), con tres componentes — uno por estado activo. La llevan 02, 03, 04, 05 y 07; no la llevan 02b (teclado abierto) ni 08 Información (detalle).
 
@@ -95,7 +95,9 @@ La navegación **no se cablea** en el archivo: pen.dev no tiene un modo de proto
 
 - Los colores de marca saturados (`#FFD166`, `#FF705F`, `#20C6C8`) **no se usan como texto**. Para texto van sus variantes `-ink` (`#7A5200`, `#C93B2A`, `#0B7C7E`), que cumplen AA sobre el fondo del banner.
 - **Reparto de color 60/30/10** (`DESIGN_SYSTEM.md` §3.6): 60 % neutro, 30 % tintes suaves, 10 % acento. Máximo 3 acentos fuertes por pantalla.
-- **Identidad por fuente:** chip de 40 px en `RateCard` y de 32 px en las filas de Monedas — BCV índigo, Euro ámbar, USDT lavanda, Mi tasa coral. El chip es identidad, nunca estado.
+- **Identidad por fuente:** chip de 40 px en `RateCard` y de 32 px en las filas de Monedas — BCV índigo, Euro ámbar, USDT lavanda, Mi tasa coral. El chip es identidad, nunca estado. La ficha compacta de la calculadora usa el chip de 28 px.
+- **Una calculadora, cuatro estados:** 02, 02b, 03 y 04 son instancias del maestro `Calculator / Body` (`Header` → banner → `Rate block` → `Amounts` → `Share CTA`). El `Rate block` es la franja de frescura + la ficha compacta, y la ficha **hace de selector**: se toca para abrir Monedas, así que la tasa no se repite en otro bloque. 02b oculta solo la ficha; el banner y la franja se quedan.
+- **La frescura manda sobre el valor:** en la calculadora la franja `Actualizado hoy · 9:41 a. m.` + pill va sobre la ficha, de modo que el estado del dato se lee antes que el número.
 - **Tinte por estado:** el `Content` de 03 va en ámbar suave y el de 04 en coral suave; el banner conserva sus tokens `state/*`. En la ficha P2P, Compra y Venta van sin tinte propio: el color direccional vive en la variación.
 - **La tarjeta se titula con la moneda, no con la estadística:** la ficha del P2P dice `USDT` (como `Dólar` y `Euro`) y el promedio va como calificador de la variación (`Promedio · +2,19 Bs`). Titularla `Promedio` dejaba al usuario sin saber qué tasa estaba viendo y no coincidía con la fila `USDT` de Monedas ni con la brecha.
 - **Catálogo por mercado, no por fuente:** la pestaña `Tasas` es una sola pantalla con los grupos `Oficial` y `Mercado P2P`. Agrupar por fuente (`BCV | USDT`) convertía un concepto del modelo (`source_code`) en navegación y no escalaba: con USDC habría hecho falta un tercer segmento. La fuente sigue en el pie de cada ficha.

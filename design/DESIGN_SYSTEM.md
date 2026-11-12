@@ -347,6 +347,33 @@ El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el
 
 **Variante USDT (`RateCard / Ficha · USDT P2P`).** La ficha se titula **`USDT`** (la moneda), no `Promedio` (la estadística): el nombre de la tarjeta responde a *qué tasa es*, igual que `Dólar` y `Euro`. El valor grande es el promedio y la variación lo declara (`Promedio · +2,19 Bs (+0,22 %)`). Entre la variación y las fechas añade una fila de dos columnas con `Compra` y `Venta`: etiqueta 11/700 `text/secondary`, valor 14/800 `text/primary`, variación 11/700 en su color. Sube a **213 px**. Fondo `bg/surface` como el resto, con borde `brand/primary` 1 px y chip en `bg/brand-soft` con icono `brand/primary-pressed`. La identidad de USDT vive en el chip y el borde, no en un tinte de fondo: sobre `bg/brand-soft` el texto secundario cae a 3,9:1 y rompe AA.
 
+**Variante compacta (`RateCard / Compacta`).** Es la ficha de la calculadora (02, 02b, 03 y 04) y **hace de selector**: el nombre y el chevron viven en el mismo `Head`, así que la tasa no se repite en dos bloques.
+
+```
+┌────────────────────────────────────────────────┐
+│ ╭──╮ Dólar ⌄                     889,5754 Bs ↗ ⇅│  chip 28 · nombre 16/700 · chevron · valor 16/800 · flecha 14 · swap 16
+│ ╰──╯ +0,32 Bs (0,04 %)           BCV · bcv.org.ve│  variación 11/600 · fuente 11/600
+└────────────────────────────────────────────────┘
+```
+
+| Propiedad | Valor |
+|:--|:--|
+| Fondo | `bg/surface` |
+| Borde | `border/subtle` 1 px |
+| Radio | `radius/lg` |
+| Padding | `[10, 16]` |
+| Chip de fuente | 28×28, radio 8, icono Lucide 16 — colores en §3.6 |
+| Gap interno | 2 entre `Head` y `Meta`; 10 dentro del `Head` |
+| Alto | **65** |
+
+- **`Label`** = nombre de la tasa + `chevron-down` 16 (`text/secondary`). Toda la ficha abre 09 Monedas: es el selector.
+- **`Swap`** = `arrow-up-down` 16 al final del `Head`; cambia el sentido del cálculo (dólares ↔ bolívares), no la tasa. Es una acción distinta del toque que abre 09 Monedas: necesita su propio hit target (44×44 mínimo) sin solaparse con el de la ficha.
+- Sin `Details` ni divider: no lleva fechas. La procedencia (`BCV · bcv.org.ve`) va en `Meta` y la frescura, en la franja de arriba (§7.8). El nombre es la moneda (`Dólar`, `Euro`, `USDT`, `Mi tasa`), igual que en 05.
+- La flecha sigue `is_down` (`arrow-down-right` + `variation/down`).
+- **Mi tasa** oculta la franja de frescura y la fuente pasa a `Definida por ti`: no hay `published_at` ni `fetched_at` que mostrar.
+- El estado no se escribe dos veces: en la calculadora lo lleva el pill de la franja (§7.8) y el `Source` se queda en `BCV · bcv.org.ve`. El prefijo `desactualizado` / `sin conexión` es solo para la ficha de Tasas, donde no hay franja por tarjeta.
+- **USDT** usa esta variante sin Compra/Venta: las dos columnas viven solo en la ficha completa de 05.
+
 ### 7.3 `RateChip` — selector multi-tasa (máx. 4)
 
 ```
@@ -416,6 +443,7 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 - Izquierda: icono `refresh-cw` 14 (`text/secondary`) + `fetched_at` en `type/caption` (`text/secondary`). Formatos: `Actualizado hoy · 9:41 a. m.` / `Actualizado ayer · 5:02 p. m.`.
 - Derecha: `StatusPill` = punto de 6 px + palabra en `type/micro`, **sin fondo**. Colores en §3.3.
 - El pill es el estado **de la vista**, no de cada tarjeta: no se repite salvo que una tasa se desvíe (§7.2).
+- **En la calculadora** va dentro del cuerpo, **sobre la ficha compacta** (§7.2): el estado se lee antes que el valor y la fecha no se duplica con el `Source` de la ficha. En 02b (teclado abierto) se oculta la ficha, nunca la franja. **En Tasas** va bajo la cabecera y sobre el primer grupo.
 
 ### 7.9 `MethodNote` — "Cómo se calcula"
 
@@ -540,9 +568,9 @@ En el archivo, las 10 pantallas están agrupadas por historia de usuario en el f
 | Desde | Acción | Hacia |
 |:--|:--|:--|
 | 01 Splash | espera 400 ms | 02 Calculadora |
-| 02 Calculadora | tap `RateSelector` | 09 Monedas |
+| 02 Calculadora | tap `RateCard / Compacta` (chevron `⌄`) | 09 Monedas |
 | 09 Monedas | tap `Aplicar` o `✕` | 02 Calculadora |
-| 02 Calculadora | tap `share-2` | 10 Compartir |
+| 02 Calculadora | tap `Compartir cálculo` | 10 Compartir |
 | 02 Calculadora | tap tab `Tasas` | 05 Tasas |
 | 02 Calculadora | tap tab `Configuración` | 07 Configuración |
 | 05 Tasas | tap tab `Calculadora` | 02 Calculadora |
@@ -594,6 +622,7 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 | Tabs | `Calculadora` · `Tasas` · `Configuración` |
 | Campos de monto | `Dólares` · `Bolívares` |
 | Chips de tasa | `BCV` · `USDT` · `Euro` · `Mi tasa` |
+| Ficha de la calculadora | `Dólar` · `Euro` · `USDT` · `Mi tasa` · `Definida por ti` |
 | Grupos de Tasas | `Oficial` · `Mercado P2P` |
 | Tasas P2P | `Compra` · `Venta` · `Promedio` · `Brecha BCV ↔ USDT` |
 | Metadatos de tasa | `Publicado` · `Vigente desde` |
@@ -664,12 +693,23 @@ Descarga Cambiami: https://cambiami.app
 ```
 Screen / <número> · <nombre> / <estado>
   ├─ Status bar
-  ├─ Header
   ├─ Content
-  │   ├─ <Componente>
-  │   └─ <Componente>
+  │   └─ Calculator / Body   ← instancia en 02, 02b, 03 y 04
   └─ Tab wrap
 ```
+
+```
+Calculator / Body
+  ├─ Header
+  ├─ Banner / estado         ← desactivado por defecto
+  ├─ Rate block
+  │   ├─ Freshness
+  │   └─ RateCard / Compacta
+  ├─ Amounts
+  └─ Share CTA
+```
+
+Las cuatro pantallas de Calculadora **son la misma instancia**: solo cambian el fondo del `Content`, el banner, la frescura, la ficha (visible u oculta), los importes y el pill. El `Status bar`, la fila de marca, el teclado y la barra quedan fuera del componente.
 
 Nunca `Frame 123`, `Rectangle 45` ni `Group 8`.
 
@@ -682,6 +722,8 @@ Nunca `Frame 123`, `Rectangle 45` ni `Group 8`.
 | Variable number `space/4` | `AppSpacing.s4` |
 | Variable number `radius/lg` | `AppRadius.lg` |
 | Componente `RateCard` | `RateCard` widget |
+| Componente `RateCard / Compacta` | `RateCardCompact` widget |
+| Componente `Calculator / Body` | `CalculatorBody` widget |
 | Componente `RateChip` | `RateChip` widget |
 | Componente `StatusBanner` | `StatusBanner` widget |
 | Componente `AmountCard` | `AmountField` widget |
