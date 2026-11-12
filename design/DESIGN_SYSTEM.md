@@ -161,10 +161,11 @@ Cada fuente de tasa tiene un color y un icono fijos. Se usan en el chip de `Rate
 | BCV (dólar, oficial) | `palette/indigo-soft` `#EDE9F7` | `palette/indigo-900` `#1D0F50` | `landmark` |
 | Euro | `palette/amber-soft` `#FFF6E0` | `state/warn-ink` `#7A5200` | `euro` |
 | USDT | `bg/brand-soft` `#F1E4FE` | `brand/primary-pressed` `#7A2BD1` | `circle-dollar-sign` |
-| Promedio | `bg/brand-soft` `#F1E4FE` | `brand/primary-pressed` `#7A2BD1` | `trending-up` |
 | Mi tasa | `palette/coral-soft` `#FFF4F2` | `state/offline-ink` `#C93B2A` | `star` |
 
-Sobre una tarjeta ya tintada (por ejemplo el promedio en lavanda) el chip va en `bg/surface` para no desaparecer.
+El promedio del P2P no tiene identidad propia: es el valor de la tasa USDT y usa su chip.
+
+Sobre una tarjeta tintada (por estado), el chip va en `bg/surface` para no desaparecer.
 
 #### Tinte por estado del dato
 
@@ -180,7 +181,7 @@ El banner de estado conserva sus tokens `state/*` para que el contraste del text
 
 #### Compra y venta
 
-En Tasas USDT (06): **Compra** en `palette/teal-soft` y **Venta** en `palette/coral-soft`. El color aquí es direccional, no de estado.
+Dentro de la ficha P2P, **Compra** y **Venta** van sin tinte propio: el color direccional vive en la variación (`variation/up` / `variation/down`) y el tinte se reserva para el chip de identidad. Dos bloques tintados dentro de una tarjeta con borde de marca daban tres fondos en el mismo elemento.
 
 #### Estado vs. identidad
 
@@ -198,7 +199,7 @@ Familia única: **Nunito** (Google Fonts, OFL). Pesos usados: 400, 600, 700, 800
 |:--|:--|:--|:--|
 | `type/display` | 44 / 48 | 800 | Resultado en Bs de la calculadora |
 | `type/h1` | 28 / 34 | 800 | Título de pantalla (solo splash/landing) |
-| `type/h2` | 22 / 28 | 800 | Título de pantalla (`Calculadora`, `Tasas BCV`) |
+| `type/h2` | 22 / 28 | 800 | Título de pantalla (`Calculadora`, `Tasas`) |
 | `type/h3` | 18 / 24 | 700 | Nombre de moneda en tarjeta de tasa |
 | `type/amount` | 28 / 32 | 800 | Monto en el campo activo |
 | `type/body` | 16 / 24 | 400 | Párrafos, legal |
@@ -238,7 +239,7 @@ Familia única: **Nunito** (Google Fonts, OFL). Pesos usados: 400, 600, 700, 800
 - Ancho de referencia: **390 px** (iPhone 14/15). Verificar en **360 px** (Android común).
 - Padding horizontal de pantalla: **24 px**, aplicado una sola vez en el contenedor de contenido (`Content`), nunca en el frame raíz.
 - Padding vertical del contenido: **12 px** arriba y **20 px** abajo.
-- En las pantallas con barra flotante (02, 03, 04, 05, 06, 07) el scroll reserva **96 px** abajo: 20 de padding + 72 de barra + 4 de holgura. El frame de diseño muestra el contenido completo con la barra debajo; el `96` es una regla de implementación en Flutter para que el último elemento no quede tapado.
+- En las pantallas con barra flotante (02, 03, 04, 05, 07) el scroll reserva **96 px** abajo: 20 de padding + 72 de barra + 4 de holgura. El frame de diseño muestra el contenido completo con la barra debajo; el `96` es una regla de implementación en Flutter para que el último elemento no quede tapado.
 - Separación entre secciones: **24 px**. Dentro de una sección: **12 px**.
 - Alto del status bar: **62 px**. Nunca se dibuja UI debajo.
 - Tab bar: **72 px** de alto, flotante, inset 16 px laterales y 12 px inferiores. El FAB central de 60 px sobresale 16 px por encima.
@@ -344,6 +345,8 @@ El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el
 
 **USDT.** En las tasas P2P `effective_from` puede coincidir con `published_at`: si coinciden, la segunda columna se oculta y la rejilla pasa a una columna. No se inventa una fecha distinta.
 
+**Variante USDT (`RateCard / Ficha · USDT P2P`).** La ficha se titula **`USDT`** (la moneda), no `Promedio` (la estadística): el nombre de la tarjeta responde a *qué tasa es*, igual que `Dólar` y `Euro`. El valor grande es el promedio y la variación lo declara (`Promedio · +2,19 Bs (+0,22 %)`). Entre la variación y las fechas añade una fila de dos columnas con `Compra` y `Venta`: etiqueta 11/700 `text/secondary`, valor 14/800 `text/primary`, variación 11/700 en su color. Sube a **213 px**. Fondo `bg/surface` como el resto, con borde `brand/primary` 1 px y chip en `bg/brand-soft` con icono `brand/primary-pressed`. La identidad de USDT vive en el chip y el borde, no en un tinte de fondo: sobre `bg/brand-soft` el texto secundario cae a 3,9:1 y rompe AA.
+
 ### 7.3 `RateChip` — selector multi-tasa (máx. 4)
 
 ```
@@ -409,7 +412,7 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 ⟳ Actualizado hoy · 9:41 a. m.              ● al día
 ```
 
-- Fila de 20 px, ancho completo, entre el selector (§7.10) y el contenido.
+- Fila de 20 px, ancho completo, bajo la cabecera y sobre el primer grupo.
 - Izquierda: icono `refresh-cw` 14 (`text/secondary`) + `fetched_at` en `type/caption` (`text/secondary`). Formatos: `Actualizado hoy · 9:41 a. m.` / `Actualizado ayer · 5:02 p. m.`.
 - Derecha: `StatusPill` = punto de 6 px + palabra en `type/micro`, **sin fondo**. Colores en §3.3.
 - El pill es el estado **de la vista**, no de cada tarjeta: no se repite salvo que una tasa se desvíe (§7.2).
@@ -418,29 +421,24 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 
 ```
 ⓘ Cómo se calcula
-  El BCV publica en días hábiles a las 5:00 p. m. La fecha de
-  valor indica desde cuándo rige la tasa.
-  Ver en bcv.org.ve →
+  BCV   El BCV publica en días hábiles a las 5:00 p. m.; la
+        fecha de valor indica desde cuándo rige la tasa.
+  P2P   Promedio de los anuncios de compra y venta de USDT
+        en Binance. 1 USDT ≠ 1 USD.
+  bcv.org.ve →   binance.com →
 ```
 
 - **Sin contenedor**: va sobre `bg/canvas`, separado por el gap de 24 px de la sección. No compite con las tarjetas.
-- Título en `type/label` 700 (`text/primary`), cuerpo en `type/caption` (`text/secondary`), enlace en `brand/primary` 700 + `external-link` 12.
-- Sustituye a los disclaimers sueltos que tenían 05 y 06. El texto legal completo sigue viviendo solo en 08 (§13.6).
-- Máximo 3 líneas de cuerpo a 390 px. Si el copy crece, se recorta el copy, no el ancho.
+- Una sola nota para las dos fuentes: una fila por fuente, con etiqueta de 34 px en `type/micro` 800 (`text/secondary`) y cuerpo en `type/caption` (`text/secondary`). Los enlaces van juntos en una fila al pie.
+- Título en `type/label` 700 (`text/primary`); enlaces en `brand/primary` 700 + `external-link` 12.
+- Sustituye a los disclaimers sueltos de 05. El texto legal completo sigue viviendo solo en 08 (§13.6).
+- Máximo 2 líneas de cuerpo por fila a 390 px. Si el copy crece, se recorta el copy, no el ancho.
 
-### 7.10 `SegmentedControl` — `BCV | USDT`
+### 7.10 `SectionHeader` — grupos del catálogo de Tasas
 
-```
-┌──────────────┬───────────────┐
-│     BCV      │     USDT      │
-└──────────────┴───────────────┘
-```
-
-- 342 × 36, radio pill, fondo `bg/surface`, borde `border/subtle` 1 px, padding 3, gap 4.
-- Dos segmentos `fill_container` de 30 px de alto, radio pill.
-- **Seleccionado:** fondo `bg/brand-soft`, texto `brand/primary-pressed` 700.
-- **No seleccionado:** sin fondo, texto `text/secondary` 600.
-- 05 y 06 son **dos vistas del mismo destino** `Tasas`, no dos pantallas independientes: el tab `Tasas` sigue activo en ambas y el selector es la única entrada cruzada.
+- `Oficial` y `Mercado P2P`: `type/label` 13/800 en `text/secondary`, sobre `bg/canvas`, 12 px por encima de la lista.
+- Agrupan por **mercado**, no por fuente: `official` está en `rate_snapshots` y la fuente sigue en el pie de cada ficha.
+- Un grupo nuevo (USDC, otra stablecoin) es una fila más dentro del grupo existente; no cambia la estructura de la pantalla.
 
 ---
 
@@ -518,7 +516,7 @@ Regla de peso: la app base debe quedar **< 40 MB** (RNF-09). El emblema no se us
 
 ## 12. Pantallas y navegación
 
-El MVP v1 son **11 artboards** en `design/cambiami.pen`. Esta es la lista canónica: si una pantalla no está aquí, no entra en v1.
+El MVP v1 son **10 artboards** en `design/cambiami.pen`. Esta es la lista canónica: si una pantalla no está aquí, no entra en v1.
 
 | # | Pantalla | Estado | Frame |
 |:--|:--|:--|:--|
@@ -527,16 +525,15 @@ El MVP v1 son **11 artboards** en `design/cambiami.pen`. Esta es la lista canón
 | 02b | Calculadora | `escribiendo` (teclado abierto) | `Screen / 02b · Calculadora / escribiendo` |
 | 03 | Calculadora | `desactualizado` | `Screen / 03 · Calculadora / desactualizado` |
 | 04 | Calculadora | `sin_conexión` | `Screen / 04 · Calculadora / sin_conexion` |
-| 05 | Tasas BCV | normal · cargando · error | `Screen / 05 · Tasas BCV` |
-| 06 | Tasas USDT | normal · cargando · error | `Screen / 06 · Tasas USDT` |
+| 05 | Tasas | normal · cargando · error | `Screen / 05 · Tasas` |
 | 07 | Configuración | normal | `Screen / 07 · Configuracion` |
 | 08 | Información | normal | `Screen / 08 · Informacion` |
 | 09 | Monedas | modal sobre Calculadora | `Screen / 09 · Monedas (modal)` |
 | 10 | Compartir | sheet sobre Calculadora | `Screen / 10 · Compartir (sheet)` |
 
-Los estados `cargando` y `error` de Tasas (05 y 06) están dibujados en el frame `Estados · Tasas` del grupo HU-11 (§13.4).
+El número **06 queda vacante**: era `Tasas USDT` y se absorbió en 05 al pasar a catálogo por mercado. Los estados `cargando` y `error` de Tasas están dibujados en el frame `Estados · Tasas` del grupo HU-11 (§13.4).
 
-En el archivo, las 11 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
+En el archivo, las 10 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
 
 ### 12.1 Flujo de navegación
 
@@ -546,34 +543,27 @@ En el archivo, las 11 pantallas están agrupadas por historia de usuario en el f
 | 02 Calculadora | tap `RateSelector` | 09 Monedas |
 | 09 Monedas | tap `Aplicar` o `✕` | 02 Calculadora |
 | 02 Calculadora | tap `share-2` | 10 Compartir |
-| 02 Calculadora | tap tab `Tasas` | 05 Tasas BCV |
+| 02 Calculadora | tap tab `Tasas` | 05 Tasas |
 | 02 Calculadora | tap tab `Configuración` | 07 Configuración |
-| 05 Tasas BCV | tap segmento `USDT` | 06 Tasas USDT |
-| 06 Tasas USDT | tap segmento `BCV` | 05 Tasas BCV |
-| 05 Tasas BCV | tap tab `Calculadora` | 02 Calculadora |
-| 05 Tasas BCV | tap tab `Configuración` | 07 Configuración |
-| 05 Tasas BCV | tap `info` | 08 Información |
-| 05 Tasas BCV | tap `Compartir tasas` | 10 Compartir |
-| 06 Tasas USDT | tap tab `Calculadora` | 02 Calculadora |
-| 06 Tasas USDT | tap tab `Configuración` | 07 Configuración |
-| 06 Tasas USDT | tap `info` | 08 Información |
-| 06 Tasas USDT | tap `Compartir tasas` | 10 Compartir |
+| 05 Tasas | tap tab `Calculadora` | 02 Calculadora |
+| 05 Tasas | tap tab `Configuración` | 07 Configuración |
+| 05 Tasas | tap `info` | 08 Información |
+| 05 Tasas | tap `Compartir tasas` | 10 Compartir |
 | 07 Configuración | tap tab `Calculadora` | 02 Calculadora |
-| 07 Configuración | tap tab `Tasas` | última vista de Tasas (05 o 06) |
+| 07 Configuración | tap tab `Tasas` | 05 Tasas |
 | 07 Configuración | tap `Información` | 08 Información |
 | 08 Información | tap `Volver` o `‹` | pop (Configuración o Tasas, según de dónde venga) |
 
 El botón de volver **siempre hace `pop`**, no navega a un destino fijo: se puede llegar a Información desde Configuración o desde el icono `info` de Tasas.
 
-**Barra inferior:** la llevan las pantallas de primer nivel — 02, 03, 04, 05, 06 y 07. No la llevan 02b (el teclado la cubre) ni 08 Información (pantalla de detalle, se sale con `‹`). Configuración dejó de ser secundaria: ya no tiene botón de volver, se llega y se sale por la barra.
+**Barra inferior:** la llevan las pantallas de primer nivel — 02, 03, 04, 05 y 07. No la llevan 02b (el teclado la cubre) ni 08 Información (pantalla de detalle, se sale con `‹`). Configuración dejó de ser secundaria: ya no tiene botón de volver, se llega y se sale por la barra.
 
 ### 12.2 Rutas en Flutter
 
 | Ruta | Pantalla |
 |:--|:--|
 | `/` | 02 Calculadora |
-| `/tasas/bcv` | 05 Tasas BCV |
-| `/tasas/usdt` | 06 Tasas USDT |
+| `/tasas` | 05 Tasas |
 | `/configuracion` | 07 Configuración |
 | `/informacion` | 08 Información |
 
@@ -599,14 +589,13 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 
 | Dónde | Texto |
 |:--|:--|
-| Títulos de pantalla | `Calculadora` · `Tasas BCV` · `Tasas USDT` · `Configuración` · `Información` · `Monedas` · `Compartir` |
+| Títulos de pantalla | `Calculadora` · `Tasas` · `Configuración` · `Información` · `Monedas` · `Compartir` |
 | Splash | `cambiami` · `La tasa, clara y al día.` · `v1.0 · TasaVE C.A.` |
 | Tabs | `Calculadora` · `Tasas` · `Configuración` |
 | Campos de monto | `Dólares` · `Bolívares` |
 | Chips de tasa | `BCV` · `USDT` · `Euro` · `Mi tasa` |
-| Tasas USDT | `Compra` · `Venta` · `Promedio` · `Brecha BCV ↔ USDT` |
-| Subtítulos de Tasas | `Tasa oficial del Banco Central de Venezuela` · `Referencia del mercado P2P de Binance` |
-| Selector de fuente | `BCV` · `USDT` |
+| Grupos de Tasas | `Oficial` · `Mercado P2P` |
+| Tasas P2P | `Compra` · `Venta` · `Promedio` · `Brecha BCV ↔ USDT` |
 | Metadatos de tasa | `Publicado` · `Vigente desde` |
 | Frescura | `Actualizado hoy · 9:41 a. m.` · `Actualizado ayer · 5:02 p. m.` |
 | Metodología | `Cómo se calcula` · `Ver en bcv.org.ve` · `Ver en binance.com` |
@@ -629,8 +618,8 @@ El banner **no sustituye** la frescura: cuando hay banner, se muestran los dos. 
 
 | Situación | Texto | Nota |
 |:--|:--|:--|
-| Cargando (Tasas BCV / USDT) | ninguno visible | Skeleton de título, selector y dos `RateCard / Ficha`, dibujado en `Estados · Tasas`; el lector de pantalla anuncia `Actualizando tasas` |
-| Error (Tasas BCV / USDT) | `No pudimos actualizar las tasas.` + botón ghost `Reintentar` | Icono `cloud-off` 32; dibujado en `Estados · Tasas` |
+| Cargando (Tasas) | ninguno visible | Skeleton de título, dos `SectionHeader` y tres `RateCard / Ficha`, dibujado en `Estados · Tasas`; el lector de pantalla anuncia `Actualizando tasas` |
+| Error (Tasas) | `No pudimos actualizar las tasas.` + botón ghost `Reintentar` | Icono `cloud-off` 32; dibujado en `Estados · Tasas` |
 | Sin datos de una moneda | *pendiente (H1)* | No inventar copy antes de ver la respuesta real del backend |
 
 ### 13.5 Compartir (mensaje literal)

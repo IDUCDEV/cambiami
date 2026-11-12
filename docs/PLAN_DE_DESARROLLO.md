@@ -158,13 +158,14 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 **Criterios de aceptación:**
 - Cada tasa muestra `published_at` (`Publicado`) y `effective_from` (`Vigente desde`) dentro de la tarjeta, y `fetched_at` (`Actualizado…`) en la franja de la vista.
 - El estado (`al día` / `desactualizado` / `sin conexión`) es visible en todas las vistas, sin depender del color: punto + palabra.
-- 05 y 06 se alternan con el selector `BCV | USDT`; el tab `Tasas` mantiene su estado activo en ambas.
-- La brecha de 06 muestra el porcentaje, la fórmula `(USDT promedio − BCV) ÷ BCV` y los dos valores usados.
-- Cada tarjeta enlaza a su fuente (`bcv.org.ve`, `binance.com`) y el bloque "Cómo se calcula" explica la metodología.
-- Carga y error están dibujados: skeleton de dos tarjetas y error con `Reintentar`.
+- `Tasas` es **una sola pantalla** con un catálogo agrupado por mercado: `Oficial` (dólar y euro) y `Mercado P2P` (promedio USDT con compra y venta). No hay selector de fuentes ni vista alternativa.
+- Los grupos se arman con el campo `official` de `rate_snapshots`, no con `source_code`: una tasa nueva (USDC u otra stablecoin) entra como una fila más del grupo que le corresponde, sin cambiar la estructura ni añadir navegación.
+- La ficha P2P se titula `USDT` (la moneda) y muestra el promedio como valor, con compra y venta en la misma tarjeta; la brecha va junto a ella con el porcentaje, la fórmula `(USDT promedio − BCV) ÷ BCV` y los dos valores usados.
+- Cada tarjeta enlaza a su fuente (`bcv.org.ve`, `binance.com`) y una sola nota "Cómo se calcula" explica las dos metodologías.
+- Carga y error están dibujados: skeleton de tres fichas (dos oficiales y la P2P) y error con `Reintentar`.
 - No se muestra ningún dato que no exista en `rate_snapshots` (sin histórico, sin mín/máx, sin nº de anuncios).
 
-**Mapeo:** F-02 · APP-SCR-03 Tasas BCV, APP-SCR-04 Tasas USDT
+**Mapeo:** F-02 · `Screen / 05 · Tasas` (absorbe APP-SCR-03 y APP-SCR-04 del brief)
 
 ---
 
@@ -230,15 +231,15 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 **Job del usuario:** Ver las tasas oficiales del día y sus variaciones.
 
 **Pasos:**
-1. Usuario abre menú inferior o lateral → "Tasas".
-2. Ve pantalla Tasas BCV (dólar y euro).
-3. Usuario toca pestaña u opción "Tasas USDT".
-4. Ve compra, venta y promedio del USDT.
-5. (Opcional) Toca botón info → modal Monedas con brecha.
+1. Usuario toca el tab `Tasas` en la barra inferior.
+2. Ve el grupo `Oficial` con dólar y euro.
+3. Baja y ve el grupo `Mercado P2P` con el promedio USDT, su compra y su venta.
+4. (Opcional) Lee la brecha BCV ↔ USDT y la nota "Cómo se calcula".
+5. (Opcional) Toca el botón info → pantalla Información.
 
-**Pantallas:** APP-SCR-03 Tasas BCV → APP-SCR-04 Tasas USDT → APP-SCR-09 Monedas (modal).
+**Pantallas:** 05 Tasas → 08 Información (opcional).
 
-**Criterio de éxito:** Usuario ve todas las tasas relevantes sin navegar más de 2 pantallas.
+**Criterio de éxito:** Usuario ve todas las tasas relevantes en una sola pantalla, sin cambiar de vista.
 
 ---
 
@@ -501,8 +502,8 @@ class EsVeFormatter {
 
 | Día | Acción | Entregable |
 |:----|:-------|:-----------|
-| Lunes | Pantalla Tasas BCV (APP-SCR-03) | Lista de tasas con fuente/fecha/estado |
-| Martes | Pantalla Tasas USDT (APP-SCR-04) | Compra, venta, promedio |
+| Lunes | Pantalla Tasas, catálogo por mercado (APP-SCR-03 + APP-SCR-04) | Grupos Oficial y P2P con fuente/fecha/estado, compra, venta, promedio y brecha |
+| Martes | Estados de Tasas: carga y error | Skeleton de tres fichas + error con `Reintentar` |
 | Miércoles | Pantalla Configuración (APP-SCR-06) + Información/legal (APP-SCR-11) | Moneda predeterminada + disclaimer legal |
 | Jueves | Multi-tasa simultáneo en Calculadora (APP-SCR-09) | 4 tasas visibles |
 | Viernes | Compartir texto por WhatsApp (APP-SCR-10) + regresiva APP-FLOW-01 | Mensaje de compartir listo + flujo crítico verificado |

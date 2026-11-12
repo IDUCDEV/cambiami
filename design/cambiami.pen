@@ -1934,6 +1934,355 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "Vt8lB",
+              "name": "RateCard / Ficha · USDT P2P",
+              "reusable": true,
+              "width": 350,
+              "fill": "$bg/surface",
+              "cornerRadius": 16,
+              "stroke": "$brand/primary",
+              "strokeWidth": 1,
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "ItgrF",
+                  "name": "Head",
+                  "width": "fill_container",
+                  "height": 40,
+                  "gap": 10,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "H2mU61",
+                      "name": "Source chip",
+                      "width": 40,
+                      "height": 40,
+                      "fill": "$bg/brand-soft",
+                      "cornerRadius": 12,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "z65On",
+                          "x": 10,
+                          "y": 10,
+                          "name": "Source icon",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "circle-dollar-sign",
+                          "library": "lucide",
+                          "fill": "$brand/primary-pressed"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "X3doa",
+                      "name": "Name",
+                      "fill": "$text/primary",
+                      "content": "USDT",
+                      "fontFamily": "$font/family",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "m4MQv",
+                      "name": "Value group",
+                      "width": "fill_container",
+                      "gap": 4,
+                      "justifyContent": "end",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "z7GQM",
+                          "name": "Value",
+                          "fill": "$text/primary",
+                          "content": "995,90 Bs",
+                          "fontFamily": "$font/family",
+                          "fontSize": 18,
+                          "fontWeight": "700"
+                        },
+                        {
+                          "type": "icon",
+                          "id": "D8jBmv",
+                          "name": "Arrow",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "arrow-up-right",
+                          "library": "lucide",
+                          "fill": "$variation/up"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Q0hHJX",
+                  "name": "Change",
+                  "fill": "$variation/up",
+                  "content": "Promedio · +2,19 Bs (+0,22 %)",
+                  "fontFamily": "$font/family",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "agS6N",
+                  "name": "Details",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": [
+                    6,
+                    0,
+                    0,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "lQixh",
+                      "name": "Divider",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "$border/subtle"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "cMVDQ",
+                      "name": "Split",
+                      "width": "fill_container",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "t5rXvo",
+                          "name": "Split / Compra",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "uMBRw",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Compra",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "w9zyW",
+                              "name": "Value row",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "BF9QJ",
+                                  "name": "Value",
+                                  "fill": "$text/primary",
+                                  "content": "997,49 Bs",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 14,
+                                  "fontWeight": "800"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "k0RpSs",
+                                  "name": "Change",
+                                  "fill": "$variation/up",
+                                  "content": "+0,8 %",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 11,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "H2uJG",
+                          "name": "Split / Venta",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "yGTBR",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Venta",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "vTK6u",
+                              "name": "Value row",
+                              "gap": 4,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "GziEO",
+                                  "name": "Value",
+                                  "fill": "$text/primary",
+                                  "content": "994,35 Bs",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 14,
+                                  "fontWeight": "800"
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "HxZSm",
+                                  "name": "Change",
+                                  "fill": "$variation/down",
+                                  "content": "−0,3 %",
+                                  "fontFamily": "$font/family",
+                                  "fontSize": 11,
+                                  "fontWeight": "700"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "vucxb",
+                      "name": "Divider",
+                      "width": "fill_container",
+                      "height": 1,
+                      "fill": "$border/subtle"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ycTRE",
+                      "name": "Meta",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "dWwj6",
+                          "name": "Meta / Publicado",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "FaROT",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Publicado",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "BM296",
+                              "name": "Value",
+                              "fill": "$text/primary",
+                              "content": "02/11/26 · 9:38 a. m.",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "qZjKy",
+                          "name": "Meta / Vigente desde",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 2,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "LGUnr",
+                              "name": "Label",
+                              "fill": "$text/secondary",
+                              "content": "Vigente desde",
+                              "fontFamily": "$font/family",
+                              "fontSize": 11,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "text",
+                              "id": "z5Sk4",
+                              "name": "Value",
+                              "fill": "$text/primary",
+                              "content": "02/11/26",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "mki2r",
+                      "name": "Foot",
+                      "width": "fill_container",
+                      "height": 16,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "O1lHwW",
+                          "name": "Source link",
+                          "gap": 4,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "gRbVx",
+                              "name": "Source",
+                              "fill": "$text/secondary",
+                              "content": "Binance P2P · binance.com",
+                              "fontFamily": "$font/family",
+                              "fontSize": 12,
+                              "fontWeight": "600"
+                            },
+                            {
+                              "type": "icon",
+                              "id": "zAb3f",
+                              "name": "External",
+                              "width": 12,
+                              "height": 12,
+                              "icon": "external-link",
+                              "library": "lucide",
+                              "fill": "$text/secondary"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -2031,7 +2380,7 @@
           "name": "Banner / desactualizado",
           "fill": "$state/warn-bg",
           "x": 40,
-          "y": 370,
+          "y": 419,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2054,7 +2403,7 @@
           "name": "Banner / sin conexion",
           "fill": "$state/offline-bg",
           "x": 40,
-          "y": 430,
+          "y": 479,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -4942,42 +5291,6 @@
                         },
                         {
                           "type": "frame",
-                          "id": "kl36N",
-                          "name": "Brecha card",
-                          "width": "fill_container",
-                          "fill": "$bg/canvas",
-                          "cornerRadius": 12,
-                          "padding": [
-                            14,
-                            16
-                          ],
-                          "justifyContent": "space_between",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "text",
-                              "id": "t4QpG",
-                              "name": "Label",
-                              "fill": "$text/secondary",
-                              "content": "Brecha ($/USDT)",
-                              "fontFamily": "$font/family",
-                              "fontSize": 14,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "text",
-                              "id": "nArmE",
-                              "name": "Value",
-                              "fill": "$text/primary",
-                              "content": "11,95 %",
-                              "fontFamily": "$font/family",
-                              "fontSize": 16,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
                           "id": "Fo39m",
                           "name": "Currency list",
                           "width": "fill_container",
@@ -5065,7 +5378,7 @@
                                       "id": "jJyuZ",
                                       "name": "Value",
                                       "fill": "$text/primary",
-                                      "content": "889,58 Bs",
+                                      "content": "889,5754 Bs",
                                       "fontFamily": "$font/family",
                                       "fontSize": 16,
                                       "fontWeight": "600"
@@ -5154,7 +5467,7 @@
                                       "id": "C4LNqx",
                                       "name": "Value",
                                       "fill": "$text/primary",
-                                      "content": "991,25 Bs",
+                                      "content": "991,2539 Bs",
                                       "fontFamily": "$font/family",
                                       "fontSize": 16,
                                       "fontWeight": "600"
@@ -5166,95 +5479,6 @@
                             {
                               "type": "rectangle",
                               "id": "xlXnN",
-                              "name": "Divider",
-                              "fill": "$border/subtle",
-                              "width": "fill_container",
-                              "height": 1
-                            },
-                            {
-                              "type": "frame",
-                              "id": "dwLA7",
-                              "name": "Row / Promedio",
-                              "width": "fill_container",
-                              "height": 56,
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "fP4VJ",
-                                  "name": "Left",
-                                  "gap": 12,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "frame",
-                                      "id": "qOpk2",
-                                      "name": "Identity chip",
-                                      "width": 32,
-                                      "height": 32,
-                                      "fill": "$bg/brand-soft",
-                                      "cornerRadius": 10,
-                                      "layout": "vertical",
-                                      "justifyContent": "center",
-                                      "alignItems": "center",
-                                      "children": [
-                                        {
-                                          "type": "icon",
-                                          "id": "ipi7v",
-                                          "name": "Identity icon",
-                                          "width": 16,
-                                          "height": 16,
-                                          "icon": "trending-up",
-                                          "library": "lucide",
-                                          "fill": "$brand/primary-pressed"
-                                        }
-                                      ]
-                                    },
-                                    {
-                                      "type": "frame",
-                                      "id": "sWDnx",
-                                      "name": "Labels",
-                                      "layout": "vertical",
-                                      "children": [
-                                        {
-                                          "type": "text",
-                                          "id": "wyP8K",
-                                          "name": "Name",
-                                          "fill": "$text/primary",
-                                          "content": "Promedio",
-                                          "fontFamily": "$font/family",
-                                          "fontSize": 16,
-                                          "fontWeight": "600"
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "dQ5Q3",
-                                  "name": "Right",
-                                  "gap": 8,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "gLjuc",
-                                      "name": "Value",
-                                      "fill": "$text/primary",
-                                      "content": "942,75 Bs",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 16,
-                                      "fontWeight": "600"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "rectangle",
-                              "id": "wlufp",
                               "name": "Divider",
                               "fill": "$border/subtle",
                               "width": "fill_container",
@@ -5332,7 +5556,7 @@
                                       "id": "gGFAo",
                                       "name": "Value",
                                       "fill": "$text/primary",
-                                      "content": "995,92 Bs",
+                                      "content": "995,90 Bs",
                                       "fontFamily": "$font/family",
                                       "fontSize": 16,
                                       "fontWeight": "600"
@@ -6535,7 +6759,7 @@
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "Ficha completa: tres fechas, estado por vista, brecha verificable y entrada cruzada 05 ⇄ 06.",
+              "content": "Catálogo por mercado: tres fechas por tasa, estado por vista, brecha verificable y procedencia enlazable.",
               "fontFamily": "$font/family",
               "fontSize": 12,
               "fontWeight": "600"
@@ -6549,7 +6773,7 @@
                 {
                   "type": "frame",
                   "id": "HFQ5i",
-                  "name": "Screen / 05 · Tasas BCV",
+                  "name": "Screen / 05 · Tasas",
                   "clip": true,
                   "width": 390,
                   "fill": "$bg/canvas",
@@ -6654,7 +6878,7 @@
                                   "id": "a9eEHc",
                                   "name": "Title",
                                   "fill": "$text/primary",
-                                  "content": "Tasas BCV",
+                                  "content": "Tasas",
                                   "fontFamily": "$font/family",
                                   "fontSize": 22,
                                   "fontWeight": "800"
@@ -6678,78 +6902,6 @@
                                       "icon": "info",
                                       "library": "lucide",
                                       "fill": "$text/secondary"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "h16RuE",
-                              "name": "Subtitle",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Tasa oficial del Banco Central de Venezuela",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "pkvTe",
-                              "name": "Source selector",
-                              "width": "fill_container",
-                              "height": 36,
-                              "fill": "$bg/surface",
-                              "cornerRadius": "$radius/pill",
-                              "stroke": "$border/subtle",
-                              "strokeWidth": 1,
-                              "gap": 4,
-                              "padding": 3,
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "XRMn2",
-                                  "name": "Segment / BCV",
-                                  "width": "fill_container",
-                                  "height": "fill_container",
-                                  "fill": "$bg/brand-soft",
-                                  "cornerRadius": "$radius/pill",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "YeO1l",
-                                      "name": "Label",
-                                      "fill": "$brand/primary-pressed",
-                                      "content": "BCV",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 14,
-                                      "fontWeight": "700"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "eGjyB",
-                                  "name": "Segment / USDT",
-                                  "width": "fill_container",
-                                  "height": "fill_container",
-                                  "cornerRadius": "$radius/pill",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "KHKsA",
-                                      "name": "Label",
-                                      "fill": "$text/secondary",
-                                      "content": "USDT",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 14,
-                                      "fontWeight": "700"
                                     }
                                   ]
                                 }
@@ -6826,88 +6978,215 @@
                         },
                         {
                           "type": "frame",
-                          "id": "hW5Gv",
-                          "name": "Rate list",
+                          "id": "M5Zhj",
+                          "name": "Section / Oficial",
                           "width": "fill_container",
                           "layout": "vertical",
                           "gap": 12,
                           "children": [
                             {
-                              "id": "qtywh",
-                              "type": "ref",
-                              "ref": "y39TzM",
-                              "width": "fill_container",
-                              "name": "RateCard / Dólar",
-                              "descendants": {
-                                "uRYcd": {
-                                  "content": "+0,32 Bs (0,04 %)"
-                                },
-                                "STDJI": {
-                                  "content": "02/11/26 · 5:00 p. m."
-                                },
-                                "H5X3t": {
-                                  "content": "03/11/26"
-                                },
-                                "mAGAE": {
-                                  "content": "BCV · bcv.org.ve"
-                                }
-                              }
+                              "type": "text",
+                              "id": "o0L1d",
+                              "name": "Section header",
+                              "fill": "$text/secondary",
+                              "content": "Oficial",
+                              "fontFamily": "$font/family",
+                              "fontSize": 13,
+                              "fontWeight": "800"
                             },
                             {
-                              "id": "r5opM",
-                              "type": "ref",
-                              "ref": "y39TzM",
+                              "type": "frame",
+                              "id": "usCY6",
+                              "name": "List",
                               "width": "fill_container",
-                              "name": "RateCard / Euro",
-                              "descendants": {
-                                "hLMcH": {
-                                  "fill": "$palette/amber-soft"
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "id": "qtywh",
+                                  "type": "ref",
+                                  "ref": "y39TzM",
+                                  "width": "fill_container",
+                                  "name": "RateCard / Dólar",
+                                  "descendants": {
+                                    "uRYcd": {
+                                      "content": "+0,32 Bs (0,04 %)"
+                                    },
+                                    "STDJI": {
+                                      "content": "02/11/26 · 5:00 p. m."
+                                    },
+                                    "H5X3t": {
+                                      "content": "03/11/26"
+                                    },
+                                    "mAGAE": {
+                                      "content": "BCV · bcv.org.ve"
+                                    }
+                                  }
                                 },
-                                "zcA4b": {
-                                  "fill": "$state/warn-ink",
-                                  "icon": "euro"
-                                },
-                                "WAUHE": {
-                                  "content": "Euro"
-                                },
-                                "zKRA8": {
-                                  "content": "991,2539 Bs"
-                                },
-                                "uRYcd": {
-                                  "content": "−1,55 Bs (−0,16 %)",
-                                  "fill": "$variation/down"
-                                },
-                                "STDJI": {
-                                  "content": "02/11/26 · 5:00 p. m."
-                                },
-                                "H5X3t": {
-                                  "content": "03/11/26"
-                                },
-                                "mAGAE": {
-                                  "content": "BCV · bcv.org.ve"
+                                {
+                                  "id": "r5opM",
+                                  "type": "ref",
+                                  "ref": "y39TzM",
+                                  "width": "fill_container",
+                                  "name": "RateCard / Euro",
+                                  "descendants": {
+                                    "hLMcH": {
+                                      "fill": "$palette/amber-soft"
+                                    },
+                                    "zcA4b": {
+                                      "fill": "$state/warn-ink",
+                                      "icon": "euro"
+                                    },
+                                    "WAUHE": {
+                                      "content": "Euro"
+                                    },
+                                    "zKRA8": {
+                                      "content": "991,2539 Bs"
+                                    },
+                                    "uRYcd": {
+                                      "content": "−1,55 Bs (−0,16 %)",
+                                      "fill": "$variation/down"
+                                    },
+                                    "STDJI": {
+                                      "content": "02/11/26 · 5:00 p. m."
+                                    },
+                                    "H5X3t": {
+                                      "content": "03/11/26"
+                                    },
+                                    "mAGAE": {
+                                      "content": "BCV · bcv.org.ve"
+                                    }
+                                  }
                                 }
-                              }
+                              ]
                             }
                           ]
                         },
                         {
                           "type": "frame",
-                          "id": "w9lPlX",
+                          "id": "Aqphm",
+                          "name": "Section / P2P",
+                          "width": "fill_container",
+                          "layout": "vertical",
+                          "gap": 12,
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "T74WII",
+                              "name": "Section header",
+                              "fill": "$text/secondary",
+                              "content": "Mercado P2P",
+                              "fontFamily": "$font/family",
+                              "fontSize": 13,
+                              "fontWeight": "800"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "oifpK",
+                              "name": "List",
+                              "width": "fill_container",
+                              "layout": "vertical",
+                              "gap": 12,
+                              "children": [
+                                {
+                                  "id": "XJUOZ",
+                                  "type": "ref",
+                                  "ref": "Vt8lB",
+                                  "name": "RateCard / USDT",
+                                  "width": "fill_container"
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "OBjWu",
+                                  "name": "Brecha card",
+                                  "width": "fill_container",
+                                  "fill": "$bg/surface",
+                                  "cornerRadius": "$radius/lg",
+                                  "stroke": "$border/subtle",
+                                  "strokeWidth": 1,
+                                  "layout": "vertical",
+                                  "gap": 8,
+                                  "padding": 16,
+                                  "children": [
+                                    {
+                                      "type": "frame",
+                                      "id": "f2Sdsx",
+                                      "name": "Head",
+                                      "width": "fill_container",
+                                      "alignItems": "center",
+                                      "children": [
+                                        {
+                                          "type": "text",
+                                          "id": "Fwpvg",
+                                          "name": "Label",
+                                          "fill": "$text/primary",
+                                          "textGrowth": "fixed-width",
+                                          "width": "fill_container",
+                                          "content": "Brecha BCV ↔ USDT",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 14,
+                                          "fontWeight": "600"
+                                        },
+                                        {
+                                          "type": "text",
+                                          "id": "GS4hF",
+                                          "name": "Value",
+                                          "fill": "$text/primary",
+                                          "content": "+11,95 %",
+                                          "fontFamily": "$font/family",
+                                          "fontSize": 18,
+                                          "fontWeight": "700"
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "PpDK2",
+                                      "name": "Formula",
+                                      "fill": "$text/secondary",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "(USDT promedio − BCV) ÷ BCV",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "W1fh3",
+                                      "name": "Reference",
+                                      "fill": "$text/secondary",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "BCV 889,5754 Bs · USDT 995,90 Bs",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "y45BHL",
                           "name": "Method note",
                           "width": "fill_container",
                           "layout": "vertical",
-                          "gap": 8,
+                          "gap": 10,
                           "children": [
                             {
                               "type": "frame",
-                              "id": "lwEKn",
+                              "id": "LqeyI",
                               "name": "Head",
                               "gap": 6,
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "icon",
-                                  "id": "bMczL",
+                                  "id": "tXCSb",
                                   "name": "Icon",
                                   "width": 16,
                                   "height": 16,
@@ -6917,7 +7196,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "GfHNg",
+                                  "id": "nA147",
                                   "name": "Title",
                                   "fill": "$text/primary",
                                   "content": "Cómo se calcula",
@@ -6928,43 +7207,141 @@
                               ]
                             },
                             {
-                              "type": "text",
-                              "id": "JWZK8",
-                              "name": "Body",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
+                              "type": "frame",
+                              "id": "JH5H1",
+                              "name": "Rows",
                               "width": "fill_container",
-                              "content": "El BCV publica en días hábiles a las 5:00 p. m. La fecha de valor indica desde cuándo rige la tasa.",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
+                              "layout": "vertical",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "mMXkz",
+                                  "name": "Row / BCV",
+                                  "width": "fill_container",
+                                  "gap": 10,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "jrLXp",
+                                      "name": "Tag",
+                                      "fill": "$text/secondary",
+                                      "content": "BCV",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 11,
+                                      "fontWeight": "800"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "kbqeA",
+                                      "name": "Body",
+                                      "fill": "$text/secondary",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "El BCV publica en días hábiles a las 5:00 p. m.; la fecha de valor indica desde cuándo rige la tasa.",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "Y0GIs",
+                                  "name": "Row / P2P",
+                                  "width": "fill_container",
+                                  "gap": 10,
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "PdTSP",
+                                      "name": "Tag",
+                                      "fill": "$text/secondary",
+                                      "content": "P2P",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 11,
+                                      "fontWeight": "800"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "e9K3G",
+                                      "name": "Body",
+                                      "fill": "$text/secondary",
+                                      "textGrowth": "fixed-width",
+                                      "width": "fill_container",
+                                      "content": "Promedio de los anuncios de compra y venta de USDT en Binance. 1 USDT ≠ 1 USD.",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                }
+                              ]
                             },
                             {
                               "type": "frame",
-                              "id": "gDuA1",
-                              "name": "Link",
-                              "gap": 4,
+                              "id": "wehpX",
+                              "name": "Links",
+                              "gap": 16,
                               "alignItems": "center",
                               "children": [
                                 {
-                                  "type": "text",
-                                  "id": "aTb3H",
-                                  "name": "Label",
-                                  "fill": "$brand/primary",
-                                  "content": "Ver en bcv.org.ve",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "700"
+                                  "type": "frame",
+                                  "id": "lmBXY",
+                                  "name": "Link / bcv.org.ve",
+                                  "gap": 4,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "BxHUT",
+                                      "name": "Label",
+                                      "fill": "$brand/primary",
+                                      "content": "bcv.org.ve",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "cLIbJ",
+                                      "name": "External",
+                                      "width": 12,
+                                      "height": 12,
+                                      "icon": "external-link",
+                                      "library": "lucide",
+                                      "fill": "$brand/primary"
+                                    }
+                                  ]
                                 },
                                 {
-                                  "type": "icon",
-                                  "id": "frX6A",
-                                  "name": "External",
-                                  "width": 12,
-                                  "height": 12,
-                                  "icon": "external-link",
-                                  "library": "lucide",
-                                  "fill": "$brand/primary"
+                                  "type": "frame",
+                                  "id": "u5BQvC",
+                                  "name": "Link / binance.com",
+                                  "gap": 4,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "text",
+                                      "id": "nNzhd",
+                                      "name": "Label",
+                                      "fill": "$brand/primary",
+                                      "content": "binance.com",
+                                      "fontFamily": "$font/family",
+                                      "fontSize": 12,
+                                      "fontWeight": "700"
+                                    },
+                                    {
+                                      "type": "icon",
+                                      "id": "DTctn",
+                                      "name": "External",
+                                      "width": 12,
+                                      "height": 12,
+                                      "icon": "external-link",
+                                      "library": "lucide",
+                                      "fill": "$brand/primary"
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -7008,646 +7385,6 @@
                       ]
                     }
                   ]
-                },
-                {
-                  "type": "frame",
-                  "id": "tQuXA",
-                  "name": "Screen / 06 · Tasas USDT",
-                  "clip": true,
-                  "width": 390,
-                  "fill": "$bg/canvas",
-                  "layout": "vertical",
-                  "children": [
-                    {
-                      "type": "frame",
-                      "id": "NAtwv",
-                      "name": "Status bar",
-                      "width": "fill_container",
-                      "height": 62,
-                      "padding": [
-                        0,
-                        24
-                      ],
-                      "justifyContent": "space_between",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "qYy7s",
-                          "name": "Time",
-                          "fill": "$text/primary",
-                          "content": "9:41",
-                          "fontFamily": "$font/family",
-                          "fontSize": 15,
-                          "fontWeight": "700"
-                        },
-                        {
-                          "type": "frame",
-                          "id": "z7VCT9",
-                          "name": "System icons",
-                          "gap": 6,
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "icon",
-                              "id": "MzmNs",
-                              "name": "Sys signal",
-                              "width": 16,
-                              "height": 16,
-                              "icon": "signal",
-                              "library": "lucide",
-                              "fill": "$text/primary"
-                            },
-                            {
-                              "type": "icon",
-                              "id": "dhAjs",
-                              "name": "Sys wifi",
-                              "width": 16,
-                              "height": 16,
-                              "icon": "wifi",
-                              "library": "lucide",
-                              "fill": "$text/primary"
-                            },
-                            {
-                              "type": "icon",
-                              "id": "Wd62k",
-                              "name": "Sys battery-full",
-                              "width": 16,
-                              "height": 16,
-                              "icon": "battery-full",
-                              "library": "lucide",
-                              "fill": "$text/primary"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "S59mLt",
-                      "name": "Content",
-                      "width": "fill_container",
-                      "layout": "vertical",
-                      "gap": 24,
-                      "padding": [
-                        12,
-                        24,
-                        20,
-                        24
-                      ],
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "W9ctXp",
-                          "name": "Top",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "lkhnn",
-                              "name": "Header",
-                              "width": "fill_container",
-                              "justifyContent": "space_between",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "hCCNm",
-                                  "name": "Title",
-                                  "fill": "$text/primary",
-                                  "content": "Tasas USDT",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 22,
-                                  "fontWeight": "800"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "xztKd",
-                                  "name": "Icon button",
-                                  "width": 48,
-                                  "height": 48,
-                                  "cornerRadius": 12,
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "nCTrX",
-                                      "name": "Icon",
-                                      "width": 24,
-                                      "height": 24,
-                                      "icon": "info",
-                                      "library": "lucide",
-                                      "fill": "$text/secondary"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "rKaEo",
-                              "name": "Subtitle",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Referencia del mercado P2P de Binance",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "Pi3WJ",
-                              "name": "Source selector",
-                              "width": "fill_container",
-                              "height": 36,
-                              "fill": "$bg/surface",
-                              "cornerRadius": "$radius/pill",
-                              "stroke": "$border/subtle",
-                              "strokeWidth": 1,
-                              "gap": 4,
-                              "padding": 3,
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "R57u2",
-                                  "name": "Segment / BCV",
-                                  "width": "fill_container",
-                                  "height": "fill_container",
-                                  "cornerRadius": "$radius/pill",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "fzASh",
-                                      "name": "Label",
-                                      "fill": "$text/secondary",
-                                      "content": "BCV",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 14,
-                                      "fontWeight": "700"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "pxrHi",
-                                  "name": "Segment / USDT",
-                                  "width": "fill_container",
-                                  "height": "fill_container",
-                                  "fill": "$bg/brand-soft",
-                                  "cornerRadius": "$radius/pill",
-                                  "justifyContent": "center",
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "text",
-                                      "id": "TUxOH",
-                                      "name": "Label",
-                                      "fill": "$brand/primary-pressed",
-                                      "content": "USDT",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 14,
-                                      "fontWeight": "700"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "HZGBD",
-                              "name": "Freshness",
-                              "width": "fill_container",
-                              "height": 20,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "KsE47",
-                                  "name": "Updated",
-                                  "width": "fill_container",
-                                  "gap": 6,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "RNa6t",
-                                      "name": "Clock",
-                                      "width": 14,
-                                      "height": 14,
-                                      "icon": "refresh-cw",
-                                      "library": "lucide",
-                                      "fill": "$text/secondary"
-                                    },
-                                    {
-                                      "type": "text",
-                                      "id": "Ly28a",
-                                      "name": "Text",
-                                      "fill": "$text/secondary",
-                                      "content": "Actualizado hoy · 9:41 a. m.",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 12,
-                                      "fontWeight": "600"
-                                    }
-                                  ]
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "Z7EUGe",
-                                  "name": "Status",
-                                  "gap": 5,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "ellipse",
-                                      "id": "v3ufft",
-                                      "name": "Dot",
-                                      "fill": "$state/ok-ink",
-                                      "width": 6,
-                                      "height": 6
-                                    },
-                                    {
-                                      "type": "text",
-                                      "id": "QiByy",
-                                      "name": "Label",
-                                      "fill": "$state/ok-ink",
-                                      "content": "al día",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 11,
-                                      "fontWeight": "700"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "TzUyS",
-                          "name": "Compra y venta",
-                          "width": "fill_container",
-                          "gap": 12,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "hTnat",
-                              "name": "Card / Compra",
-                              "width": "fill_container",
-                              "fill": "$palette/teal-soft",
-                              "cornerRadius": 16,
-                              "stroke": "$border/subtle",
-                              "strokeWidth": 1,
-                              "layout": "vertical",
-                              "gap": 4,
-                              "padding": 16,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "sohBE",
-                                  "name": "Label",
-                                  "fill": "$state/ok-ink",
-                                  "content": "Compra",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "eQKhq",
-                                  "name": "Value",
-                                  "fill": "$text/primary",
-                                  "content": "997,49 Bs",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 18,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "FGiVS",
-                                  "name": "Change row",
-                                  "gap": 4,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "qnLtY",
-                                      "name": "Arrow",
-                                      "width": 14,
-                                      "height": 14,
-                                      "icon": "arrow-up-right",
-                                      "library": "lucide",
-                                      "fill": "$variation/up"
-                                    },
-                                    {
-                                      "type": "text",
-                                      "id": "yJMmk",
-                                      "name": "Change",
-                                      "fill": "$variation/up",
-                                      "content": "+0,8 %",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 12,
-                                      "fontWeight": "600"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "Blw0t",
-                              "name": "Card / Venta",
-                              "width": "fill_container",
-                              "fill": "$palette/coral-soft",
-                              "cornerRadius": 16,
-                              "stroke": "$border/subtle",
-                              "strokeWidth": 1,
-                              "layout": "vertical",
-                              "gap": 4,
-                              "padding": 16,
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "i55C6",
-                                  "name": "Label",
-                                  "fill": "$state/offline-ink",
-                                  "content": "Venta",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "H2kyYV",
-                                  "name": "Value",
-                                  "fill": "$text/primary",
-                                  "content": "994,35 Bs",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 18,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "frame",
-                                  "id": "ZpGEP",
-                                  "name": "Change row",
-                                  "gap": 4,
-                                  "alignItems": "center",
-                                  "children": [
-                                    {
-                                      "type": "icon",
-                                      "id": "L0BhEp",
-                                      "name": "Arrow",
-                                      "width": 14,
-                                      "height": 14,
-                                      "icon": "arrow-down-right",
-                                      "library": "lucide",
-                                      "fill": "$variation/down"
-                                    },
-                                    {
-                                      "type": "text",
-                                      "id": "ZUriL",
-                                      "name": "Change",
-                                      "fill": "$variation/down",
-                                      "content": "−0,3 %",
-                                      "fontFamily": "$font/family",
-                                      "fontSize": 12,
-                                      "fontWeight": "600"
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "id": "JAQqb",
-                          "type": "ref",
-                          "ref": "y39TzM",
-                          "width": "fill_container",
-                          "name": "RateCard / Promedio",
-                          "fill": "$bg/brand-soft",
-                          "stroke": "$brand/primary",
-                          "descendants": {
-                            "hLMcH": {
-                              "fill": "$bg/surface"
-                            },
-                            "zcA4b": {
-                              "fill": "$brand/primary-pressed",
-                              "icon": "circle-dollar-sign"
-                            },
-                            "WAUHE": {
-                              "content": "Promedio"
-                            },
-                            "zKRA8": {
-                              "content": "995,90 Bs"
-                            },
-                            "uRYcd": {
-                              "content": "+2,19 Bs (+0,22 %)"
-                            },
-                            "STDJI": {
-                              "content": "02/11/26 · 9:38 a. m."
-                            },
-                            "H5X3t": {
-                              "content": "02/11/26"
-                            },
-                            "mAGAE": {
-                              "content": "Binance P2P · binance.com"
-                            }
-                          }
-                        },
-                        {
-                          "type": "frame",
-                          "id": "OBjWu",
-                          "name": "Brecha card",
-                          "width": "fill_container",
-                          "fill": "$bg/surface",
-                          "cornerRadius": "$radius/lg",
-                          "stroke": "$border/subtle",
-                          "strokeWidth": 1,
-                          "layout": "vertical",
-                          "gap": 8,
-                          "padding": 16,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "f2Sdsx",
-                              "name": "Head",
-                              "width": "fill_container",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "Fwpvg",
-                                  "name": "Label",
-                                  "fill": "$text/primary",
-                                  "textGrowth": "fixed-width",
-                                  "width": "fill_container",
-                                  "content": "Brecha BCV ↔ USDT",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 14,
-                                  "fontWeight": "600"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "GS4hF",
-                                  "name": "Value",
-                                  "fill": "$text/primary",
-                                  "content": "+11,95 %",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 18,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "PpDK2",
-                              "name": "Formula",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "(USDT promedio − BCV) ÷ BCV",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "text",
-                              "id": "W1fh3",
-                              "name": "Reference",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "BCV 889,5754 Bs · USDT 995,90 Bs",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "YHWXf",
-                          "name": "Method note",
-                          "width": "fill_container",
-                          "layout": "vertical",
-                          "gap": 8,
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "TEb68",
-                              "name": "Head",
-                              "gap": 6,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "icon",
-                                  "id": "lf65c",
-                                  "name": "Icon",
-                                  "width": 16,
-                                  "height": 16,
-                                  "icon": "info",
-                                  "library": "lucide",
-                                  "fill": "$text/secondary"
-                                },
-                                {
-                                  "type": "text",
-                                  "id": "E1x8N",
-                                  "name": "Title",
-                                  "fill": "$text/primary",
-                                  "content": "Cómo se calcula",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 14,
-                                  "fontWeight": "700"
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "lFbnv",
-                              "name": "Body",
-                              "fill": "$text/secondary",
-                              "textGrowth": "fixed-width",
-                              "width": "fill_container",
-                              "content": "Promedio de los anuncios de compra y venta de USDT en Binance P2P. La brecha compara ese promedio con el dólar oficial. 1 USDT ≠ 1 USD.",
-                              "fontFamily": "$font/family",
-                              "fontSize": 12,
-                              "fontWeight": "600"
-                            },
-                            {
-                              "type": "frame",
-                              "id": "MVa3t",
-                              "name": "Link",
-                              "gap": 4,
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "dp2Pg",
-                                  "name": "Label",
-                                  "fill": "$brand/primary",
-                                  "content": "Ver en binance.com",
-                                  "fontFamily": "$font/family",
-                                  "fontSize": 12,
-                                  "fontWeight": "700"
-                                },
-                                {
-                                  "type": "icon",
-                                  "id": "R4wWq",
-                                  "name": "External",
-                                  "width": 12,
-                                  "height": 12,
-                                  "icon": "external-link",
-                                  "library": "lucide",
-                                  "fill": "$brand/primary"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "id": "z1QzBC",
-                          "type": "ref",
-                          "ref": "VC83g",
-                          "width": "fill_container",
-                          "name": "Share CTA",
-                          "descendants": {
-                            "dA4U5": {
-                              "content": "Compartir tasas"
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "LVZjS",
-                      "name": "Tab wrap",
-                      "width": "fill_container",
-                      "height": 84,
-                      "layout": "vertical",
-                      "padding": [
-                        0,
-                        16,
-                        12,
-                        16
-                      ],
-                      "children": [
-                        {
-                          "id": "UUlGg",
-                          "type": "ref",
-                          "ref": "FihiG",
-                          "name": "Tab bar",
-                          "width": "fill_container"
-                        }
-                      ]
-                    }
-                  ]
                 }
               ]
             },
@@ -7673,24 +7410,24 @@
                   "id": "RvjZy",
                   "name": "Note",
                   "fill": "$text/secondary",
-                  "content": "Skeleton de dos tarjetas mientras se actualiza y error con reintento. §13.4.",
+                  "content": "Skeleton de tres fichas mientras se actualiza y error con reintento. §13.4.",
                   "fontFamily": "$font/family",
                   "fontSize": 12,
                   "fontWeight": "600"
                 },
                 {
                   "type": "frame",
-                  "id": "oI1fg",
+                  "id": "GHafx",
                   "name": "Row",
                   "gap": 24,
                   "children": [
                     {
                       "type": "frame",
-                      "id": "iarmF",
+                      "id": "K1nQk",
                       "name": "Carga",
                       "clip": true,
                       "width": 390,
-                      "height": 488,
+                      "height": 725,
                       "fill": "$bg/canvas",
                       "cornerRadius": 16,
                       "layout": "vertical",
@@ -7700,7 +7437,7 @@
                         {
                           "type": "rectangle",
                           "cornerRadius": 8,
-                          "id": "uDdHu",
+                          "id": "H4aX2Z",
                           "name": "Skeleton / Title",
                           "fill": "$border/strong",
                           "width": 120,
@@ -7708,17 +7445,17 @@
                         },
                         {
                           "type": "rectangle",
-                          "cornerRadius": "$radius/pill",
-                          "id": "oxxtS",
-                          "name": "Skeleton / Selector",
+                          "cornerRadius": 6,
+                          "id": "zPme6",
+                          "name": "Skeleton / Section",
                           "fill": "$border/subtle",
-                          "width": "fill_container",
-                          "height": 36
+                          "width": 56,
+                          "height": 14
                         },
                         {
                           "type": "frame",
-                          "id": "NEwTd",
-                          "name": "Skeleton / Card 1",
+                          "id": "DJsna",
+                          "name": "Skeleton / Card",
                           "width": "fill_container",
                           "height": 164,
                           "fill": "$bg/surface",
@@ -7731,7 +7468,7 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "HME0w",
+                              "id": "uxcjc",
                               "name": "Head",
                               "gap": 10,
                               "alignItems": "center",
@@ -7739,7 +7476,7 @@
                                 {
                                   "type": "rectangle",
                                   "cornerRadius": 12,
-                                  "id": "QdTtD",
+                                  "id": "CKS1g",
                                   "name": "Skeleton / Chip",
                                   "fill": "$border/subtle",
                                   "width": 40,
@@ -7748,7 +7485,7 @@
                                 {
                                   "type": "rectangle",
                                   "cornerRadius": 6,
-                                  "id": "JY1kT",
+                                  "id": "PFiZ1",
                                   "name": "Skeleton / Name",
                                   "fill": "$border/subtle",
                                   "width": 80,
@@ -7759,7 +7496,7 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "U7nM2H",
+                              "id": "T07eb",
                               "name": "Skeleton / Change",
                               "fill": "$border/subtle",
                               "width": 120,
@@ -7767,7 +7504,7 @@
                             },
                             {
                               "type": "rectangle",
-                              "id": "vRmVk",
+                              "id": "gTzCZ",
                               "name": "Skeleton / Rule",
                               "fill": "$border/subtle",
                               "width": "fill_container",
@@ -7776,7 +7513,7 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "DsvHz",
+                              "id": "Bxxai",
                               "name": "Skeleton / Meta 1",
                               "fill": "$border/subtle",
                               "width": 140,
@@ -7785,7 +7522,7 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "YjUyg",
+                              "id": "Pp1v1",
                               "name": "Skeleton / Meta 2",
                               "fill": "$border/subtle",
                               "width": 180,
@@ -7795,8 +7532,8 @@
                         },
                         {
                           "type": "frame",
-                          "id": "BTCHH",
-                          "name": "Skeleton / Card 2",
+                          "id": "n1dFJ",
+                          "name": "Skeleton / Card",
                           "width": "fill_container",
                           "height": 164,
                           "fill": "$bg/surface",
@@ -7809,7 +7546,7 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "DMGid",
+                              "id": "XRuB4",
                               "name": "Head",
                               "gap": 10,
                               "alignItems": "center",
@@ -7817,7 +7554,7 @@
                                 {
                                   "type": "rectangle",
                                   "cornerRadius": 12,
-                                  "id": "N78lzp",
+                                  "id": "S28B2E",
                                   "name": "Skeleton / Chip",
                                   "fill": "$border/subtle",
                                   "width": 40,
@@ -7826,7 +7563,7 @@
                                 {
                                   "type": "rectangle",
                                   "cornerRadius": 6,
-                                  "id": "gxJqD",
+                                  "id": "T6VVtK",
                                   "name": "Skeleton / Name",
                                   "fill": "$border/subtle",
                                   "width": 80,
@@ -7837,7 +7574,7 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "D9PzBn",
+                              "id": "mFgza",
                               "name": "Skeleton / Change",
                               "fill": "$border/subtle",
                               "width": 120,
@@ -7845,7 +7582,7 @@
                             },
                             {
                               "type": "rectangle",
-                              "id": "TjHTk",
+                              "id": "ZJuxz",
                               "name": "Skeleton / Rule",
                               "fill": "$border/subtle",
                               "width": "fill_container",
@@ -7854,7 +7591,7 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "QNzTG",
+                              "id": "S54a1",
                               "name": "Skeleton / Meta 1",
                               "fill": "$border/subtle",
                               "width": 140,
@@ -7863,7 +7600,167 @@
                             {
                               "type": "rectangle",
                               "cornerRadius": 6,
-                              "id": "o14xXO",
+                              "id": "mBp0D",
+                              "name": "Skeleton / Meta 2",
+                              "fill": "$border/subtle",
+                              "width": 180,
+                              "height": 12
+                            }
+                          ]
+                        },
+                        {
+                          "type": "rectangle",
+                          "cornerRadius": 6,
+                          "id": "NOc6v",
+                          "name": "Skeleton / Section",
+                          "fill": "$border/subtle",
+                          "width": 90,
+                          "height": 14
+                        },
+                        {
+                          "type": "frame",
+                          "id": "axEMG",
+                          "name": "Skeleton / Card",
+                          "width": "fill_container",
+                          "height": 213,
+                          "fill": "$bg/surface",
+                          "cornerRadius": 16,
+                          "stroke": "$border/subtle",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 16,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "oak5g",
+                              "name": "Head",
+                              "gap": 10,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 12,
+                                  "id": "e4ZDfC",
+                                  "name": "Skeleton / Chip",
+                                  "fill": "$border/subtle",
+                                  "width": 40,
+                                  "height": 40
+                                },
+                                {
+                                  "type": "rectangle",
+                                  "cornerRadius": 6,
+                                  "id": "hR2uy",
+                                  "name": "Skeleton / Name",
+                                  "fill": "$border/subtle",
+                                  "width": 80,
+                                  "height": 20
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "FMmEl",
+                              "name": "Skeleton / Change",
+                              "fill": "$border/subtle",
+                              "width": 120,
+                              "height": 16
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "MUX8f",
+                              "name": "Skeleton / Rule",
+                              "fill": "$border/subtle",
+                              "width": "fill_container",
+                              "height": 1
+                            },
+                            {
+                              "type": "frame",
+                              "id": "FRDfR",
+                              "name": "Split",
+                              "width": "fill_container",
+                              "gap": 8,
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "eInuW",
+                                  "name": "Col",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 4,
+                                  "children": [
+                                    {
+                                      "type": "rectangle",
+                                      "cornerRadius": 4,
+                                      "id": "nunj3",
+                                      "name": "Skeleton / Label",
+                                      "fill": "$border/subtle",
+                                      "width": 44,
+                                      "height": 10
+                                    },
+                                    {
+                                      "type": "rectangle",
+                                      "cornerRadius": 6,
+                                      "id": "Pfid7",
+                                      "name": "Skeleton / Value",
+                                      "fill": "$border/subtle",
+                                      "width": 96,
+                                      "height": 16
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "Rd9xU",
+                                  "name": "Col",
+                                  "width": "fill_container",
+                                  "layout": "vertical",
+                                  "gap": 4,
+                                  "children": [
+                                    {
+                                      "type": "rectangle",
+                                      "cornerRadius": 4,
+                                      "id": "xDqeQ",
+                                      "name": "Skeleton / Label",
+                                      "fill": "$border/subtle",
+                                      "width": 44,
+                                      "height": 10
+                                    },
+                                    {
+                                      "type": "rectangle",
+                                      "cornerRadius": 6,
+                                      "id": "eoJ8x",
+                                      "name": "Skeleton / Value",
+                                      "fill": "$border/subtle",
+                                      "width": 96,
+                                      "height": 16
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "rectangle",
+                              "id": "vwPWV",
+                              "name": "Skeleton / Rule",
+                              "fill": "$border/subtle",
+                              "width": "fill_container",
+                              "height": 1
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "wWCFb",
+                              "name": "Skeleton / Meta 1",
+                              "fill": "$border/subtle",
+                              "width": 140,
+                              "height": 12
+                            },
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 6,
+                              "id": "hMgyM",
                               "name": "Skeleton / Meta 2",
                               "fill": "$border/subtle",
                               "width": 180,
@@ -7875,11 +7772,11 @@
                     },
                     {
                       "type": "frame",
-                      "id": "tc1c6",
+                      "id": "adHDM",
                       "name": "Error",
                       "clip": true,
                       "width": 390,
-                      "height": 488,
+                      "height": 725,
                       "fill": "$bg/canvas",
                       "cornerRadius": 16,
                       "layout": "vertical",
@@ -7888,17 +7785,17 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "QOWjm",
+                          "id": "x4N25R",
                           "name": "Title",
                           "fill": "$text/primary",
-                          "content": "Tasas BCV",
+                          "content": "Tasas",
                           "fontFamily": "$font/family",
                           "fontSize": 22,
                           "fontWeight": "800"
                         },
                         {
                           "type": "frame",
-                          "id": "iRAOK",
+                          "id": "JUvui",
                           "name": "Error block",
                           "width": "fill_container",
                           "height": "fill_container",
@@ -7909,17 +7806,17 @@
                           "children": [
                             {
                               "type": "icon",
-                              "id": "uS8K2",
+                              "id": "bZysA",
                               "name": "Icon",
                               "width": 32,
                               "height": 32,
                               "icon": "cloud-off",
                               "library": "lucide",
-                              "fill": "$text/tertiary"
+                              "fill": "$text/secondary"
                             },
                             {
                               "type": "text",
-                              "id": "v6tTH",
+                              "id": "yfxyT",
                               "name": "Message",
                               "fill": "$text/primary",
                               "content": "No pudimos actualizar las tasas.",
@@ -7928,7 +7825,7 @@
                               "fontWeight": "600"
                             },
                             {
-                              "id": "Z08OEb",
+                              "id": "kaf4R",
                               "type": "ref",
                               "ref": "VC83g",
                               "name": "Button / Reintentar",
