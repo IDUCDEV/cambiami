@@ -188,10 +188,11 @@ Familia única: **Nunito** (Google Fonts, OFL). Pesos usados: 400, 600, 700, 800
 ### Layout
 
 - Ancho de referencia: **390 px** (iPhone 14/15). Verificar en **360 px** (Android común).
-- Padding horizontal de pantalla: **20 px**, aplicado una sola vez en el contenedor.
+- Padding horizontal de pantalla: **24 px**, aplicado una sola vez en el contenedor de contenido (`Content`), nunca en el frame raíz.
+- Padding vertical del contenido: **12 px** arriba y **20 px** abajo.
 - Separación entre secciones: **24 px**. Dentro de una sección: **12 px**.
 - Alto del status bar: **62 px**. Nunca se dibuja UI debajo.
-- Tab bar: **56 px** de alto, flotante, inset 16 px laterales y 12 px inferiores.
+- Tab bar: **72 px** de alto, flotante, inset 16 px laterales y 12 px inferiores. El FAB central de 60 px sobresale 16 px por encima.
 - Área táctil mínima: **48×48 px**.
 
 ### Radios
@@ -302,15 +303,18 @@ Ancho: `fill_container` (4 en fila, gap 8). Alto mínimo 56. Radio `radius/md`.
 - Icono 16 + texto `type/caption` en el `-ink` del estado.
 - Aparece entre el header y el contenido. Nunca flota sobre el contenido.
 
-### 7.5 `TabBar` (3 destinos en v1)
+### 7.5 `TabBar` (3 destinos en v1, Calculadora elevada)
 
-- Flotante, 56 px de alto y 350 de ancho, radio pill, `bg/surface` + `shadow/floating`, padding 4.
-- Items de 48 de alto (área táctil mínima), ancho igual repartido, radio pill.
-- Item: icono 24 **arriba**, label `type/micro` debajo, gap 2. Vertical, no horizontal: con 3 destinos la etiqueta `Configuración` no cabe al lado del icono.
-- Activo: icono y label en `brand/primary`, fondo pill `bg/brand-soft`. Inactivo: `text/secondary`, sin fondo.
+- Flotante, **72 px de alto**, radio pill, `bg/surface` + `shadow/floating`, padding `[0, 6, 6, 6]`. Ocupa el ancho disponible entre los insets de 16 px (**358 px** a 390).
+- Tres zonas en fila: `Tab / Tasas` (fill), `Center` (72) y `Tab / Configuración` (fill). Los tabs miden 137 × 66.
+- Item lateral: icono 24 **arriba**, label 11 debajo, gap 2, alineado abajo. Vertical, no horizontal: `Configuración` no cabe al lado del icono.
+- **Centro elevado:** slot de 72 × 66 con un FAB circular de **60 px** en `y = -16`, de modo que sobresale 16 px por encima de la barra. Icono `calculator` de 28 centrado.
+- **Activo:** icono y label en `brand/primary`, peso **800**. El FAB va relleno `brand/primary` con icono `text/on-brand`.
+- **Inactivo:** `text/secondary`, peso **600**, sin pill de fondo. El FAB va en `bg/brand-soft` con icono `brand/primary`. El peso tipográfico es la segunda señal, no solo el color.
+- El label `Calculadora` va centrado bajo el FAB (72 px, `textAlign: center`, `y = 50`).
 - Destinos: **Calculadora** (`calculator`), **Tasas** (`trending-up`) y **Configuración** (`settings`).
 
-Con 3 items cada uno mide 111 px y `Configuración` (76 px a 11/700) cabe incluso con el texto escalado a 1,3×. Un cuarto destino no cabría con etiqueta visible: a 86 px no entra icono + label.
+Los 137 px de cada tab dejan sitio a `Configuración` (76 px a 11/600) incluso con el texto escalado a 1,3×. Un cuarto destino no cabría con etiqueta visible.
 
 En el archivo hay tres componentes, uno por estado activo: `TabBar / Calculadora`, `TabBar / Tasas` y `TabBar / Configuracion`.
 
@@ -422,6 +426,8 @@ El MVP v1 son **11 artboards** en `design/cambiami.pen`. Esta es la lista canón
 | 10 | Compartir | sheet sobre Calculadora | `Screen / 10 · Compartir (sheet)` |
 
 Los estados `cargando` y `error` de Tasas (05 y 06) están especificados en §13.4 pero **todavía no dibujados**: son lo único que falta en el archivo de diseño.
+
+En el archivo, las 11 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
 
 ### 12.1 Flujo de navegación
 

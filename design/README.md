@@ -39,7 +39,43 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 
 Las cuatro pantallas de Calculadora llevan una sola acción en la cabecera: `Share button` (`share-2`, abre Compartir). Configuración ya no se alcanza desde ahí.
 
-**Barra inferior:** 56 px flotante, tres destinos (`Calculadora`, `Tasas`, `Configuración`), con tres componentes — uno por estado activo. La llevan 02, 03, 04, 05, 06 y 07; no la llevan 02b (teclado abierto) ni 08 Información (detalle).
+**Barra inferior:** 72 px flotante con la **Calculadora elevada en el centro** (FAB circular de 60 px que sobresale 16 px), tres destinos (`Tasas`, `Calculadora`, `Configuración`), con tres componentes — uno por estado activo. La llevan 02, 03, 04, 05, 06 y 07; no la llevan 02b (teclado abierto) ni 08 Información (detalle).
+
+### Organización por historia de usuario
+
+El frame `Board · Pantallas por historia` agrupa las 11 pantallas por las HU de `docs/PLAN_DE_DESARROLLO.md`. Regla: **una sola copia de cada pantalla**, colocada bajo la historia de la que es sujeto.
+
+| Grupo | Pantallas |
+|:--|:--|
+| HU-01 · Abrir la app y ver la tasa inmediatamente | 01 Splash |
+| HU-02 · Calcular dólares a bolívares al instante | 02, 02b |
+| HU-03 · Saber si la tasa está actualizada | 03 |
+| HU-04 · Calcular sin internet | 04 |
+| HU-06 · Ver varias tasas al mismo tiempo | 09 |
+| HU-07 · Elegir mi moneda predeterminada | 07 |
+| HU-08 · Saber de dónde vienen los datos | 08 |
+| HU-10 · Compartir el cálculo por WhatsApp | 10 |
+| Sin historia asignada | 05, 06 |
+
+**Matriz de apariciones** (una pantalla puede salir en varias historias sin duplicarse):
+
+| Pantalla | Sujeto de | También aparece en |
+|:--|:--|:--|
+| 01 Splash | HU-01 | — |
+| 02 Calculadora | HU-02 | HU-01 (destino del arranque), HU-03, HU-04, HU-06 |
+| 02b Calculadora · escribiendo | HU-02 | — |
+| 03 Calculadora · desactualizado | HU-03 | HU-04 |
+| 04 Calculadora · sin conexión | HU-04 | HU-03 |
+| 05 Tasas BCV | **pendiente** | HU-03 |
+| 06 Tasas USDT | **pendiente** | HU-03 |
+| 07 Configuración | HU-07 | HU-08 (se entra a Información desde ahí) |
+| 08 Información | HU-08 | — |
+| 09 Monedas | HU-06 | — |
+| 10 Compartir | HU-10 | — |
+
+HU-05 (formato es-VE) es transversal: no tiene pantalla propia, aplica a todas.
+
+**Numeración:** el diseño usa `01–10`. El brief (`docs/TASAVE_DOCUMENTO_UNIFICADO.md`) usa `APP-SCR-01…11` con otra correspondencia (su `APP-SCR-03` es Tasas BCV, no la calculadora desactualizada). En este repositorio manda la numeración del diseño.
 
 ### Variables
 
