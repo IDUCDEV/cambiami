@@ -2452,7 +2452,10 @@
           "type": "frame",
           "id": "sMfxf",
           "name": "Row · Calculator",
+          "fill": "$bg/brand-soft",
+          "cornerRadius": "$radius/lg",
           "gap": 24,
+          "padding": "$radius/lg",
           "children": [
             {
               "type": "frame",
@@ -2656,7 +2659,7 @@
           "name": "Banner / desactualizado",
           "fill": "$state/warn-bg",
           "x": 40,
-          "y": 889,
+          "y": 921,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2679,7 +2682,7 @@
           "name": "Banner / sin conexion",
           "fill": "$state/offline-bg",
           "x": 40,
-          "y": 949,
+          "y": 981,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -4344,7 +4347,7 @@
                   "id": "i568wB",
                   "name": "Content",
                   "width": "fill_container",
-                  "fill": "$palette/amber-soft",
+                  "fill": "$bg/brand-soft",
                   "layout": "vertical",
                   "gap": 24,
                   "padding": [
@@ -4520,7 +4523,7 @@
                       "id": "Yle5x",
                       "name": "Content",
                       "width": "fill_container",
-                      "fill": "$palette/coral-soft",
+                      "fill": "$bg/brand-soft",
                       "layout": "vertical",
                       "gap": 24,
                       "padding": [
