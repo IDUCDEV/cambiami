@@ -3,7 +3,7 @@
 > **Producto:** Cambiami (app móvil de tasas de cambio y calculadora USD/VES)
 > **Entidad legal:** TasaVE C.A. · RIF J-30452819-5
 > **Plataforma:** Flutter (Android + iOS)
-> **Versión:** 1.1 · 2026-11-11
+> **Versión:** 1.2 · 2026-11-13
 > **Fuentes de verdad:** `PLAN_DE_DESARROLLO.md` (alcance), `TASAVE_DOCUMENTO_UNIFICADO.md` (brief)
 > **Assets de marca:** `design/`
 > **Archivo de diseño:** `design/cambiami.pen` (pen.dev)
@@ -55,6 +55,7 @@ Este documento es la referencia única de color, tipografía, espaciado, compone
 - `design/cambiami_logo_exact.svg` **no es vectorial**: contiene un PNG embebido en base64.
 - `design/Cambiami Brand Style Board (Editado).svg` es un autotrace (VTracer) del board, no un logo limpio.
 - **Acción pendiente:** exportar lockup horizontal y monocromo como SVG real desde el archivo fuente de marca antes de H4 (build de tienda).
+- El wordmark del splash es **texto** en Nunito 800 (`cambiami`); se sustituye por el SVG definitivo cuando exista.
 
 ---
 
@@ -88,7 +89,7 @@ En el archivo solo existen como variable los primitivos que la UI usa de verdad.
 | `bg/inverse` | `#29243D` | Splash, botón oscuro |
 | `bg/brand-soft` | `#F1E4FE` | Chip seleccionado, highlight |
 | `text/primary` | `#29243D` | Cifras, títulos (14,2:1) |
-| `text/secondary` | `#76717E` | Fuente, fecha, estado (4,53:1) |
+| `text/secondary` | `#6B6673` | Fuente, fecha, estado (5,32:1) |
 | `text/tertiary` | `#A29DAE` | Solo decorativo / deshabilitado (2,52:1 — **nunca texto esencial**) |
 | `text/on-brand` | `#FFFFFF` | Texto sobre morado (4,76:1) |
 | `text/on-inverse` | `#FFF9F1` | Texto sobre `bg/inverse` (14,2:1) |
@@ -98,7 +99,7 @@ En el archivo solo existen como variable los primitivos que la UI usa de verdad.
 | `brand/primary` | `#9944EE` | Acción primaria, selección |
 | `brand/primary-pressed` | `#7A2BD1` | Estado pulsado |
 | `focus/ring` | `#9944EE` @ 24 % | Anillo de foco |
-| `state/ok-ink` | `#0B7C7E` | Texto e icono del estado "al día" |
+| `state/ok-ink` | `#0A7476` | Texto e icono del estado "al día" |
 | `state/warn-ink` | `#7A5200` | Texto e icono del estado "desactualizado" |
 | `state/offline-ink` | `#C93B2A` | Texto e icono del estado "sin conexión" |
 | `state/ok-bg` | `#E3F8F8` | Fondo del banner "al día" |
@@ -111,7 +112,7 @@ Los `state/*-bg` son **sólidos**, no alpha: así el contraste no depende de la 
 
 | Estado | Fondo | Texto/icono | Hex de texto | Contraste |
 |:--|:--|:--|:--|:--|
-| `al_dia` | `state/ok-bg` `#E3F8F8` | `state/ok-ink` | `#0B7C7E` | 4,54:1 ✅ |
+| `al_dia` | `state/ok-bg` `#E3F8F8` | `state/ok-ink` | `#0A7476` | 5,05:1 ✅ |
 | `desactualizado` | `state/warn-bg` `#FFD166` | `state/warn-ink` | `#7A5200` | 4,80:1 ✅ |
 | `sin_conexión` | `state/offline-bg` `#FFF0EE` | `state/offline-ink` | `#C93B2A` | 4,57:1 ✅ |
 
@@ -123,9 +124,9 @@ Los contrastes de esta tabla son **texto sobre el fondo del banner**, no sobre `
 
 | Token | Hex | Uso |
 |:--|:--|:--|
-| `variation/up` | `#0B7C7E` | Flecha ↗ y cifra positiva |
+| `variation/up` | `#0A7476` | Flecha ↗ y cifra positiva |
 | `variation/down` | `#C93B2A` | Flecha ↘ y cifra negativa |
-| `variation/flat` | `#76717E` | Sin cambio (→) |
+| `variation/flat` | `#6B6673` | Sin cambio (→) |
 
 La variación no es buena ni mala: no se usan verde/rojo semánticos de éxito/error. Se usan los tokens `variation/*`.
 
@@ -340,13 +341,13 @@ Cuatro niveles: valor (18/800) → variación (12/600, color de variación) → 
 | Gap interno | 4 entre Head y Change; 6 dentro de `Details` |
 | Alto | **164** (con las dos fechas) |
 
-El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el `StatusPill` de la franja de frescura (§7.8). Si una tasa concreta se desvía del estado global, su `Source link` antepone la palabra (`desactualizado`, `sin conexión`) en `state/warn-ink` o `state/offline-ink`.
+El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el `StatusPill` de la franja de frescura (§7.7). Si una tasa concreta se desvía del estado global, su `Source link` antepone la palabra (`desactualizado`, `sin conexión`) en `state/warn-ink` o `state/offline-ink`.
 
-**Las tres fechas.** `Publicado` = `published_at`, `Vigente desde` = `effective_from`; la tercera, `fetched_at`, va en la franja (§7.8). Ninguna se repite en dos sitios.
+**Las tres fechas.** `Publicado` = `published_at`, `Vigente desde` = `effective_from`; la tercera, `fetched_at`, va en la franja (§7.7). Ninguna se repite en dos sitios.
 
 **USDT.** En las tasas P2P `effective_from` puede coincidir con `published_at`: si coinciden, la segunda columna se oculta y la rejilla pasa a una columna. No se inventa una fecha distinta.
 
-**Variante USDT (`RateCard / Ficha · USDT P2P`).** La ficha se titula **`USDT`** (la moneda), no `Promedio` (la estadística): el nombre de la tarjeta responde a *qué tasa es*, igual que `Dólar` y `Euro`. El valor grande es el promedio y la variación lo declara (`Promedio · +2,19 Bs (+0,22 %)`). Entre la variación y las fechas añade una fila de dos columnas con `Compra` y `Venta`: etiqueta 11/700 `text/secondary`, valor 14/800 `text/primary`, variación 11/700 en su color. Sube a **213 px**. Fondo `bg/surface` como el resto, con borde `brand/primary` 1 px y chip en `bg/brand-soft` con icono `brand/primary-pressed`. La identidad de USDT vive en el chip y el borde, no en un tinte de fondo: sobre `bg/brand-soft` el texto secundario cae a 3,9:1 y rompe AA.
+**Variante USDT (`RateCard / Ficha · USDT P2P`).** La ficha se titula **`USDT`** (la moneda), no `Promedio` (la estadística): el nombre de la tarjeta responde a *qué tasa es*, igual que `Dólar` y `Euro`. El valor grande es el promedio y la variación lo declara (`Promedio · +2,19 Bs (+0,22 %)`). Entre la variación y las fechas añade una fila de dos columnas con `Compra` y `Venta`: etiqueta 11/700 `text/secondary`, valor 14/800 `text/primary`, variación 11/700 en su color. Sube a **213 px**. Fondo `bg/surface` como el resto, con borde `brand/primary` 1 px y chip en `bg/brand-soft` con icono `brand/primary-pressed`. La identidad de USDT vive en el chip y el borde, no en un tinte de fondo: así el valor y la variación se leen siempre sobre `bg/surface`.
 
 **Variante compacta (`RateCard / Compacta`).** Es la ficha de la calculadora (02, 02b, 03 y 04) y **hace de selector**: el nombre y el chevron viven en el mismo `Head`, así que la tasa no se repite en dos bloques.
 
@@ -369,29 +370,13 @@ El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el
 
 - **`Label`** = nombre de la tasa + `chevron-down` 16 (`text/secondary`). Toda la ficha abre 09 Monedas: es el selector.
 - **`Swap`** = `arrow-up-down` 16 al final del `Head`; cambia el sentido del cálculo (dólares ↔ bolívares), no la tasa. Es una acción distinta del toque que abre 09 Monedas: necesita su propio hit target (44×44 mínimo) sin solaparse con el de la ficha.
-- Sin `Details` ni divider: no lleva fechas. La procedencia (`BCV · bcv.org.ve`) va en `Meta` y la frescura, en la franja de arriba (§7.8). El nombre es la moneda (`Dólar`, `Euro`, `USDT`, `Mi tasa`), igual que en 05.
+- Sin `Details` ni divider: no lleva fechas. La procedencia (`BCV · bcv.org.ve`) va en `Meta` y la frescura, en la franja de arriba (§7.7). El nombre es la moneda (`Dólar`, `Euro`, `USDT`, `Mi tasa`), igual que en 05.
 - La flecha sigue `is_down` (`arrow-down-right` + `variation/down`).
 - **Mi tasa** oculta la franja de frescura y la fuente pasa a `Definida por ti`: no hay `published_at` ni `fetched_at` que mostrar.
-- El estado no se escribe dos veces: en la calculadora lo lleva el pill de la franja (§7.8) y el `Source` se queda en `BCV · bcv.org.ve`. El prefijo `desactualizado` / `sin conexión` es solo para la ficha de Tasas, donde no hay franja por tarjeta.
+- El estado no se escribe dos veces: en la calculadora lo lleva el pill de la franja (§7.7) y el `Source` se queda en `BCV · bcv.org.ve`. El prefijo `desactualizado` / `sin conexión` es solo para la ficha de Tasas, donde no hay franja por tarjeta.
 - **USDT** usa esta variante sin Compra/Venta: las dos columnas viven solo en la ficha completa de 05.
 
-### 7.3 `RateChip` — selector multi-tasa (máx. 4)
-
-```
-┌────────────┐
-│ BCV        │  type/micro, secondary
-│ 889,58     │  type/label, primary
-└────────────┘
-```
-
-| Estado | Fondo | Borde | Texto |
-|:--|:--|:--|:--|
-| Normal | `bg/surface` | `border/subtle` 1 px | `text/secondary` / `text/primary` |
-| Seleccionado | `bg/brand-soft` | `brand/primary` 2 px | `brand/primary-pressed` / `text/primary` |
-
-Ancho: `fill_container` (4 en fila, gap 8). Alto mínimo 56. Radio `radius/md`.
-
-### 7.4 `StatusBanner`
+### 7.3 `StatusBanner`
 
 ```
 ┌──────────────────────────────────┐
@@ -400,11 +385,11 @@ Ancho: `fill_container` (4 en fila, gap 8). Alto mínimo 56. Radio `radius/md`.
 └──────────────────────────────────┘
 ```
 
-- Alto mínimo 44, padding [10, 12], radio `radius/md`, gap 8.
+- Alto mínimo 36, padding [10, 12], radio `radius/md`, gap 8.
 - Icono 16 + texto `type/caption` en el `-ink` del estado.
 - Aparece entre el header y el contenido. Nunca flota sobre el contenido.
 
-### 7.5 `TabBar` (3 destinos en v1, Calculadora elevada)
+### 7.4 `TabBar` (3 destinos en v1, Calculadora elevada)
 
 - Flotante, **72 px de alto**, radio pill, `bg/surface` + `shadow/floating`, padding `[0, 6, 6, 6]`. Ocupa el ancho disponible entre los insets de 16 px (**358 px** a 390).
 - Tres zonas en fila: `Tab / Tasas` (fill), `Center` (72) y `Tab / Configuración` (fill). Los tabs miden 137 × 66.
@@ -419,7 +404,7 @@ Los 137 px de cada tab dejan sitio a `Configuración` (76 px a 11/600) incluso c
 
 En el archivo hay tres componentes, uno por estado activo: `TabBar / Calculadora`, `TabBar / Tasas` y `TabBar / Configuracion`.
 
-### 7.6 Botones
+### 7.5 Botones
 
 | Variante | Fondo | Texto | Uso |
 |:--|:--|:--|:--|
@@ -430,11 +415,13 @@ En el archivo hay tres componentes, uno por estado activo: `TabBar / Calculadora
 
 Alto 48, radio `radius/md`, padding horizontal 20, texto `type/body-strong`.
 
-### 7.7 `RateRow` (lista en modal Monedas)
+### 7.6 `RateRow` (lista en modal Monedas)
 
-Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) + nombre (`type/body-strong`) + valor (`type/body-strong`, derecha) + indicador "En calculadora" (`type/caption`, `brand/primary`) cuando aplica.
+Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) + nombre (`type/body-strong`) + valor (`type/body-strong`, derecha) + indicador "En calculadora" (`type/micro` 11/700, `brand/primary`) cuando aplica. La fila de la tasa activa lleva el nombre en `brand/primary-pressed` y el indicador; las demás, en `text/primary`.
 
-### 7.8 `FreshnessStrip` — frescura y estado de la vista
+El sheet de 09 mide **404 px** y reutiliza el patrón de §7.10: radio `[20, 20, 0, 0]`, padding `[12, 20, 20, 20]`, gap 16, asa 36×4, cabecera `Monedas` (`type/h2`) + `✕` de 40×40, filas de 56 separadas por `border/subtle` de 1 px y `Button/Primary` `Aplicar` de 48 al pie. No lleva barra inferior.
+
+### 7.7 `FreshnessStrip` — frescura y estado de la vista
 
 ```
 ⟳ Actualizado hoy · 9:41 a. m.              ● al día
@@ -446,7 +433,7 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 - El pill es el estado **de la vista**, no de cada tarjeta: no se repite salvo que una tasa se desvíe (§7.2).
 - **En la calculadora** va dentro del cuerpo, **sobre la ficha compacta** (§7.2): el estado se lee antes que el valor y la fecha no se duplica con el `Source` de la ficha. En 02b (teclado abierto) se oculta la ficha, nunca la franja. **En Tasas** va bajo la cabecera y sobre el primer grupo.
 
-### 7.9 `MethodNote` — "Cómo se calcula"
+### 7.8 `MethodNote` — "Cómo se calcula"
 
 ```
 ⓘ Cómo se calcula
@@ -463,18 +450,18 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 - Sustituye a los disclaimers sueltos de 05. El texto legal completo sigue viviendo solo en 08 (§13.6).
 - Máximo 2 líneas de cuerpo por fila a 390 px. Si el copy crece, se recorta el copy, no el ancho.
 
-### 7.10 `SectionHeader` — grupos del catálogo de Tasas
+### 7.9 `SectionHeader` — grupos del catálogo de Tasas
 
 - `Oficial` y `Mercado P2P`: `type/label` 13/800 en `text/secondary`, sobre `bg/canvas`, 12 px por encima de la lista.
 - Agrupan por **mercado**, no por fuente: `official` está en `rate_snapshots` y la fuente sigue en el pie de cada ficha.
 - Un grupo nuevo (USDC, otra stablecoin) es una fila más dentro del grupo existente; no cambia la estructura de la pantalla.
 
-### 7.11 `MiTasaSheet` — editar Mi tasa
+### 7.10 `MiTasaSheet` — editar Mi tasa
 
 ```
 ┌──────────────────────────────────┐
 │               ────               │  asa 36×4
-│ Mi tasa                      ✕   │  type/h3 + cerrar 40
+│ Mi tasa                      ✕   │  type/h2 + cerrar 40
 │ ┌──────────────────────────────┐ │
 │ │ Bolívares                 Bs │ │  AmountCard, borde activo
 │ │ 1.000,00                     │ │
@@ -501,7 +488,7 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 | CTA | `Button/Primary`, 48 px, ancho completo |
 | Alto | **301** |
 
-- Mismo patrón que 09 (§7.7): asa, cabecera con `✕`, contenido y CTA al pie. No lleva barra inferior.
+- Mismo patrón que 09 (§7.6): asa, cabecera con `✕`, contenido y CTA al pie. No lleva barra inferior.
 - Se abre desde el `pencil` de la fila **Mi tasa** en 09, no desde la calculadora: la ficha compacta sigue abriendo 09.
 - **Estado vacío:** campo vacío o `0` = quitar Mi tasa. `Guardar` está siempre habilitado y no hay copy de error: el helper explica la consecuencia antes de pulsar. Al guardar, el sheet se cierra y 09 deja la fila `Mi tasa` en `Definir`, que sigue siendo la entrada para volver a crearla; la calculadora deja de ofrecer Mi tasa hasta que se defina otra vez.
 - Acepta coma y punto y normaliza a coma al mostrar (§8). Solo dígitos y un separador decimal.
@@ -596,12 +583,12 @@ El MVP v1 son **11 artboards** en `design/cambiami.pen`. Esta es la lista canón
 | 07 | Configuración | normal | `Screen / 07 · Configuracion` |
 | 08 | Información | normal | `Screen / 08 · Informacion` |
 | 09 | Monedas | modal sobre Calculadora | `Screen / 09 · Monedas (modal)` |
-| 09b | Mi tasa | sheet sobre Monedas | `Screen / 09b · Mi tasa (sheet)` |
+| 09b | Mi tasa | sheet sobre Calculadora (vía 09) | `Screen / 09b · Mi tasa (sheet)` |
 | 10 | Compartir | sheet sobre Calculadora | `Screen / 10 · Compartir (sheet)` |
 
 El número **06 queda vacante**: era `Tasas USDT` y se absorbió en 05 al pasar a catálogo por mercado. Los estados `cargando` y `error` de Tasas están dibujados en el frame `Estados · Tasas` del grupo HU-11 (§13.4).
 
-09, 09b y 10 llevan detrás una **copia estática de 02** (`Backdrop · Calculadora`) bajo un rectángulo de scrim `#29243D66`. pen.dev no permite instanciar una pantalla, así que la copia se mantiene a mano: si 02 cambia, hay que repetir el `Copy`. Sin ese fondo, el export parece una pantalla morada y no comunica que es un modal.
+09, 09b y 10 llevan detrás una **copia estática de 02** (`Backdrop · Calculadora`) bajo un rectángulo de scrim `#29243D66`. pen.dev no permite instanciar una pantalla, así que la copia se mantiene a mano: si 02 cambia, hay que repetir el `Copy`. Sin ese fondo, el export es un scrim sobre el lienzo y no comunica que es un modal.
 
 En el archivo, las 11 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
 
@@ -685,7 +672,7 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 
 | Estado | Banner | Dónde se ve el estado |
 |:--|:--|:--|
-| `al_dia` | sin banner | `StatusPill` de la franja (§7.8) en `state/ok-ink` |
+| `al_dia` | sin banner | `StatusPill` de la franja (§7.7) en `state/ok-ink` |
 | `desactualizado` | `Tasa de ayer · se actualiza a las 5:00 p. m.` | pill en `state/warn-ink`; la tarjeta afectada antepone `desactualizado` en su `Source link` |
 | `sin_conexión` | `Sin conexión · mostrando la tasa del 01/11/26` | pill en `state/offline-ink`; todas las tarjetas anteponen `sin conexión` |
 
@@ -757,7 +744,7 @@ Calculator / Body
   └─ Share CTA
 ```
 
-Las cuatro pantallas de Calculadora **son la misma instancia**: solo cambian el fondo del `Content`, el banner, la frescura, la ficha (visible u oculta), los importes y el pill. El `Status bar`, la fila de marca, el teclado y la barra quedan fuera del componente.
+Las cuatro pantallas de Calculadora **son la misma instancia**: solo cambian el fondo del `Content`, el banner, la frescura, la ficha (visible u oculta), los importes y el pill. El `Status bar`, el teclado y la barra quedan fuera del componente.
 
 Nunca `Frame 123`, `Rectangle 45` ni `Group 8`.
 
@@ -772,7 +759,6 @@ Nunca `Frame 123`, `Rectangle 45` ni `Group 8`.
 | Componente `RateCard` | `RateCard` widget |
 | Componente `RateCard / Compacta` | `RateCardCompact` widget |
 | Componente `Calculator / Body` | `CalculatorBody` widget |
-| Componente `RateChip` | `RateChip` widget |
 | Componente `StatusBanner` | `StatusBanner` widget |
 | Componente `AmountCard` | `AmountField` widget |
 

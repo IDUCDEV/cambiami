@@ -18,8 +18,8 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 
 | Frame | Contenido |
 |:--|:--|
-| `Foundations` | 23 swatches en 4 filas (marca, superficie/texto, estados, tintes de identidad), escala tipográfica Nunito de 7 niveles, escala de radios 8/12/16/20/pill |
-| `Components` | `RateCard` (ficha completa), `RateCard / Compacta` (ficha de la calculadora y selector de tasa), `Calculator / Body` (cuerpo de la calculadora), `RateChip/Default`, `RateChip/Selected`, `StatusBanner`, `AmountCard`, `AmountCard/Default`, `Button/Primary`, `Button/Secondary` y las tres variantes de `TabBar` — todos como componentes reutilizables con instancias en las pantallas |
+| `Foundations` | 32 swatches en 6 filas (marca, superficie/texto, estados, tintes de identidad, texto sobre fondos, variación y foco), escala tipográfica Nunito de 10 niveles, escala de radios 8/12/16/20/pill y escala de espaciado 4…48 |
+| `Components` | `RateCard` (ficha completa), `RateCard / Ficha · USDT P2P`, `RateCard / Compacta` (ficha de la calculadora y selector de tasa), `Calculator / Body` (cuerpo de la calculadora), `StatusBanner`, `AmountCard`, `Button/Primary`, `Button/Secondary` y las tres variantes de `TabBar` — todos como componentes reutilizables con instancias en las pantallas |
 
 ### Pantallas
 
@@ -75,11 +75,11 @@ El frame `Board · Pantallas por historia` agrupa las 11 pantallas por las HU de
 
 HU-05 (formato es-VE) es transversal: no tiene pantalla propia, aplica a todas.
 
-**Numeración:** el diseño usa `01–10`. El brief (`docs/TASAVE_DOCUMENTO_UNIFICADO.md`) usa `APP-SCR-01…11` con otra correspondencia (su `APP-SCR-03` es Tasas BCV, no la calculadora desactualizada). En este repositorio manda la numeración del diseño.
+**Numeración:** el diseño usa `01–10`. El número **06 queda vacante**: era `Tasas USDT` y se absorbió en 05 al pasar a catálogo por mercado. El brief (`docs/TASAVE_DOCUMENTO_UNIFICADO.md`) usa `APP-SCR-01…11` con otra correspondencia (su `APP-SCR-03` es Tasas BCV, no la calculadora desactualizada). En este repositorio manda la numeración del diseño.
 
 ### Variables
 
-Creadas en el documento con los nombres exactos de `DESIGN_SYSTEM.md`: colores (`bg/*`, `text/*`, `brand/*`, `state/*`, `variation/*`, `palette/*`), números (`space/1…10`, `radius/sm…pill`) y la fuente (`font/family` = `Nunito`).
+Creadas en el documento con los nombres exactos de `DESIGN_SYSTEM.md`: colores (`bg/*`, `text/*`, `brand/*`, `state/*`, `variation/*`, `focus/ring`, `palette/*`), números (`space/1…12`, `radius/sm…pill`) y la fuente (`font/family` = `Nunito`).
 
 ---
 
@@ -95,7 +95,7 @@ La navegación **no se cablea** en el archivo: pen.dev no tiene un modo de proto
 
 ## Notas de implementación
 
-- Los colores de marca saturados (`#FFD166`, `#FF705F`, `#20C6C8`) **no se usan como texto**. Para texto van sus variantes `-ink` (`#7A5200`, `#C93B2A`, `#0B7C7E`), que cumplen AA sobre el fondo del banner.
+- Los colores de marca saturados (`#FFD166`, `#FF705F`, `#20C6C8`) **no se usan como texto**. Para texto van sus variantes `-ink` (`#7A5200`, `#C93B2A`, `#0A7476`), que cumplen AA sobre el fondo del banner.
 - **Reparto de color 60/30/10** (`DESIGN_SYSTEM.md` §3.6): 60 % neutro, 30 % tintes suaves, 10 % acento. Máximo 3 acentos fuertes por pantalla.
 - **Identidad por fuente:** chip de 40 px en `RateCard` y de 32 px en las filas de Monedas — BCV índigo, Euro ámbar, USDT lavanda, Mi tasa coral. El chip es identidad, nunca estado. La ficha compacta de la calculadora usa el chip de 28 px.
 - **Una calculadora, cuatro estados:** 02, 02b, 03 y 04 son instancias del maestro `Calculator / Body` (`Header` → banner → `Rate block` → `Amounts` → `Share CTA`). El `Rate block` es la franja de frescura + la ficha compacta, y la ficha **hace de selector**: se toca para abrir Monedas, así que la tasa no se repite en otro bloque. 02b oculta solo la ficha; el banner y la franja se quedan.
@@ -107,7 +107,7 @@ La navegación **no se cablea** en el archivo: pen.dev no tiene un modo de proto
 - **Sheets sobre la calculadora:** 09, 09b y 10 se dibujan sobre una copia estática de 02 (`Backdrop · Calculadora`) más un rectángulo de scrim `#29243D66`. pen.dev no permite instanciar una pantalla, así que la copia es plana: si 02 cambia, hay que repetir el `Copy`.
 - **Mi tasa se edita en 09b:** el `pencil` de la fila Mi tasa en 09 abre un sheet con un `AmountCard` en bolívares, un helper y `Guardar`. Vacío o `0` la quita; `Guardar` siempre está habilitado y no hay copy de error. Mi tasa no tiene fuente ni fechas, así que no entra en el catálogo de Tasas.
 - **Identidad y acción de Mi tasa:** el chip coral con `star` es la identidad; el `pencil` es la acción de editar. No se intercambian.
-- **Tres fechas, tres sitios** (`DESIGN_SYSTEM.md` §7.2/§7.8): `published_at` → `Publicado` en la tarjeta, `effective_from` → `Vigente desde` en la tarjeta, `fetched_at` → franja de frescura. Ninguna se repite.
+- **Tres fechas, tres sitios** (`DESIGN_SYSTEM.md` §7.2/§7.7): `published_at` → `Publicado` en la tarjeta, `effective_from` → `Vigente desde` en la tarjeta, `fetched_at` → franja de frescura. Ninguna se repite.
 - **Brecha verificable:** el porcentaje se acompaña siempre de la fórmula y de los dos valores con los que se calculó (`(USDT promedio − BCV) ÷ BCV`). Un porcentaje sin sus operandos no se muestra.
 - **Nada fuera de `rate_snapshots`:** no hay histórico, ni mín/máx, ni número de anuncios. Si el modelo no lo tiene, no se dibuja.
 - Formato es-VE: coma decimal, punto de miles, `Bs` después del número (`889,58 Bs`), `$` antes (`$ 1,00`).

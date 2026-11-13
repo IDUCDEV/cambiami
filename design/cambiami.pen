@@ -8,6 +8,7 @@
       "y": -691,
       "name": "Foundations",
       "width": 1367,
+      "height": 1927,
       "fill": "$bg/canvas",
       "layout": "vertical",
       "gap": 32,
@@ -487,7 +488,7 @@
                       "cornerRadius": 14,
                       "id": "V7oGs4",
                       "name": "Swatch text/secondary",
-                      "fill": "#76717E",
+                      "fill": "#6B6673",
                       "width": 132,
                       "height": 72,
                       "stroke": "#EDEBF2",
@@ -510,7 +511,7 @@
                       "id": "nrKwH",
                       "name": "Hex text/secondary",
                       "fill": "$text/secondary",
-                      "content": "#76717E",
+                      "content": "#6B6673",
                       "fontFamily": "$font/family",
                       "fontSize": 11,
                       "fontWeight": "600"
@@ -645,7 +646,7 @@
                       "cornerRadius": 14,
                       "id": "qOa66",
                       "name": "Swatch state/ok-ink",
-                      "fill": "#0B7C7E",
+                      "fill": "#0A7476",
                       "width": 132,
                       "height": 72,
                       "stroke": "#EDEBF2",
@@ -668,7 +669,7 @@
                       "id": "uke50",
                       "name": "Hex state/ok-ink",
                       "fill": "$text/secondary",
-                      "content": "#0B7C7E",
+                      "content": "#0A7476",
                       "fontFamily": "$font/family",
                       "fontSize": 11,
                       "fontWeight": "600"
@@ -817,7 +818,7 @@
                       "cornerRadius": 14,
                       "id": "k2pFc",
                       "name": "Swatch state/offline-bg",
-                      "fill": "#FFE9E6",
+                      "fill": "#FFF0EE",
                       "width": 132,
                       "height": 72,
                       "stroke": "#EDEBF2",
@@ -840,7 +841,7 @@
                       "id": "KNHlh",
                       "name": "Hex state/offline-bg",
                       "fill": "$text/secondary",
-                      "content": "#FFE9E6",
+                      "content": "#FFF0EE",
                       "fontFamily": "$font/family",
                       "fontSize": 11,
                       "fontWeight": "600"
@@ -884,6 +885,49 @@
                       "name": "Hex bg/inverse",
                       "fill": "$text/secondary",
                       "content": "#29243D",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "X36RO",
+                  "name": "Token state/warn-bg",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "SytC3",
+                      "name": "Swatch state/warn-bg",
+                      "fill": "#FFD166",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "bPYBc",
+                      "name": "Name state/warn-bg",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "state/warn-bg",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "aZeb9",
+                      "name": "Hex state/warn-bg",
+                      "fill": "$text/secondary",
+                      "content": "#FFD166",
                       "fontFamily": "$font/family",
                       "fontSize": 11,
                       "fontWeight": "600"
@@ -1140,6 +1184,408 @@
         },
         {
           "type": "frame",
+          "id": "gRXAQ",
+          "name": "Colors · Texto sobre fondos",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "gOrHX",
+              "name": "Section Label",
+              "fill": "$text/primary",
+              "content": "Texto sobre fondos",
+              "fontFamily": "$font/family",
+              "fontSize": 16,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "OG1gF",
+              "name": "Row",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tRHsS",
+                  "name": "Token text/on-brand",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "dLsdv",
+                      "name": "Swatch text/on-brand",
+                      "fill": "#FFFFFF",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "WsJDy",
+                      "name": "Name text/on-brand",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "text/on-brand",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "IJM6U",
+                      "name": "Hex text/on-brand",
+                      "fill": "$text/secondary",
+                      "content": "#FFFFFF",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SDM1D",
+                  "name": "Token text/on-inverse",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "Z1BKMn",
+                      "name": "Swatch text/on-inverse",
+                      "fill": "#FFF9F1",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "T7bZ1w",
+                      "name": "Name text/on-inverse",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "text/on-inverse",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "H711DY",
+                      "name": "Hex text/on-inverse",
+                      "fill": "$text/secondary",
+                      "content": "#FFF9F1",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "bPNwv",
+                  "name": "Token text/on-inverse-soft",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "IviFB",
+                      "name": "Swatch text/on-inverse-soft",
+                      "fill": "#B9AEDC",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "mwttF",
+                      "name": "Name text/on-inverse-soft",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "text/on-inverse-soft",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "e2G7tR",
+                      "name": "Hex text/on-inverse-soft",
+                      "fill": "$text/secondary",
+                      "content": "#B9AEDC",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "CzDgw",
+                  "name": "Token text/tertiary",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "g3r7aE",
+                      "name": "Swatch text/tertiary",
+                      "fill": "#A29DAE",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "RZY2y",
+                      "name": "Name text/tertiary",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "text/tertiary",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "T7E9fu",
+                      "name": "Hex text/tertiary",
+                      "fill": "$text/secondary",
+                      "content": "#A29DAE",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "x0SJik",
+          "name": "Colors · Variación y foco",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "text",
+              "id": "mpk9P",
+              "name": "Section Label",
+              "fill": "$text/primary",
+              "content": "Variación y foco",
+              "fontFamily": "$font/family",
+              "fontSize": 16,
+              "fontWeight": "800"
+            },
+            {
+              "type": "frame",
+              "id": "Ep5vP",
+              "name": "Row",
+              "width": "fill_container",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "uiUk2",
+                  "name": "Token variation/up",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "tzcNf",
+                      "name": "Swatch variation/up",
+                      "fill": "#0A7476",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "FFZhx",
+                      "name": "Name variation/up",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "variation/up",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "foRc7",
+                      "name": "Hex variation/up",
+                      "fill": "$text/secondary",
+                      "content": "#0A7476",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "v6IF6",
+                  "name": "Token variation/down",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "sXFuF",
+                      "name": "Swatch variation/down",
+                      "fill": "#C93B2A",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "W4dA2O",
+                      "name": "Name variation/down",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "variation/down",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "BDZqW",
+                      "name": "Hex variation/down",
+                      "fill": "$text/secondary",
+                      "content": "#C93B2A",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dqICc",
+                  "name": "Token variation/flat",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "mnXtb",
+                      "name": "Swatch variation/flat",
+                      "fill": "#6B6673",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "qjJxj",
+                      "name": "Name variation/flat",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "variation/flat",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "miYWq",
+                      "name": "Hex variation/flat",
+                      "fill": "$text/secondary",
+                      "content": "#6B6673",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ICJxG",
+                  "name": "Token focus/ring",
+                  "width": 132,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 14,
+                      "id": "MIsjh",
+                      "name": "Swatch focus/ring",
+                      "fill": "#9944EE3D",
+                      "width": 132,
+                      "height": 72,
+                      "stroke": "#EDEBF2",
+                      "strokeWidth": 1
+                    },
+                    {
+                      "type": "text",
+                      "id": "m6YuF8",
+                      "name": "Name focus/ring",
+                      "fill": "$text/primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "focus/ring",
+                      "fontFamily": "$font/family",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "kHGoQ",
+                      "name": "Hex focus/ring",
+                      "fill": "$text/secondary",
+                      "content": "#9944EE3D",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
           "id": "L9RoR",
           "name": "Typography · Nunito",
           "width": "fill_container",
@@ -1196,6 +1642,52 @@
                   "textGrowth": "fixed-width",
                   "width": 80,
                   "content": "44/48",
+                  "fontFamily": "$font/family",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "MjP9W",
+              "name": "Type type/h1",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "zhb9n",
+                  "name": "Token",
+                  "fill": "$text/secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 120,
+                  "content": "type/h1",
+                  "fontFamily": "$font/family",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "bnWeO",
+                  "name": "Sample",
+                  "fill": "$text/primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Cambiami",
+                  "fontFamily": "$font/family",
+                  "fontSize": 28,
+                  "fontWeight": "800"
+                },
+                {
+                  "type": "text",
+                  "id": "s5iHjO",
+                  "name": "Meta",
+                  "fill": "$text/tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": 80,
+                  "content": "28/34",
                   "fontFamily": "$font/family",
                   "fontSize": 11,
                   "fontWeight": "600"
@@ -1380,6 +1872,98 @@
                   "textGrowth": "fixed-width",
                   "width": 80,
                   "content": "16/24",
+                  "fontFamily": "$font/family",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "HLyX8",
+              "name": "Type type/body-strong",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "AkaAQ",
+                  "name": "Token",
+                  "fill": "$text/secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 120,
+                  "content": "type/body-strong",
+                  "fontFamily": "$font/family",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "OErk0",
+                  "name": "Sample",
+                  "fill": "$text/primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Compartir cálculo",
+                  "fontFamily": "$font/family",
+                  "fontSize": 16,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "gTsIe",
+                  "name": "Meta",
+                  "fill": "$text/tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": 80,
+                  "content": "16/24",
+                  "fontFamily": "$font/family",
+                  "fontSize": 11,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L3odF",
+              "name": "Type type/label",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZkL8i",
+                  "name": "Token",
+                  "fill": "$text/secondary",
+                  "textGrowth": "fixed-width",
+                  "width": 120,
+                  "content": "type/label",
+                  "fontFamily": "$font/family",
+                  "fontSize": 12,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "dzBEm",
+                  "name": "Sample",
+                  "fill": "$text/primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Dólares",
+                  "fontFamily": "$font/family",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "kBLWa",
+                  "name": "Meta",
+                  "fill": "$text/tertiary",
+                  "textGrowth": "fixed-width",
+                  "width": 80,
+                  "content": "14/20",
                   "fontFamily": "$font/family",
                   "fontSize": 11,
                   "fontWeight": "600"
@@ -1667,6 +2251,295 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "dVY2y",
+              "name": "Spacing Row",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "end",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "DTp4V",
+                  "name": "Spacing space/1",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "zm5tJ",
+                      "name": "Bar space/1",
+                      "fill": "$brand/primary",
+                      "width": 4,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "v0EDK",
+                      "name": "Label space/1",
+                      "fill": "$text/secondary",
+                      "content": "space/1 · 4",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "BnjCN",
+                  "name": "Spacing space/2",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "kqhmL",
+                      "name": "Bar space/2",
+                      "fill": "$brand/primary",
+                      "width": 8,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HkYYH",
+                      "name": "Label space/2",
+                      "fill": "$text/secondary",
+                      "content": "space/2 · 8",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "vFA4a",
+                  "name": "Spacing space/3",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "D5iANt",
+                      "name": "Bar space/3",
+                      "fill": "$brand/primary",
+                      "width": 12,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gDGi2",
+                      "name": "Label space/3",
+                      "fill": "$text/secondary",
+                      "content": "space/3 · 12",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "VRrhH",
+                  "name": "Spacing space/4",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "cJMxa",
+                      "name": "Bar space/4",
+                      "fill": "$brand/primary",
+                      "width": 16,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "fZCv9",
+                      "name": "Label space/4",
+                      "fill": "$text/secondary",
+                      "content": "space/4 · 16",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "xJycB",
+                  "name": "Spacing space/5",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "wVFaX",
+                      "name": "Bar space/5",
+                      "fill": "$brand/primary",
+                      "width": 20,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "gU3xm",
+                      "name": "Label space/5",
+                      "fill": "$text/secondary",
+                      "content": "space/5 · 20",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "p96bP",
+                  "name": "Spacing space/6",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "H2bpW0",
+                      "name": "Bar space/6",
+                      "fill": "$brand/primary",
+                      "width": 24,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "i5Aqgy",
+                      "name": "Label space/6",
+                      "fill": "$text/secondary",
+                      "content": "space/6 · 24",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "dEY0k",
+                  "name": "Spacing space/8",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "kUyNR",
+                      "name": "Bar space/8",
+                      "fill": "$brand/primary",
+                      "width": 32,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "cxUnI",
+                      "name": "Label space/8",
+                      "fill": "$text/secondary",
+                      "content": "space/8 · 32",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "jpS3u",
+                  "name": "Spacing space/10",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "B8O9x",
+                      "name": "Bar space/10",
+                      "fill": "$brand/primary",
+                      "width": 40,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "UviQy",
+                      "name": "Label space/10",
+                      "fill": "$text/secondary",
+                      "content": "space/10 · 40",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "B2O8oV",
+                  "name": "Spacing space/12",
+                  "width": 120,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "R8CD7",
+                      "name": "Bar space/12",
+                      "fill": "$brand/primary",
+                      "width": 48,
+                      "height": 24,
+                      "stroke": "#EDEBF2"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mihFY",
+                      "name": "Label space/12",
+                      "fill": "$text/secondary",
+                      "content": "space/12 · 48",
+                      "fontFamily": "$font/family",
+                      "fontSize": 11,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -1676,7 +2549,7 @@
       "type": "frame",
       "id": "vZ7AZ",
       "x": -808,
-      "y": 1227,
+      "y": 1491,
       "name": "Components",
       "width": 1883,
       "height": 1609,
@@ -2403,14 +3276,26 @@
                       ]
                     },
                     {
-                      "type": "icon",
-                      "id": "GrPrf",
-                      "name": "Swap",
-                      "width": 16,
-                      "height": 16,
-                      "icon": "arrow-up-down",
-                      "library": "lucide",
-                      "fill": "$text/secondary"
+                      "type": "frame",
+                      "id": "J5RrR",
+                      "name": "Swap target",
+                      "width": 44,
+                      "height": 44,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "l8PnL",
+                          "x": 28,
+                          "y": 14,
+                          "name": "Swap",
+                          "width": 16,
+                          "height": 16,
+                          "icon": "arrow-up-down",
+                          "library": "lucide",
+                          "fill": "$text/secondary"
+                        }
+                      ]
                     }
                   ]
                 },
@@ -2483,16 +3368,6 @@
                       "fontFamily": "$font/family",
                       "fontSize": 22,
                       "fontWeight": "800"
-                    },
-                    {
-                      "type": "icon",
-                      "id": "x6OC7",
-                      "name": "Clock",
-                      "width": 14,
-                      "height": 14,
-                      "icon": "refresh-cw",
-                      "library": "lucide",
-                      "fill": "$text/secondary"
                     }
                   ]
                 },
@@ -2528,7 +3403,7 @@
                       "id": "c0qdFR",
                       "name": "Freshness",
                       "width": "fill_container",
-                      "height": 16,
+                      "height": 20,
                       "justifyContent": "space_between",
                       "alignItems": "center",
                       "children": [
@@ -2539,6 +3414,16 @@
                           "gap": 6,
                           "alignItems": "center",
                           "children": [
+                            {
+                              "type": "icon",
+                              "id": "ETBUB",
+                              "name": "Icon",
+                              "width": 14,
+                              "height": 14,
+                              "icon": "refresh-cw",
+                              "library": "lucide",
+                              "fill": "$text/secondary"
+                            },
                             {
                               "type": "text",
                               "id": "B6gQ74",
@@ -2659,7 +3544,7 @@
           "name": "Banner / desactualizado",
           "fill": "$state/warn-bg",
           "x": 40,
-          "y": 921,
+          "y": 925,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2682,7 +3567,7 @@
           "name": "Banner / sin conexion",
           "fill": "$state/offline-bg",
           "x": 40,
-          "y": 981,
+          "y": 985,
           "height": "fit_content",
           "flipX": false,
           "flipY": false,
@@ -2791,6 +3676,7 @@
                   "id": "qngtq",
                   "name": "Value row",
                   "width": "fill_container",
+                  "height": 38,
                   "gap": 8,
                   "justifyContent": "space_between",
                   "alignItems": "center",
@@ -2806,14 +3692,26 @@
                       "fontWeight": "800"
                     },
                     {
-                      "type": "icon",
-                      "id": "pRxt5",
-                      "name": "Copy",
-                      "width": 20,
-                      "height": 20,
-                      "icon": "copy",
-                      "library": "lucide",
-                      "fill": "$text/secondary"
+                      "type": "frame",
+                      "id": "b22Qc",
+                      "name": "Copy target",
+                      "width": 48,
+                      "height": 48,
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "icon",
+                          "id": "N3KCt",
+                          "x": 28,
+                          "y": 14,
+                          "name": "Copy",
+                          "width": 20,
+                          "height": 20,
+                          "icon": "copy",
+                          "library": "lucide",
+                          "fill": "$text/secondary"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -3056,6 +3954,16 @@
               "height": 72,
               "fill": "$bg/surface",
               "cornerRadius": 999,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#29243D1A",
+                "offset": {
+                  "x": 0,
+                  "y": 8
+                },
+                "blur": 24
+              },
               "padding": [
                 0,
                 6,
@@ -3198,6 +4106,16 @@
               "height": 72,
               "fill": "$bg/surface",
               "cornerRadius": 999,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#29243D1A",
+                "offset": {
+                  "x": 0,
+                  "y": 8
+                },
+                "blur": 24
+              },
               "padding": [
                 0,
                 6,
@@ -3597,15 +4515,13 @@
                   "name": "Screen / 02 · Calculadora / al_dia",
                   "clip": true,
                   "width": 390,
-                  "height": 763,
+                  "height": 619,
                   "fill": "$bg/canvas",
-                  "layout": "none",
+                  "layout": "vertical",
                   "children": [
                     {
                       "type": "frame",
                       "id": "e2sQnF",
-                      "x": 0,
-                      "y": 0,
                       "name": "Status bar",
                       "width": 390,
                       "height": 62,
@@ -3669,59 +4585,7 @@
                     },
                     {
                       "type": "frame",
-                      "id": "ijYWs",
-                      "x": 0,
-                      "y": 62,
-                      "name": "Frame 2",
-                      "width": 390,
-                      "gap": 6,
-                      "padding": [
-                        4,
-                        24
-                      ],
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "frame",
-                          "id": "BFNgu",
-                          "name": "Frame 1",
-                          "gap": 31,
-                          "justifyContent": "center",
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "eZgNX",
-                              "name": "Emblem",
-                              "width": 50,
-                              "height": 50,
-                              "fill": {
-                                "type": "image",
-                                "enabled": true,
-                                "url": "assets/emblem.png",
-                                "mode": "contain"
-                              }
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "ZmOOb",
-                          "name": "Wordmark",
-                          "fill": "$text/primary",
-                          "content": "cambiami",
-                          "fontFamily": "$font/family",
-                          "fontSize": 32,
-                          "fontWeight": "800",
-                          "letterSpacing": -0.5
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
                       "id": "lvi45",
-                      "x": 0,
-                      "y": 182,
                       "name": "Content",
                       "clip": true,
                       "width": 390,
@@ -3756,8 +4620,6 @@
                     {
                       "type": "frame",
                       "id": "U6LGqQ",
-                      "x": 0,
-                      "y": 679,
                       "name": "Tab wrap",
                       "width": 390,
                       "height": 84,
@@ -4347,7 +5209,7 @@
                   "id": "i568wB",
                   "name": "Content",
                   "width": "fill_container",
-                  "fill": "$bg/brand-soft",
+                  "fill": "$palette/amber-soft",
                   "layout": "vertical",
                   "gap": 24,
                   "padding": [
@@ -4434,7 +5296,7 @@
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "02 y 03 también muestran el estado sin conexión.",
+              "content": "02 y 03 también muestran el estado del dato.",
               "fontFamily": "$font/family",
               "fontSize": 12,
               "fontWeight": "600"
@@ -4523,7 +5385,7 @@
                       "id": "Yle5x",
                       "name": "Content",
                       "width": "fill_container",
-                      "fill": "$bg/brand-soft",
+                      "fill": "$palette/coral-soft",
                       "layout": "vertical",
                       "gap": 24,
                       "padding": [
@@ -4649,21 +5511,19 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "u9m71",
+                      "id": "vwIYo",
                       "x": 0,
                       "y": 0,
                       "name": "Backdrop · Calculadora",
                       "clip": true,
                       "width": 390,
-                      "height": 763,
+                      "height": 619,
                       "fill": "$bg/canvas",
-                      "layout": "none",
+                      "layout": "vertical",
                       "children": [
                         {
                           "type": "frame",
-                          "id": "WmmQg",
-                          "x": 0,
-                          "y": 0,
+                          "id": "hO3wY",
                           "name": "Status bar",
                           "width": 390,
                           "height": 62,
@@ -4676,7 +5536,7 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "vIjUU",
+                              "id": "Yt1iG",
                               "name": "Time",
                               "fill": "$text/primary",
                               "content": "9:41",
@@ -4686,14 +5546,14 @@
                             },
                             {
                               "type": "frame",
-                              "id": "QEDVd",
+                              "id": "DDtT0",
                               "name": "System icons",
                               "gap": 6,
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "icon",
-                                  "id": "Kky4s",
+                                  "id": "DhrTn",
                                   "name": "Sys signal",
                                   "width": 16,
                                   "height": 16,
@@ -4703,7 +5563,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "H6I9rs",
+                                  "id": "hVXwd",
                                   "name": "Sys wifi",
                                   "width": 16,
                                   "height": 16,
@@ -4713,7 +5573,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "BXten",
+                                  "id": "zyHj2",
                                   "name": "Sys battery-full",
                                   "width": 16,
                                   "height": 16,
@@ -4727,59 +5587,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "Mhn22",
-                          "x": 0,
-                          "y": 62,
-                          "name": "Frame 2",
-                          "width": 390,
-                          "gap": 6,
-                          "padding": [
-                            4,
-                            24
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "Sxzl3",
-                              "name": "Frame 1",
-                              "gap": 31,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "SxqQF",
-                                  "name": "Emblem",
-                                  "width": 50,
-                                  "height": 50,
-                                  "fill": {
-                                    "type": "image",
-                                    "enabled": true,
-                                    "url": "assets/emblem.png",
-                                    "mode": "contain"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "IKRrU",
-                              "name": "Wordmark",
-                              "fill": "$text/primary",
-                              "content": "cambiami",
-                              "fontFamily": "$font/family",
-                              "fontSize": 32,
-                              "fontWeight": "800",
-                              "letterSpacing": -0.5
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "n9f2io",
-                          "x": 0,
-                          "y": 182,
+                          "id": "LBOcn",
                           "name": "Content",
                           "clip": true,
                           "width": 390,
@@ -4795,7 +5603,7 @@
                           ],
                           "children": [
                             {
-                              "id": "vI6yQ",
+                              "id": "qkDkx",
                               "type": "ref",
                               "ref": "vAkxT",
                               "name": "Calculator / Body",
@@ -4813,9 +5621,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "nO8fS",
-                          "x": 0,
-                          "y": 679,
+                          "id": "S7PRIH",
                           "name": "Tab wrap",
                           "width": 390,
                           "height": 84,
@@ -4828,7 +5634,7 @@
                           ],
                           "children": [
                             {
-                              "id": "aN4Fo",
+                              "id": "rrQqc",
                               "type": "ref",
                               "ref": "pfT3N",
                               "width": "fill_container",
@@ -4863,9 +5669,10 @@
                       "type": "frame",
                       "id": "MYFLN",
                       "x": 0,
-                      "y": 505,
+                      "y": 440,
                       "name": "Sheet",
                       "width": 390,
+                      "height": 404,
                       "fill": "$bg/surface",
                       "cornerRadius": [
                         20,
@@ -4873,6 +5680,16 @@
                         0,
                         0
                       ],
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#29243D1A",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      },
                       "layout": "vertical",
                       "gap": 16,
                       "padding": [
@@ -5306,20 +6123,44 @@
                                       "fontWeight": "600"
                                     },
                                     {
-                                      "type": "icon",
-                                      "id": "bHOMj",
-                                      "name": "Edit",
-                                      "width": 18,
-                                      "height": 18,
-                                      "icon": "pencil",
-                                      "library": "lucide",
-                                      "fill": "$text/secondary"
+                                      "type": "frame",
+                                      "id": "Lj2Cj",
+                                      "name": "Edit target",
+                                      "width": 48,
+                                      "height": 48,
+                                      "layout": "none",
+                                      "children": [
+                                        {
+                                          "type": "icon",
+                                          "id": "udXue",
+                                          "x": 30,
+                                          "y": 15,
+                                          "name": "Edit",
+                                          "width": 18,
+                                          "height": 18,
+                                          "icon": "pencil",
+                                          "library": "lucide",
+                                          "fill": "$text/secondary"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
                               ]
                             }
                           ]
+                        },
+                        {
+                          "id": "L3fV3",
+                          "type": "ref",
+                          "ref": "JMxpJ",
+                          "name": "Aplicar",
+                          "width": "fill_container",
+                          "descendants": {
+                            "dKS1G": {
+                              "content": "Aplicar"
+                            }
+                          }
                         }
                       ]
                     }
@@ -5339,21 +6180,19 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "AOTEM",
+                      "id": "YJlte",
                       "x": 0,
                       "y": 0,
                       "name": "Backdrop · Calculadora",
                       "clip": true,
                       "width": 390,
-                      "height": 763,
+                      "height": 619,
                       "fill": "$bg/canvas",
-                      "layout": "none",
+                      "layout": "vertical",
                       "children": [
                         {
                           "type": "frame",
-                          "id": "N901e",
-                          "x": 0,
-                          "y": 0,
+                          "id": "DbhfH",
                           "name": "Status bar",
                           "width": 390,
                           "height": 62,
@@ -5366,7 +6205,7 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "z007v",
+                              "id": "zNEDE",
                               "name": "Time",
                               "fill": "$text/primary",
                               "content": "9:41",
@@ -5376,14 +6215,14 @@
                             },
                             {
                               "type": "frame",
-                              "id": "qN7rf",
+                              "id": "NA1Vp",
                               "name": "System icons",
                               "gap": 6,
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "icon",
-                                  "id": "t9zjT",
+                                  "id": "tvX5g",
                                   "name": "Sys signal",
                                   "width": 16,
                                   "height": 16,
@@ -5393,7 +6232,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "WXTee",
+                                  "id": "qRXrj",
                                   "name": "Sys wifi",
                                   "width": 16,
                                   "height": 16,
@@ -5403,7 +6242,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "uHvoT",
+                                  "id": "UJui6",
                                   "name": "Sys battery-full",
                                   "width": 16,
                                   "height": 16,
@@ -5417,59 +6256,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "I9eX2",
-                          "x": 0,
-                          "y": 62,
-                          "name": "Frame 2",
-                          "width": 390,
-                          "gap": 6,
-                          "padding": [
-                            4,
-                            24
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "pLkx0",
-                              "name": "Frame 1",
-                              "gap": 31,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "Y0nOV",
-                                  "name": "Emblem",
-                                  "width": 50,
-                                  "height": 50,
-                                  "fill": {
-                                    "type": "image",
-                                    "enabled": true,
-                                    "url": "assets/emblem.png",
-                                    "mode": "contain"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "krewa",
-                              "name": "Wordmark",
-                              "fill": "$text/primary",
-                              "content": "cambiami",
-                              "fontFamily": "$font/family",
-                              "fontSize": 32,
-                              "fontWeight": "800",
-                              "letterSpacing": -0.5
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "QGHP5",
-                          "x": 0,
-                          "y": 182,
+                          "id": "dYQr0",
                           "name": "Content",
                           "clip": true,
                           "width": 390,
@@ -5485,7 +6272,7 @@
                           ],
                           "children": [
                             {
-                              "id": "T03qp",
+                              "id": "fd441",
                               "type": "ref",
                               "ref": "vAkxT",
                               "name": "Calculator / Body",
@@ -5503,9 +6290,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "f2jjb",
-                          "x": 0,
-                          "y": 679,
+                          "id": "O5Vvm",
                           "name": "Tab wrap",
                           "width": 390,
                           "height": 84,
@@ -5518,7 +6303,7 @@
                           ],
                           "children": [
                             {
-                              "id": "iYyWJ",
+                              "id": "lfaEt",
                               "type": "ref",
                               "ref": "pfT3N",
                               "width": "fill_container",
@@ -5563,6 +6348,16 @@
                         0,
                         0
                       ],
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#29243D1A",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      },
                       "layout": "vertical",
                       "gap": 16,
                       "padding": [
@@ -5653,9 +6448,6 @@
                             },
                             "IqR3S": {
                               "content": "1.000,00"
-                            },
-                            "pRxt5": {
-                              "enabled": false
                             }
                           }
                         },
@@ -6151,7 +6943,7 @@
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "Se llega desde 05, 06 y 07.",
+              "content": "Se llega desde 05 y 07.",
               "fontFamily": "$font/family",
               "fontSize": 12,
               "fontWeight": "600"
@@ -6469,7 +7261,7 @@
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
               "width": 390,
-              "content": "Se abre desde 02, 05 y 06.",
+              "content": "Se abre desde 02 y 05.",
               "fontFamily": "$font/family",
               "fontSize": 12,
               "fontWeight": "600"
@@ -6492,21 +7284,19 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "CsD0T",
+                      "id": "c8TRQ8",
                       "x": 0,
                       "y": 0,
                       "name": "Backdrop · Calculadora",
                       "clip": true,
                       "width": 390,
-                      "height": 763,
+                      "height": 619,
                       "fill": "$bg/canvas",
-                      "layout": "none",
+                      "layout": "vertical",
                       "children": [
                         {
                           "type": "frame",
-                          "id": "Y7eHr",
-                          "x": 0,
-                          "y": 0,
+                          "id": "x7kNS",
                           "name": "Status bar",
                           "width": 390,
                           "height": 62,
@@ -6519,7 +7309,7 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "ocaBC",
+                              "id": "Sy7Te",
                               "name": "Time",
                               "fill": "$text/primary",
                               "content": "9:41",
@@ -6529,14 +7319,14 @@
                             },
                             {
                               "type": "frame",
-                              "id": "uwCfg",
+                              "id": "xgbKg",
                               "name": "System icons",
                               "gap": 6,
                               "alignItems": "center",
                               "children": [
                                 {
                                   "type": "icon",
-                                  "id": "V1if5t",
+                                  "id": "mw0N5",
                                   "name": "Sys signal",
                                   "width": 16,
                                   "height": 16,
@@ -6546,7 +7336,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "pGiiK",
+                                  "id": "SJ028",
                                   "name": "Sys wifi",
                                   "width": 16,
                                   "height": 16,
@@ -6556,7 +7346,7 @@
                                 },
                                 {
                                   "type": "icon",
-                                  "id": "I4jebJ",
+                                  "id": "DLsoB",
                                   "name": "Sys battery-full",
                                   "width": 16,
                                   "height": 16,
@@ -6570,59 +7360,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "Pybqt",
-                          "x": 0,
-                          "y": 62,
-                          "name": "Frame 2",
-                          "width": 390,
-                          "gap": 6,
-                          "padding": [
-                            4,
-                            24
-                          ],
-                          "alignItems": "center",
-                          "children": [
-                            {
-                              "type": "frame",
-                              "id": "cB1B4",
-                              "name": "Frame 1",
-                              "gap": 31,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "frame",
-                                  "id": "xTpH2",
-                                  "name": "Emblem",
-                                  "width": 50,
-                                  "height": 50,
-                                  "fill": {
-                                    "type": "image",
-                                    "enabled": true,
-                                    "url": "assets/emblem.png",
-                                    "mode": "contain"
-                                  }
-                                }
-                              ]
-                            },
-                            {
-                              "type": "text",
-                              "id": "uawSK",
-                              "name": "Wordmark",
-                              "fill": "$text/primary",
-                              "content": "cambiami",
-                              "fontFamily": "$font/family",
-                              "fontSize": 32,
-                              "fontWeight": "800",
-                              "letterSpacing": -0.5
-                            }
-                          ]
-                        },
-                        {
-                          "type": "frame",
-                          "id": "G84Mhp",
-                          "x": 0,
-                          "y": 182,
+                          "id": "K1L8z",
                           "name": "Content",
                           "clip": true,
                           "width": 390,
@@ -6638,7 +7376,7 @@
                           ],
                           "children": [
                             {
-                              "id": "NhO7P",
+                              "id": "P6nml",
                               "type": "ref",
                               "ref": "vAkxT",
                               "name": "Calculator / Body",
@@ -6656,9 +7394,7 @@
                         },
                         {
                           "type": "frame",
-                          "id": "CTX0y",
-                          "x": 0,
-                          "y": 679,
+                          "id": "MjVK0",
                           "name": "Tab wrap",
                           "width": 390,
                           "height": 84,
@@ -6671,7 +7407,7 @@
                           ],
                           "children": [
                             {
-                              "id": "fiPlP",
+                              "id": "TgCwv",
                               "type": "ref",
                               "ref": "pfT3N",
                               "width": "fill_container",
@@ -6716,6 +7452,16 @@
                         0,
                         0
                       ],
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#29243D1A",
+                        "offset": {
+                          "x": 0,
+                          "y": 8
+                        },
+                        "blur": 24
+                      },
                       "layout": "vertical",
                       "gap": 16,
                       "padding": [
@@ -6845,7 +7591,7 @@
                             {
                               "type": "text",
                               "id": "OwKc8",
-                              "name": "Line 1",
+                              "name": "Message line 1",
                               "fill": "$text/primary",
                               "content": "Tasa BCV: 1 $ = 889,58 Bs",
                               "fontFamily": "$font/family",
@@ -6855,7 +7601,7 @@
                             {
                               "type": "text",
                               "id": "A1Zyu",
-                              "name": "Line 2",
+                              "name": "Message line 2",
                               "fill": "$text/primary",
                               "content": "Fecha valor: Lunes, 02/11/26",
                               "fontFamily": "$font/family",
@@ -6867,7 +7613,7 @@
                               "id": "U7Mp8S",
                               "name": "Link",
                               "fill": "$text/secondary",
-                              "content": "Descarga Cambiami: cambiami.app",
+                              "content": "Descarga Cambiami: https://cambiami.app",
                               "fontFamily": "$font/family",
                               "fontSize": 12,
                               "fontWeight": "600"
@@ -8108,7 +8854,7 @@
     },
     "text/secondary": {
       "type": "color",
-      "value": "#76717E"
+      "value": "#6B6673"
     },
     "text/tertiary": {
       "type": "color",
@@ -8156,7 +8902,7 @@
     },
     "state/ok-ink": {
       "type": "color",
-      "value": "#0B7C7E"
+      "value": "#0A7476"
     },
     "state/warn-ink": {
       "type": "color",
@@ -8176,7 +8922,7 @@
     },
     "variation/up": {
       "type": "color",
-      "value": "#0B7C7E"
+      "value": "#0A7476"
     },
     "variation/down": {
       "type": "color",
@@ -8184,7 +8930,7 @@
     },
     "variation/flat": {
       "type": "color",
-      "value": "#76717E"
+      "value": "#6B6673"
     },
     "space/1": {
       "type": "number",
@@ -8265,6 +9011,14 @@
     "palette/teal-soft": {
       "type": "color",
       "value": "#E3F8F8"
+    },
+    "focus/ring": {
+      "type": "color",
+      "value": "#9944EE3D"
+    },
+    "space/12": {
+      "type": "number",
+      "value": 48
     }
   },
   "fileToken": "0700474d-91a6-4f6b-ada5-4619b35cc356"
