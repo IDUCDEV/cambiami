@@ -34,6 +34,7 @@ La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegac
 | 07 | Configuración | ✅ |
 | 08 | Información (legal) | ✅ |
 | 09 | Monedas (modal) | ✅ |
+| 09b | Mi tasa (sheet) | ✅ |
 | 10 | Compartir (sheet) | ✅ |
 
 Las cuatro pantallas de Calculadora son **la misma instancia de `Calculator / Body`**: la cabecera solo lleva el título y la única acción de compartir es el CTA `Compartir cálculo`. La ficha `RateCard / Compacta` hace de selector de tasa (chevron en el nombre) y sigue a la tasa elegida; en 02b se oculta mientras se escribe.
@@ -42,7 +43,7 @@ Las cuatro pantallas de Calculadora son **la misma instancia de `Calculator / Bo
 
 ### Organización por historia de usuario
 
-El frame `Board · Pantallas por historia` agrupa las 10 pantallas por las HU de `docs/PLAN_DE_DESARROLLO.md`. Regla: **una sola copia de cada pantalla**, colocada bajo la historia de la que es sujeto.
+El frame `Board · Pantallas por historia` agrupa las 11 pantallas por las HU de `docs/PLAN_DE_DESARROLLO.md`. Regla: **una sola copia de cada pantalla**, colocada bajo la historia de la que es sujeto.
 
 | Grupo | Pantallas |
 |:--|:--|
@@ -50,7 +51,7 @@ El frame `Board · Pantallas por historia` agrupa las 10 pantallas por las HU de
 | HU-02 · Calcular dólares a bolívares al instante | 02, 02b |
 | HU-03 · Saber si la tasa está actualizada | 03 |
 | HU-04 · Calcular sin internet | 04 |
-| HU-06 · Ver varias tasas al mismo tiempo | 09 |
+| HU-06 · Ver varias tasas al mismo tiempo | 09, 09b |
 | HU-07 · Elegir mi moneda predeterminada | 07 |
 | HU-08 · Saber de dónde vienen los datos | 08 |
 | HU-10 · Compartir el cálculo por WhatsApp | 10 |
@@ -69,6 +70,7 @@ El frame `Board · Pantallas por historia` agrupa las 10 pantallas por las HU de
 | 07 Configuración | HU-07 | HU-08 (se entra a Información desde ahí) |
 | 08 Información | HU-08 | — |
 | 09 Monedas | HU-06 | — |
+| 09b Mi tasa | HU-06 | HU-02 (Mi tasa se edita desde 09, que abre la calculadora) |
 | 10 Compartir | HU-10 | — |
 
 HU-05 (formato es-VE) es transversal: no tiene pantalla propia, aplica a todas.
@@ -102,6 +104,9 @@ La navegación **no se cablea** en el archivo: pen.dev no tiene un modo de proto
 - **La tarjeta se titula con la moneda, no con la estadística:** la ficha del P2P dice `USDT` (como `Dólar` y `Euro`) y el promedio va como calificador de la variación (`Promedio · +2,19 Bs`). Titularla `Promedio` dejaba al usuario sin saber qué tasa estaba viendo y no coincidía con la fila `USDT` de Monedas ni con la brecha.
 - **Catálogo por mercado, no por fuente:** la pestaña `Tasas` es una sola pantalla con los grupos `Oficial` y `Mercado P2P`. Agrupar por fuente (`BCV | USDT`) convertía un concepto del modelo (`source_code`) en navegación y no escalaba: con USDC habría hecho falta un tercer segmento. La fuente sigue en el pie de cada ficha.
 - El estado del dato siempre es icono + texto, nunca solo color.
+- **Sheets sobre la calculadora:** 09, 09b y 10 se dibujan sobre una copia estática de 02 (`Backdrop · Calculadora`) más un rectángulo de scrim `#29243D66`. pen.dev no permite instanciar una pantalla, así que la copia es plana: si 02 cambia, hay que repetir el `Copy`.
+- **Mi tasa se edita en 09b:** el `pencil` de la fila Mi tasa en 09 abre un sheet con un `AmountCard` en bolívares, un helper y `Guardar`. Vacío o `0` la quita; `Guardar` siempre está habilitado y no hay copy de error. Mi tasa no tiene fuente ni fechas, así que no entra en el catálogo de Tasas.
+- **Identidad y acción de Mi tasa:** el chip coral con `star` es la identidad; el `pencil` es la acción de editar. No se intercambian.
 - **Tres fechas, tres sitios** (`DESIGN_SYSTEM.md` §7.2/§7.8): `published_at` → `Publicado` en la tarjeta, `effective_from` → `Vigente desde` en la tarjeta, `fetched_at` → franja de frescura. Ninguna se repite.
 - **Brecha verificable:** el porcentaje se acompaña siempre de la fórmula y de los dos valores con los que se calculó (`(USDT promedio − BCV) ÷ BCV`). Un porcentaje sin sus operandos no se muestra.
 - **Nada fuera de `rate_snapshots`:** no hay histórico, ni mín/máx, ni número de anuncios. Si el modelo no lo tiene, no se dibuja.
@@ -117,4 +122,4 @@ Los PNG de `exports/` se generaron con `Export(...)` desde pen.dev. Si editas `c
 
 ---
 
-*Diseño de Cambiami · v1.1 · 2026-11-11 · IDUCDEV para TasaVE C.A.*
+*Diseño de Cambiami · v1.2 · 2026-11-13 · IDUCDEV para TasaVE C.A.*

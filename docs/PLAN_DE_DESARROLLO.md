@@ -98,6 +98,7 @@ Incluyen criterios de aceptación en lenguaje de usuario.
 - Tocar cualquiera de las 4 tasas cambia la tasa de cálculo de la calculadora principal.
 - Comparar 3 tasas en menos de 3 segundos.
 - No hay que navegar a otra pantalla para cambiar de tasa.
+- "Mi tasa" se define y se edita desde 09 (sheet 09b) con un campo en bolívares; dejarlo vacío o en `0` la quita.
 
 **Mapeo:** F-05 · APP-SCR-02, APP-SCR-09
 
@@ -447,6 +448,7 @@ class EsVeFormatter {
 ```
 - Tocar una tasa de la fila inferior → cambia la tasa de cálculo de la calculadora principal.
 - "Mi tasa" se guarda en `shared_preferences` o Drift `settings`.
+- "Mi tasa" se edita en el sheet 09b: campo en Bs, helper de una línea y `Guardar` siempre habilitado. Vacío o `0` la quita; 09 deja la fila en `Definir` para volver a crearla.
 
 **Riesgos:**
 - Cambiar tasa pierde el monto escrito → mantener el monto al cambiar tasa (bug histórico del clon, evitarlo).

@@ -4599,6 +4599,7 @@
           "type": "frame",
           "id": "B13FH",
           "name": "HU-06 · Ver varias tasas al mismo tiempo",
+          "width": 850,
           "layout": "vertical",
           "gap": 16,
           "children": [
@@ -4608,7 +4609,7 @@
               "name": "Label",
               "fill": "$text/primary",
               "textGrowth": "fixed-width",
-              "width": 390,
+              "width": 850,
               "content": "HU-06 · Ver varias tasas al mismo tiempo",
               "fontFamily": "$font/family",
               "fontSize": 18,
@@ -4620,7 +4621,7 @@
               "name": "Note",
               "fill": "$text/secondary",
               "textGrowth": "fixed-width",
-              "width": 390,
+              "width": 850,
               "content": "La tasa elegida se aplica en 02.",
               "fontFamily": "$font/family",
               "fontSize": 12,
@@ -4630,24 +4631,241 @@
               "type": "frame",
               "id": "j8EAm4",
               "name": "Screens",
-              "gap": 70,
+              "width": 850,
+              "height": 844,
+              "layout": "none",
               "children": [
                 {
                   "type": "frame",
                   "id": "SnY8D",
+                  "x": 0,
+                  "y": 0,
                   "name": "Screen / 09 · Monedas (modal)",
                   "clip": true,
                   "width": 390,
                   "height": 844,
-                  "fill": "#29243D66",
-                  "layout": "vertical",
-                  "justifyContent": "end",
+                  "fill": "$bg/canvas",
+                  "layout": "none",
                   "children": [
                     {
                       "type": "frame",
+                      "id": "u9m71",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Backdrop · Calculadora",
+                      "clip": true,
+                      "width": 390,
+                      "height": 763,
+                      "fill": "$bg/canvas",
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "WmmQg",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Status bar",
+                          "width": 390,
+                          "height": 62,
+                          "padding": [
+                            0,
+                            24
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "vIjUU",
+                              "name": "Time",
+                              "fill": "$text/primary",
+                              "content": "9:41",
+                              "fontFamily": "$font/family",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "QEDVd",
+                              "name": "System icons",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "Kky4s",
+                                  "name": "Sys signal",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "signal",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "H6I9rs",
+                                  "name": "Sys wifi",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "wifi",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "BXten",
+                                  "name": "Sys battery-full",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "battery-full",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Mhn22",
+                          "x": 0,
+                          "y": 62,
+                          "name": "Frame 2",
+                          "width": 390,
+                          "gap": 6,
+                          "padding": [
+                            4,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "Sxzl3",
+                              "name": "Frame 1",
+                              "gap": 31,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "SxqQF",
+                                  "name": "Emblem",
+                                  "width": 50,
+                                  "height": 50,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "assets/emblem.png",
+                                    "mode": "contain"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "IKRrU",
+                              "name": "Wordmark",
+                              "fill": "$text/primary",
+                              "content": "cambiami",
+                              "fontFamily": "$font/family",
+                              "fontSize": 32,
+                              "fontWeight": "800",
+                              "letterSpacing": -0.5
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n9f2io",
+                          "x": 0,
+                          "y": 182,
+                          "name": "Content",
+                          "clip": true,
+                          "width": 390,
+                          "fill": "$bg/brand-soft",
+                          "cornerRadius": "$radius/lg",
+                          "layout": "vertical",
+                          "gap": 24,
+                          "padding": [
+                            12,
+                            24,
+                            20,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "id": "vI6yQ",
+                              "type": "ref",
+                              "ref": "vAkxT",
+                              "name": "Calculator / Body",
+                              "width": 342,
+                              "descendants": {
+                                "mli7Z/IqR3S": {
+                                  "content": "125,00"
+                                },
+                                "oFUw3/IqR3S": {
+                                  "content": "111.197,00"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "nO8fS",
+                          "x": 0,
+                          "y": 679,
+                          "name": "Tab wrap",
+                          "width": 390,
+                          "height": 84,
+                          "layout": "vertical",
+                          "padding": [
+                            0,
+                            16,
+                            12,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "id": "aN4Fo",
+                              "type": "ref",
+                              "ref": "pfT3N",
+                              "width": "fill_container",
+                              "name": "Tab bar",
+                              "layout": "none",
+                              "height": 72,
+                              "gap": 0,
+                              "justifyContent": "start",
+                              "alignItems": "center",
+                              "padding": [
+                                0,
+                                6,
+                                6,
+                                6
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "PQdCG",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Scrim",
+                      "fill": "#29243D66",
+                      "width": 390,
+                      "height": 844
+                    },
+                    {
+                      "type": "frame",
                       "id": "MYFLN",
+                      "x": 0,
+                      "y": 505,
                       "name": "Sheet",
-                      "width": "fill_container",
+                      "width": 390,
                       "fill": "$bg/surface",
                       "cornerRadius": [
                         20,
@@ -5102,6 +5320,366 @@
                               ]
                             }
                           ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "Vs9Qd",
+                  "x": 460,
+                  "y": 0,
+                  "name": "Screen / 09b · Mi tasa (sheet)",
+                  "clip": true,
+                  "width": 390,
+                  "height": 844,
+                  "fill": "$bg/canvas",
+                  "layout": "none",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "AOTEM",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Backdrop · Calculadora",
+                      "clip": true,
+                      "width": 390,
+                      "height": 763,
+                      "fill": "$bg/canvas",
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "N901e",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Status bar",
+                          "width": 390,
+                          "height": 62,
+                          "padding": [
+                            0,
+                            24
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "z007v",
+                              "name": "Time",
+                              "fill": "$text/primary",
+                              "content": "9:41",
+                              "fontFamily": "$font/family",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "qN7rf",
+                              "name": "System icons",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "t9zjT",
+                                  "name": "Sys signal",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "signal",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "WXTee",
+                                  "name": "Sys wifi",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "wifi",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "uHvoT",
+                                  "name": "Sys battery-full",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "battery-full",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "I9eX2",
+                          "x": 0,
+                          "y": 62,
+                          "name": "Frame 2",
+                          "width": 390,
+                          "gap": 6,
+                          "padding": [
+                            4,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "pLkx0",
+                              "name": "Frame 1",
+                              "gap": 31,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "Y0nOV",
+                                  "name": "Emblem",
+                                  "width": 50,
+                                  "height": 50,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "assets/emblem.png",
+                                    "mode": "contain"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "krewa",
+                              "name": "Wordmark",
+                              "fill": "$text/primary",
+                              "content": "cambiami",
+                              "fontFamily": "$font/family",
+                              "fontSize": 32,
+                              "fontWeight": "800",
+                              "letterSpacing": -0.5
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QGHP5",
+                          "x": 0,
+                          "y": 182,
+                          "name": "Content",
+                          "clip": true,
+                          "width": 390,
+                          "fill": "$bg/brand-soft",
+                          "cornerRadius": "$radius/lg",
+                          "layout": "vertical",
+                          "gap": 24,
+                          "padding": [
+                            12,
+                            24,
+                            20,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "id": "T03qp",
+                              "type": "ref",
+                              "ref": "vAkxT",
+                              "name": "Calculator / Body",
+                              "width": 342,
+                              "descendants": {
+                                "mli7Z/IqR3S": {
+                                  "content": "125,00"
+                                },
+                                "oFUw3/IqR3S": {
+                                  "content": "111.197,00"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "f2jjb",
+                          "x": 0,
+                          "y": 679,
+                          "name": "Tab wrap",
+                          "width": 390,
+                          "height": 84,
+                          "layout": "vertical",
+                          "padding": [
+                            0,
+                            16,
+                            12,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "id": "iYyWJ",
+                              "type": "ref",
+                              "ref": "pfT3N",
+                              "width": "fill_container",
+                              "name": "Tab bar",
+                              "layout": "none",
+                              "height": 72,
+                              "gap": 0,
+                              "justifyContent": "start",
+                              "alignItems": "center",
+                              "padding": [
+                                0,
+                                6,
+                                6,
+                                6
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "vQTyN",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Scrim",
+                      "fill": "#29243D66",
+                      "width": 390,
+                      "height": 844
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xLoNT",
+                      "x": 0,
+                      "y": 543,
+                      "name": "Sheet",
+                      "width": 390,
+                      "fill": "$bg/surface",
+                      "cornerRadius": [
+                        20,
+                        20,
+                        0,
+                        0
+                      ],
+                      "layout": "vertical",
+                      "gap": 16,
+                      "padding": [
+                        12,
+                        20,
+                        20,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "G81fcp",
+                          "name": "Handle wrap",
+                          "width": "fill_container",
+                          "height": 8,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "rectangle",
+                              "cornerRadius": 999,
+                              "id": "b081Y",
+                              "name": "Handle",
+                              "fill": "$border/strong",
+                              "width": 36,
+                              "height": 4
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "WCUZQ",
+                          "name": "Sheet header",
+                          "width": "fill_container",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "bEdLM",
+                              "name": "Title",
+                              "fill": "$text/primary",
+                              "content": "Mi tasa",
+                              "fontFamily": "$font/family",
+                              "fontSize": 22,
+                              "fontWeight": "800"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "zy1Op",
+                              "name": "Close",
+                              "width": 40,
+                              "height": 40,
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "AG2Ca",
+                                  "name": "Icon",
+                                  "width": 22,
+                                  "height": 22,
+                                  "icon": "x",
+                                  "library": "lucide",
+                                  "fill": "$text/secondary"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "id": "acj89",
+                          "type": "ref",
+                          "ref": "X4UWt",
+                          "name": "Amount / Mi tasa",
+                          "width": "fill_container",
+                          "stroke": "$brand/primary",
+                          "strokeWidth": 2,
+                          "descendants": {
+                            "X8Tt2": {
+                              "content": "Bolívares",
+                              "fill": "$brand/primary-pressed"
+                            },
+                            "LANZP": {
+                              "content": "Bs",
+                              "fill": "$brand/primary-pressed"
+                            },
+                            "IqR3S": {
+                              "content": "1.000,00"
+                            },
+                            "pRxt5": {
+                              "enabled": false
+                            }
+                          }
+                        },
+                        {
+                          "type": "text",
+                          "id": "w07HTH",
+                          "name": "Helper",
+                          "fill": "$text/secondary",
+                          "content": "Déjalo vacío para quitarla de la calculadora.",
+                          "fontFamily": "$font/family",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "id": "sq9ep",
+                          "type": "ref",
+                          "ref": "JMxpJ",
+                          "name": "Save CTA",
+                          "width": "fill_container",
+                          "descendants": {
+                            "dKS1G": {
+                              "content": "Guardar"
+                            }
+                          }
                         }
                       ]
                     }
@@ -5909,15 +6487,228 @@
                   "clip": true,
                   "width": 390,
                   "height": 844,
-                  "fill": "#29243D66",
-                  "layout": "vertical",
-                  "justifyContent": "end",
+                  "fill": "$bg/canvas",
+                  "layout": "none",
                   "children": [
                     {
                       "type": "frame",
+                      "id": "CsD0T",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Backdrop · Calculadora",
+                      "clip": true,
+                      "width": 390,
+                      "height": 763,
+                      "fill": "$bg/canvas",
+                      "layout": "none",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "Y7eHr",
+                          "x": 0,
+                          "y": 0,
+                          "name": "Status bar",
+                          "width": 390,
+                          "height": 62,
+                          "padding": [
+                            0,
+                            24
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "ocaBC",
+                              "name": "Time",
+                              "fill": "$text/primary",
+                              "content": "9:41",
+                              "fontFamily": "$font/family",
+                              "fontSize": 15,
+                              "fontWeight": "700"
+                            },
+                            {
+                              "type": "frame",
+                              "id": "uwCfg",
+                              "name": "System icons",
+                              "gap": 6,
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "V1if5t",
+                                  "name": "Sys signal",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "signal",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "pGiiK",
+                                  "name": "Sys wifi",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "wifi",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                },
+                                {
+                                  "type": "icon",
+                                  "id": "I4jebJ",
+                                  "name": "Sys battery-full",
+                                  "width": 16,
+                                  "height": 16,
+                                  "icon": "battery-full",
+                                  "library": "lucide",
+                                  "fill": "$text/primary"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Pybqt",
+                          "x": 0,
+                          "y": 62,
+                          "name": "Frame 2",
+                          "width": 390,
+                          "gap": 6,
+                          "padding": [
+                            4,
+                            24
+                          ],
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "cB1B4",
+                              "name": "Frame 1",
+                              "gap": 31,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "xTpH2",
+                                  "name": "Emblem",
+                                  "width": 50,
+                                  "height": 50,
+                                  "fill": {
+                                    "type": "image",
+                                    "enabled": true,
+                                    "url": "assets/emblem.png",
+                                    "mode": "contain"
+                                  }
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "uawSK",
+                              "name": "Wordmark",
+                              "fill": "$text/primary",
+                              "content": "cambiami",
+                              "fontFamily": "$font/family",
+                              "fontSize": 32,
+                              "fontWeight": "800",
+                              "letterSpacing": -0.5
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "G84Mhp",
+                          "x": 0,
+                          "y": 182,
+                          "name": "Content",
+                          "clip": true,
+                          "width": 390,
+                          "fill": "$bg/brand-soft",
+                          "cornerRadius": "$radius/lg",
+                          "layout": "vertical",
+                          "gap": 24,
+                          "padding": [
+                            12,
+                            24,
+                            20,
+                            24
+                          ],
+                          "children": [
+                            {
+                              "id": "NhO7P",
+                              "type": "ref",
+                              "ref": "vAkxT",
+                              "name": "Calculator / Body",
+                              "width": 342,
+                              "descendants": {
+                                "mli7Z/IqR3S": {
+                                  "content": "125,00"
+                                },
+                                "oFUw3/IqR3S": {
+                                  "content": "111.197,00"
+                                }
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "CTX0y",
+                          "x": 0,
+                          "y": 679,
+                          "name": "Tab wrap",
+                          "width": 390,
+                          "height": 84,
+                          "layout": "vertical",
+                          "padding": [
+                            0,
+                            16,
+                            12,
+                            16
+                          ],
+                          "children": [
+                            {
+                              "id": "fiPlP",
+                              "type": "ref",
+                              "ref": "pfT3N",
+                              "width": "fill_container",
+                              "name": "Tab bar",
+                              "layout": "none",
+                              "height": 72,
+                              "gap": 0,
+                              "justifyContent": "start",
+                              "alignItems": "center",
+                              "padding": [
+                                0,
+                                6,
+                                6,
+                                6
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "rectangle",
+                      "id": "NPvqF",
+                      "x": 0,
+                      "y": 0,
+                      "name": "Scrim",
+                      "fill": "#29243D66",
+                      "width": 390,
+                      "height": 844
+                    },
+                    {
+                      "type": "frame",
                       "id": "HITwE",
+                      "x": 0,
+                      "y": 495,
                       "name": "Sheet",
-                      "width": "fill_container",
+                      "width": 390,
                       "fill": "$bg/surface",
                       "cornerRadius": [
                         20,

@@ -286,7 +286,8 @@ Familia única: **Nunito** (Google Fonts, OFL). Pesos usados: 400, 600, 700, 800
 | Sin conexión | `cloud-off` |
 | Desactualizado | `clock` |
 | Al día | `circle-check` |
-| Mi tasa | `pencil` |
+| Mi tasa (identidad) | `star` |
+| Editar Mi tasa (acción) | `pencil` |
 | Flecha sube | `arrow-up-right` |
 | Flecha baja | `arrow-down-right` |
 
@@ -468,6 +469,44 @@ Fila de 56 px: chip de identidad 32×32 (radio 10, icono 16, colores de §3.6) +
 - Agrupan por **mercado**, no por fuente: `official` está en `rate_snapshots` y la fuente sigue en el pie de cada ficha.
 - Un grupo nuevo (USDC, otra stablecoin) es una fila más dentro del grupo existente; no cambia la estructura de la pantalla.
 
+### 7.11 `MiTasaSheet` — editar Mi tasa
+
+```
+┌──────────────────────────────────┐
+│               ────               │  asa 36×4
+│ Mi tasa                      ✕   │  type/h3 + cerrar 40
+│ ┌──────────────────────────────┐ │
+│ │ Bolívares                 Bs │ │  AmountCard, borde activo
+│ │ 1.000,00                     │ │
+│ └──────────────────────────────┘ │
+│ Déjalo vacío para quitarla de la  │  type/caption, secondary
+│ calculadora.                      │
+│ ┌──────────────────────────────┐ │
+│ │           Guardar            │ │  Button/Primary
+│ └──────────────────────────────┘ │
+└──────────────────────────────────┘
+```
+
+| Propiedad | Valor |
+|:--|:--|
+| Ancho | 390 (`fill_container`) |
+| Radio | `[20, 20, 0, 0]` |
+| Padding | `[12, 20, 20, 20]` |
+| Gap | 16 |
+| Asa | 36×4, `border/strong`, pill |
+| Título | `type/h2` 22/800 |
+| Cerrar | icono `x` 22, área 40×40, radio 12 |
+| Campo | `AmountCard` activo: borde `brand/primary` 2 px, sin botón copiar |
+| Helper | `type/caption`, `text/secondary`, una línea |
+| CTA | `Button/Primary`, 48 px, ancho completo |
+| Alto | **301** |
+
+- Mismo patrón que 09 (§7.7): asa, cabecera con `✕`, contenido y CTA al pie. No lleva barra inferior.
+- Se abre desde el `pencil` de la fila **Mi tasa** en 09, no desde la calculadora: la ficha compacta sigue abriendo 09.
+- **Estado vacío:** campo vacío o `0` = quitar Mi tasa. `Guardar` está siempre habilitado y no hay copy de error: el helper explica la consecuencia antes de pulsar. Al guardar, el sheet se cierra y 09 deja la fila `Mi tasa` en `Definir`, que sigue siendo la entrada para volver a crearla; la calculadora deja de ofrecer Mi tasa hasta que se defina otra vez.
+- Acepta coma y punto y normaliza a coma al mostrar (§8). Solo dígitos y un separador decimal.
+- Mi tasa es local (`shared_preferences`): no tiene `source_code`, `published_at` ni `fetched_at`, y por eso no entra en el catálogo de Tasas.
+
 ---
 
 ## 8. Formato numérico es-VE (F-04)
@@ -544,7 +583,7 @@ Regla de peso: la app base debe quedar **< 40 MB** (RNF-09). El emblema no se us
 
 ## 12. Pantallas y navegación
 
-El MVP v1 son **10 artboards** en `design/cambiami.pen`. Esta es la lista canónica: si una pantalla no está aquí, no entra en v1.
+El MVP v1 son **11 artboards** en `design/cambiami.pen`. Esta es la lista canónica: si una pantalla no está aquí, no entra en v1.
 
 | # | Pantalla | Estado | Frame |
 |:--|:--|:--|:--|
@@ -557,11 +596,14 @@ El MVP v1 son **10 artboards** en `design/cambiami.pen`. Esta es la lista canón
 | 07 | Configuración | normal | `Screen / 07 · Configuracion` |
 | 08 | Información | normal | `Screen / 08 · Informacion` |
 | 09 | Monedas | modal sobre Calculadora | `Screen / 09 · Monedas (modal)` |
+| 09b | Mi tasa | sheet sobre Monedas | `Screen / 09b · Mi tasa (sheet)` |
 | 10 | Compartir | sheet sobre Calculadora | `Screen / 10 · Compartir (sheet)` |
 
 El número **06 queda vacante**: era `Tasas USDT` y se absorbió en 05 al pasar a catálogo por mercado. Los estados `cargando` y `error` de Tasas están dibujados en el frame `Estados · Tasas` del grupo HU-11 (§13.4).
 
-En el archivo, las 10 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
+09, 09b y 10 llevan detrás una **copia estática de 02** (`Backdrop · Calculadora`) bajo un rectángulo de scrim `#29243D66`. pen.dev no permite instanciar una pantalla, así que la copia se mantiene a mano: si 02 cambia, hay que repetir el `Copy`. Sin ese fondo, el export parece una pantalla morada y no comunica que es un modal.
+
+En el archivo, las 11 pantallas están agrupadas por historia de usuario en el frame `Board · Pantallas por historia` (a la izquierda del canvas). El mapa completo y la matriz de apariciones están en `design/README.md`.
 
 ### 12.1 Flujo de navegación
 
@@ -570,6 +612,8 @@ En el archivo, las 10 pantallas están agrupadas por historia de usuario en el f
 | 01 Splash | espera 400 ms | 02 Calculadora |
 | 02 Calculadora | tap `RateCard / Compacta` (chevron `⌄`) | 09 Monedas |
 | 09 Monedas | tap `Aplicar` o `✕` | 02 Calculadora |
+| 09 Monedas | tap `pencil` en la fila Mi tasa | 09b Mi tasa |
+| 09b Mi tasa | tap `Guardar` o `✕` | 09 Monedas |
 | 02 Calculadora | tap `Compartir cálculo` | 10 Compartir |
 | 02 Calculadora | tap tab `Tasas` | 05 Tasas |
 | 02 Calculadora | tap tab `Configuración` | 07 Configuración |
@@ -583,6 +627,8 @@ En el archivo, las 10 pantallas están agrupadas por historia de usuario en el f
 | 08 Información | tap `Volver` o `‹` | pop (Configuración o Tasas, según de dónde venga) |
 
 El botón de volver **siempre hace `pop`**, no navega a un destino fijo: se puede llegar a Información desde Configuración o desde el icono `info` de Tasas.
+
+**Sheets sobre la calculadora:** 09, 09b y 10 no son pantallas opacas. El fondo que se ve tras el scrim es 02: el usuario no pierde el contexto del cálculo mientras elige moneda, edita Mi tasa o comparte.
 
 **Barra inferior:** la llevan las pantallas de primer nivel — 02, 03, 04, 05 y 07. No la llevan 02b (el teclado la cubre) ni 08 Información (pantalla de detalle, se sale con `‹`). Configuración dejó de ser secundaria: ya no tiene botón de volver, se llega y se sale por la barra.
 
@@ -630,6 +676,8 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 | Metodología | `Cómo se calcula` · `Ver en bcv.org.ve` · `Ver en binance.com` |
 | Fórmula de la brecha | `(USDT promedio − BCV) ÷ BCV` · `BCV 889,5754 Bs · USDT 995,90 Bs` |
 | Monedas | `En calculadora` · `Aplicar` |
+| Sheet Mi tasa | `Mi tasa` · `Bolívares` · `Déjalo vacío para quitarla de la calculadora.` · `Guardar` |
+| Fila Mi tasa sin definir (09) | `Definir` |
 | Acciones | `Compartir cálculo` · `Compartir tasas` · `Copiar texto` · `WhatsApp` · `Reintentar` · `Volver` |
 | Configuración | `Moneda predeterminada` · `Esta moneda se mostrará en la calculadora al abrir la app.` · `Información` · `TasaVE C.A. · v1.0` |
 
@@ -730,4 +778,4 @@ Nunca `Frame 123`, `Rectangle 45` ni `Group 8`.
 
 ---
 
-*Sistema de diseño de Cambiami · v1.1 · 2026-11-11 · IDUCDEV para TasaVE C.A.*
+*Sistema de diseño de Cambiami · v1.2 · 2026-11-13 · IDUCDEV para TasaVE C.A.*
