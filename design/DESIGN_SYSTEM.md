@@ -33,29 +33,44 @@ Este documento es la referencia única de color, tipografía, espaciado, compone
 
 ## 2. Logo
 
-### Variantes requeridas
+### Variantes
 
 | Variante | Archivo | Uso |
 |:--|:--|:--|
-| Emblema | `design/assets/emblem.png` (1080×1147, alpha) | Splash, icono de app, avatar |
-| Lockup horizontal | *pendiente de exportar* | Cabeceras, landing, tienda |
-| Monocromo | *pendiente de exportar* | Fondos de color, marca de agua |
-| Wordmark | *pendiente de exportar en SVG* | Textos de marca |
+| Emblema plano | `design/assets/brand/emblem.svg` (3 colores) | Icono de app, splash, cabeceras |
+| Emblema monocromo | `design/assets/brand/emblem-mono.svg` (`currentColor`) | Iconos temáticos, una sola tinta |
+| Wordmark | `design/assets/brand/wordmark.svg` (`#FFF9F1`), `wordmark-purple.svg` (`#9944EE`), `wordmark-mono.svg` (`currentColor`) | Textos de marca |
+| Emblema glossy | `design/assets/emblem.png` (1080×1147, alpha) | Solo splash grande (≥ 160 px) |
+| Lockup horizontal | *pendiente* | Landing y tienda (H4) |
+
+### Construcción del emblema
+
+El emblema son **dos medialunas entrelazadas** —violeta arriba a la izquierda, teal abajo a la derecha— más un **acento ámbar** arriba a la derecha. La versión vectorial conserva la geometría del render original y la repinta plana, sin degradados:
+
+| Zona | Token | Hex |
+|:--|:--|:--|
+| Medialuna violeta | `brand/primary` | `#9944EE` |
+| Medialuna teal | `palette/teal-500` | `#20C6C8` |
+| Acento ámbar | `palette/amber-500` | `#FFD166` |
+
+El SVG lleva una **silueta base en violeta** debajo de las tres tintas: así las juntas entre medialunas no muestran ninguna costura, y la capa de abajo nunca es un color ajeno a la marca.
+
+El wordmark es `cambiami` en Nunito 800, 32 px y tracking −0,5, **convertido a curvas**: no depende de que la fuente esté instalada. Su avance (141 px) coincide con el nodo `n4R8P` del `.pen`.
 
 ### Reglas
 
 - **Área de respeto:** el alto del emblema ÷ 2 en todos los lados.
-- **Tamaño mínimo:** emblema 24 px; lockup 96 px de ancho.
+- **Tamaño mínimo:** emblema plano 24 px; wordmark 32 px.
 - **Fondo:** el emblema va sobre `#29243D`, `#FFF9F1` o `#FFFFFF`. Nunca sobre coral, ámbar ni fotografías.
-- **Prohibido:** deformar, rotar, recolorear, añadir sombras, recortar el brillo, ponerlo dentro de otra forma.
-- **Versión pequeña (< 48 px):** usar la monocroma. El emblema glossy pierde definición a tamaño de icono pequeño.
+- **El icono de app va sobre `#29243D`.** Sobre crema el teal cae a 2,01:1 y el ámbar a 1,38:1, por debajo del 3:1 de WCAG 1.4.11.
+- **Prohibido:** deformar, rotar, recolorear fuera de las tres tintas, añadir sombras o recortar el emblema.
+- **El glossy no se usa como icono:** a 48 px el degradado se convierte en una mancha. Solo vive en el splash, a 160 px o más.
 
 ### Estado de los assets (importante)
 
-- `design/cambiami_logo_exact.svg` **no es vectorial**: contiene un PNG embebido en base64.
-- `design/Cambiami Brand Style Board (Editado).svg` es un autotrace (VTracer) del board, no un logo limpio.
-- **Acción pendiente:** exportar lockup horizontal y monocromo como SVG real desde el archivo fuente de marca antes de H4 (build de tienda).
-- El wordmark del splash es **texto** en Nunito 800 (`cambiami`); se sustituye por el SVG definitivo cuando exista.
+- `design/cambiami_logo_exact.svg` **no es vectorial**: contiene un PNG embebido en base64. No se usa.
+- `design/Cambiami Brand Style Board (Editado).svg` es un autotrace (VTracer) del board, no un logo limpio. No se usa.
+- **Acción pendiente:** exportar el lockup horizontal como SVG real antes de H4 (build de tienda).
 
 ---
 
@@ -552,17 +567,24 @@ Implementación única: `EsVeFormatter` en `lib/core/formatters/`. Ninguna panta
 
 ## 11. Assets
 
-| Asset | Tamaño | Estado |
+| Asset | Archivo | Estado |
 |:--|:--|:--|
-| `design/assets/emblem.png` | 1080×1147, alpha | ✅ listo |
-| `design/assets/emblem-512.png` | 512×512 | ✅ listo |
-| Icono app 1024×1024 | PNG opaco | ⬜ pendiente |
-| Adaptive icon (fg/bg) | 432×432 + 108 dp | ⬜ pendiente |
-| Splash nativo (Android/iOS) | varias densidades | ⬜ pendiente |
-| Lockup horizontal SVG | — | ⬜ pendiente |
-| Monocromo SVG | — | ⬜ pendiente |
+| Emblema plano (3 colores) | `design/assets/brand/emblem.svg` | ✅ vectorial |
+| Emblema monocromo | `design/assets/brand/emblem-mono.svg` | ✅ vectorial |
+| Wordmark (3 tintas) | `design/assets/brand/wordmark*.svg` | ✅ vectorial, en curvas |
+| Emblema glossy original | `design/assets/emblem.png` | ✅ solo splash |
+| Icono de app (recomendado) | `design/assets/brand/app-icon-dark-1024.png` | ✅ 1024, opaco |
+| Icono de app sobre crema | `design/assets/brand/app-icon-cream-1024.png` | ✅ 1024, opaco (no usar: contraste) |
+| Adaptive icon foreground | `design/assets/brand/android/ic_launcher_foreground-432.png` | ✅ 432, zona segura |
+| Adaptive icon monochrome | `design/assets/brand/android/ic_launcher_monochrome-432.png` | ✅ 432 |
+| Icono de notificación | `design/assets/brand/android/ic_notification-96.png` | ✅ 96, blanco |
+| Fuente Nunito (OFL) | `design/assets/fonts/Nunito-VariableFont_wght.ttf` | ✅ para Flutter |
+| Splash nativo | — | ⬜ lo genera Flutter |
+| Lockup horizontal SVG | — | ⬜ pendiente (H4) |
 | Feature graphic tienda | 1024×500 | ⬜ pendiente (H4) |
 | Capturas de tienda | 1080×1920 ×5 | ⬜ pendiente (H4) |
+
+**Splash nativo:** fondo `#29243D` y emblema glossy (`emblem.png`) a 160 px, para que la transición al splash de Flutter (pantalla 01) no muestre un salto. El icono de app, en cambio, usa el emblema plano.
 
 Regla de peso: la app base debe quedar **< 40 MB** (RNF-09). El emblema no se usa a más de 512 px dentro de la app.
 

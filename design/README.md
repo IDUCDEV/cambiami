@@ -5,10 +5,39 @@ Carpeta de diseño del MVP v1. Contiene tres cosas distintas:
 | Archivo | Qué es | Estado |
 |:--|:--|:--|
 | `cambiami.pen` | Diseño en pen.dev (canvas infinito, editable) | Generado al ~90 %, lo terminas tú |
-| `assets/` | Emblema recortado con alpha | Listo |
-| `../exports/` | PNG de cada pantalla y de las páginas Foundations/Components | Generado |
+| `assets/` | Emblema original (glossy) y `assets/brand/` con los SVG e iconos derivados | Listo |
+| `exports/` | PNG de cada pantalla y de las páginas Foundations/Components | Generado |
 
 La fuente de verdad de tokens, tipografía, componentes, **microcopy** y navegación es **`DESIGN_SYSTEM.md`**. Este README solo describe el archivo de diseño.
+
+---
+
+## Assets de marca
+
+`design/assets/` separa el original de lo derivado:
+
+| Carpeta / archivo | Qué es |
+|:--|:--|
+| `emblem.png`, `emblem-512.png` | Render glossy original. Solo se usa en el splash, a 160 px o más |
+| `brand/emblem.svg` | Emblema plano en tres colores (`#9944EE`, `#20C6C8`, `#FFD166`), trazado desde el PNG |
+| `brand/emblem-mono.svg` | Silueta a una tinta (`currentColor`) |
+| `brand/wordmark.svg` · `-purple.svg` · `-mono.svg` | `cambiami` en Nunito 800 / 32 px / tracking −0,5, convertido a curvas |
+| `brand/app-icon-{dark,cream}-1024.png` | Icono maestro. **Se usa el oscuro**: sobre crema el teal cae a 2,01:1 |
+| `brand/android/` | Adaptive foreground y monochrome (432, zona segura) + icono de notificación (96, blanco) |
+| `brand/preview/` | Escalera de tamaños y `00-review.png`, la hoja de revisión |
+| `fonts/Nunito-VariableFont_wght.ttf` + `OFL.txt` | Fuente para Flutter y para regenerar el wordmark |
+
+**Verificación:** la silueta del emblema plano tiene IoU 0,991 frente al PNG original, con las mismas proporciones de tinta (teal 48,4 % / violeta 45,1 % / ámbar 6,5 %) y **sin costuras interiores** (0,0004 % de píxeles huecos a más de 6 px del borde). El wordmark avanza 141,01 px, igual que el nodo `n4R8P` del `.pen`; el foreground adaptativo mide 243×250 px dentro de la zona segura de 288 px. Ningún SVG contiene `<image>`, base64 ni `<text>`.
+
+### Regenerar
+
+```bash
+python3 design/assets/brand/build/build_brand.py     # emblema + iconos + previews
+python3 design/assets/brand/build/build_wordmark.py  # wordmark (requiere fonttools)
+python3 design/assets/brand/build/build_review.py    # hoja 00-review.png
+```
+
+`build_brand.py` parte de `assets/emblem.png`; si el emblema original cambia, se vuelve a trazar. El splash nativo lo generará Flutter con fondo `#29243D` y el emblema glossy a 160 px, para que no haya salto con la pantalla 01.
 
 ---
 
