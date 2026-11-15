@@ -370,8 +370,11 @@ Casos borde de la calculadora:
 - Entrada con coma o punto → se normaliza; solo dígitos y un separador.
 - Más de 12 dígitos → se recorta la entrada.
 - Cambiar de tasa conserva el monto y recalcula.
-- Moneda sin fila en `rates_latest` → no se muestra tarjeta. El copy de "sin datos
-  de una moneda" está **pendiente (H1)** y no se inventa.
+- Moneda sin fila en `rates_latest` → no se muestra tarjeta y no hay copy de "sin
+  datos". Si esa moneda es la tasa seleccionada, se cae a `USD`/`oficial`
+  (REQ-CAT-005).
+- Vista sin filas → `No hay tasas publicadas.` con `Reintentar`; no se inventan
+  tasas ni se escribe cache.
 - Redondeo: solo visual, half-up a la cantidad de decimales de la moneda.
 
 ---

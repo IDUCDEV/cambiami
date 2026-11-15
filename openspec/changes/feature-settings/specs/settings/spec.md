@@ -56,7 +56,7 @@ ser Cambiami en todas las pantallas.
 
 #### Scenario: Pie de Configuración
 - **WHEN** el usuario llega al final de `Configuración`
-- **THEN** ve `TasaVE C.A. · v1.0` como entidad legal
+- **THEN** ve `TasaVE C.A. · v1.0` como entidad legal, sin RIF en pantalla
 
 #### Scenario: Marca visible
 - **WHEN** se revisa cualquier título, splash o texto de la app

@@ -119,6 +119,9 @@ class SetDefaultCurrency {
   error en el log.
 - **D8 — No hay pantalla de preferencias genérica.** Solo existe la moneda; un
   listado de ajustes vacío en v1 sería una promesa falsa.
+- **D9 — El RIF no se muestra en la app.** El pie queda `TasaVE C.A. · v1.0`; el
+  RIF `J-30452819-5` aparece solo en la ficha legal de tienda. Si se agregara al
+  pie, se desviaría de §13.2 y cargaría la interfaz con un dato que no se usa.
 
 ## Backend Supabase
 
@@ -164,5 +167,3 @@ SettingsPage ──► push /informacion ──► InfoPage (ARB, sin estado) �
 
 - Si H4 agrega enlaces de tienda o soporte, Información gana una sección; no se
   prepara ahora.
-- Confirmar si `TasaVE C.A.` debe incluir el RIF `J-30452819-5` en el pie o solo en
-  el legal de tienda. El diseño actual no lo muestra en pantalla.

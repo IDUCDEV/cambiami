@@ -25,7 +25,6 @@ componentes y copy. Este change no redefine nada de eso: lo implementa.
 - Conversión de montos (`feature-calculator`).
 - Histórico, gráficas, panel de salud del colector.
 - Escritura en Supabase, RPC o auth.
-- Copia de "sin datos de una moneda": pendiente de H1 y no se inventa.
 
 ## Ficheros afectados
 
@@ -215,9 +214,11 @@ final class CustomRate extends SelectedRate {
   por fila no lo sería. `savedAt` es cuándo se guardó, no `fetched_at`.
 - **D5 — Selección huérfana cae al default.** Si `cambiami.selected_rate.v1`
   apunta a una fila ausente, se usa `CatalogRate(USD, oficial)`, se reescribe la
-  preferencia y se registra en el log. No se deja la calculadora sin tasa. La
-  forma guardada es `{"kind":"catalog","currencyCode":"USD","type":"oficial"}` o
-  `{"kind":"custom"}`, y `cambiami.custom_rate.v1` guarda el `double` en bolívares.
+  preferencia y se registra en el log. No se deja la calculadora sin tasa. Una
+  moneda sin fila en `rates_latest` no dibuja tarjeta y, si es la seleccionada,
+  aplica esta misma caída. La forma guardada es
+  `{"kind":"catalog","currencyCode":"USD","type":"oficial"}` o `{"kind":"custom"}`,
+  y `cambiami.custom_rate.v1` guarda el `double` en bolívares.
 - **D6 — `RatesCubit` y `SelectionCubit` son `@lazySingleton`; `CustomRateCubit`
   es `@injectable`.** Los dos primeros los comparten la página 05, la calculadora
   y el sheet 09; el tercero muere al cerrar el sheet 09b.
@@ -230,6 +231,9 @@ final class CustomRate extends SelectedRate {
 - **D10 — `WatchSelectedRate` es un `StreamController` en memoria** del
   repositorio, no un `watch()` del almacenamiento (ADR 0003). Al reiniciar, el
   primer valor sale del cache.
+- **D11 — `RatesEmpty` tiene copy propio.** Una vista con cero filas muestra
+  `No hay tasas publicadas.` con `Reintentar`; no se reutiliza el texto de error
+  porque la consulta sí funcionó.
 
 ## Backend Supabase
 
@@ -285,7 +289,5 @@ MiTasaSheet ──► CustomRateCubit.save() ──► SaveCustomRate | ClearCus
 
 ## Open Questions
 
-- Copy del estado vacío y de "moneda sin datos": pendiente de H1 (§13.4). No se
-  escribe hasta ver la respuesta real.
 - Si `change_pct` llega como `null` en la primera publicación, la ficha oculta la
   variación; confirmar con el primer dato real del colector.

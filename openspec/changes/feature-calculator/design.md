@@ -182,7 +182,8 @@ final class ShareTapped extends CalculatorEvent {
 - **D7 — Tasa no positiva es error de dato, no de entrada.** Se deshabilita el
   resultado y se usa el copy de error de tasas, que ya existe en §13.4.
 - **D8 — Compartir usa `url_launcher` + `Clipboard`**, con fallback a
-  `https://wa.me/?text=`. No se agrega `share_plus` (FEATURES §6).
+  `https://wa.me/?text=`. No se agrega `share_plus` (FEATURES §6). El enlace del
+  mensaje sale de `AppConfig.shareUrl` (`https://cambiami.app`), un solo literal.
 - **D9 — La moneda inicial viene de `SettingsCubit` (singleton de app) una sola
   vez**, al construir la página. Un cambio de preferencia no altera la calculadora
   abierta.
@@ -191,6 +192,9 @@ final class ShareTapped extends CalculatorEvent {
   conversión con el último monto y la última tasa válida, o vuelve a
   `CalculatorInitial` si no hay tasa, sin borrar el texto del campo. Así el botón
   `Reintentar` refresca tasas sin que `calculator` importe `rates`.
+- **D11 — Las etiquetas del campo salen de §13.2.** `USD` → `Dólares`, `EUR` →
+  `Euros`, `VES` → `Bolívares`, `USDT` → `USDT`. No se usa `currency_name` del
+  backend para rotular el campo.
 
 ## Backend Supabase
 
@@ -240,9 +244,5 @@ ShareSheet ──► CalculatorCubit(ShareTapped) ──► BuildShareText ─�
 
 - Copy para tasa no positiva: se reutiliza el de error de tasas hasta que H1
   confirme si el colector puede publicar `0`.
-- **Etiqueta del campo de monto para `EUR` y `USDT`:** `DESIGN_SYSTEM.md` §13.2 solo
-  define `Dólares` y `Bolívares`. No se inventan `Euros` ni `Tether`: se confirma en
-  H1 y hasta entonces el campo usa el nombre de la moneda que llega en
-  `currency_name`, sin copy nuevo.
 - Si `SettingsCubit` cambia la moneda mientras la calculadora está montada, se
   aplica en la próxima apertura; confirmar que el usuario no espera efecto inmediato.

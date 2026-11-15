@@ -21,7 +21,7 @@
 
 ## 4. Interfaz
 
-- [ ] 4.1 Implementar `AmountField` con `AmountCard` de §7.1, botón copiar de 48×48 y controlador propio; verificar que escribir `1,` no borra la coma
+- [ ] 4.1 Implementar `AmountField` con `AmountCard` de §7.1, botón copiar de 48×48 y controlador propio; verificar que escribir `1,` no borra la coma y que las etiquetas `Dólares`/`Euros`/`Bolívares`/`USDT` salen de §13.2
 - [ ] 4.2 Implementar `CalculatorBody` con cabecera, franja, ficha compacta, dos montos y CTA `Compartir cálculo`; verificar con golden test a 390 px
 - [ ] 4.3 Verificar que la ficha compacta abre el sheet `Monedas` y que el teclado abierto oculta la ficha y conserva la franja
 - [ ] 4.4 Implementar `ShareSheet` con `WhatsApp` y `Copiar texto`; verificar que copiar deja el texto en el portapapeles y muestra confirmación breve

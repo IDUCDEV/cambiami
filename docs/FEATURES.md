@@ -91,7 +91,7 @@ la selección. Al reiniciar, el stream arranca con el valor leído del cache.
 |---|---|---|
 | `RatesLoading` | Arranque sin cache | Skeleton de 3 fichas |
 | `RatesLoaded(rates, status, fetchedAt, isRefreshing)` | Hay datos (cache o red) | Catálogo + `FreshnessStrip` |
-| `RatesEmpty` | Red OK y vista vacía | Estado vacío (copy pendiente H1) |
+| `RatesEmpty` | Red OK y vista vacía | `No hay tasas publicadas.` + `Reintentar` |
 | `RatesError(message)` | Red falló y no hay cache | Error con `Reintentar` |
 
 **`SelectionCubit`** (app):
@@ -212,6 +212,7 @@ en `core/app/`, `F-04` (formato) en `core/formatters/` y `F-07` (compartir) en
 
 Compartir usa `url_launcher` (`whatsapp://send?text=` con fallback a
 `https://wa.me/?text=`) y `Clipboard` de Flutter. **No se agrega `share_plus`.**
+El enlace del mensaje es `AppConfig.shareUrl` (`https://cambiami.app`).
 
 ---
 
@@ -319,7 +320,7 @@ pasa a `CalculatorCubit` al arrancar, no en caliente (§5.3).
 | Quitar | `isar_community`, `isar_community_flutter_libs`, `isar_community_generator` | ADR 0003 |
 | Quitar | `path_provider` | Solo lo usaba Isar |
 | Agregar | `shared_preferences` | Cache y preferencias (ADR 0003) |
-| Agregar | `lucide_icons` | Iconografía única del diseño (§6) |
+| Agregar | `lucide_icons_flutter` | Iconografía única del diseño (§6); `lucide_icons` 0.257 no compila con Flutter 3.47 |
 | Mantener | `url_launcher` | Compartir por WhatsApp |
 | Mantener | `intl` | Base de `EsVeFormatter` |
 | Mantener | `get_it`, `injectable`, `injectable_generator` | ADR 0002 |

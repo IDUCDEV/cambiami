@@ -34,7 +34,7 @@
 - [ ] 5.2 Implementar `FreshnessStrip` y el `StatusPill` con los tres estados de §3.3; verificar colores y textos con test de widget
 - [ ] 5.3 Implementar `RatesPage` agrupando por `official` y ordenando Oficial antes de P2P (REQ-CAT-002); verificar que un grupo vacío no dibuja su cabecera
 - [ ] 5.4 Verificar que la ficha P2P usa `p2p_avg` como valor y calcula la brecha con `oficial`; sin `p2p_avg` no dibuja brecha (REQ-CAT-002)
-- [ ] 5.5 Implementar los estados `RatesLoading` (skeleton), `RatesEmpty` y `RatesError` con `Reintentar`; verificar los tres con test de widget
+- [ ] 5.5 Implementar los estados `RatesLoading` (skeleton), `RatesEmpty` (`No hay tasas publicadas.` + `Reintentar`) y `RatesError` con `Reintentar`; verificar los tres con test de widget y que una moneda sin fila no dibuja tarjeta
 - [ ] 5.6 Verificar que el skeleton anuncia `Actualizando tasas` al lector de pantalla y que el botón `Reintentar` vuelve a llamar a `fetchLatestRates`
 
 ## 6. Sheets Monedas (09) y Mi tasa (09b)
@@ -54,7 +54,7 @@
 - [ ] 7.5 Correr `flutter test` y confirmar verdes los tests de modelo, repositorio, cubits, página y sheets
 - [ ] 7.6 Probar en dispositivo: arranque con cache, modo avión, selección tras reiniciar y Mi tasa tras reiniciar
 - [ ] 7.7 Confirmar cero emojis y cero hex sueltos en la feature
-- [ ] 7.8 Registrar en el reporte las desviaciones y los `TODO` pendientes (copy de vacío H1)
+- [ ] 7.8 Registrar en el reporte las desviaciones y los `TODO` pendientes
 
 ## Trazabilidad
 

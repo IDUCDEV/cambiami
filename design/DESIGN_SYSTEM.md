@@ -282,7 +282,7 @@ Familia única: **Nunito** (Google Fonts, OFL). Pesos usados: 400, 600, 700, 800
 
 ## 6. Iconografía
 
-- Librería única: **Lucide** (línea, 2 px, esquinas redondeadas). En Flutter: `lucide_icons`.
+- Librería única: **Lucide** (línea, 2 px, esquinas redondeadas). En Flutter: `lucide_icons_flutter`.
 - Tamaños: 16 (inline), 20 (botón), 24 (cabecera), 28 (tab bar).
 - Color: `text/primary` o `text/secondary`. Nunca un color de marca salvo en estado activo.
 - **Se eliminan todos los emojis del brief** (`💵 💶 💸 💰 📊 📋 🔽 🔄`). Eran marcadores de posición de la evidencia del clon.
@@ -675,7 +675,7 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 | Títulos de pantalla | `Calculadora` · `Tasas` · `Configuración` · `Información` · `Monedas` · `Compartir` |
 | Splash | `cambiami` · `La tasa, clara y al día.` · `v1.0 · TasaVE C.A.` |
 | Tabs | `Calculadora` · `Tasas` · `Configuración` |
-| Campos de monto | `Dólares` · `Bolívares` |
+| Campos de monto | `Dólares` · `Euros` · `Bolívares` · `USDT` |
 | Chips de tasa | `BCV` · `USDT` · `Euro` · `Mi tasa` |
 | Ficha de la calculadora | `Dólar` · `Euro` · `USDT` · `Mi tasa` · `Definida por ti` |
 | Grupos de Tasas | `Oficial` · `Mercado P2P` |
@@ -689,6 +689,8 @@ Todo el texto que ve el usuario vive aquí. Si un texto no está en esta secció
 | Fila Mi tasa sin definir (09) | `Definir` |
 | Acciones | `Compartir cálculo` · `Compartir tasas` · `Copiar texto` · `WhatsApp` · `Reintentar` · `Volver` |
 | Configuración | `Moneda predeterminada` · `Esta moneda se mostrará en la calculadora al abrir la app.` · `Información` · `TasaVE C.A. · v1.0` |
+
+El RIF `J-30452819-5` no se muestra en la app: el pie queda `TasaVE C.A. · v1.0` y el RIF vive solo en la ficha legal de tienda.
 
 ### 13.3 Estados del dato (F-02 / BN-06)
 
@@ -706,7 +708,8 @@ El banner **no sustituye** la frescura: cuando hay banner, se muestran los dos. 
 |:--|:--|:--|
 | Cargando (Tasas) | ninguno visible | Skeleton de título, dos `SectionHeader` y tres `RateCard / Ficha`, dibujado en `Estados · Tasas`; el lector de pantalla anuncia `Actualizando tasas` |
 | Error (Tasas) | `No pudimos actualizar las tasas.` + botón ghost `Reintentar` | Icono `cloud-off` 32; dibujado en `Estados · Tasas` |
-| Sin datos de una moneda | *pendiente (H1)* | No inventar copy antes de ver la respuesta real del backend |
+| Sin tasas (vista vacía) | `No hay tasas publicadas.` + botón ghost `Reintentar` | La consulta fue correcta y la vista vino sin filas; no se inventan tasas ni se escribe cache |
+| Sin datos de una moneda | sin copy | La tarjeta no se dibuja; si esa moneda es la tasa seleccionada, se cae a `USD`/`oficial` como una selección huérfana (REQ-CAT-005) |
 
 ### 13.5 Compartir (mensaje literal)
 
@@ -720,7 +723,8 @@ Descarga Cambiami: https://cambiami.app
 ```
 
 - El monto y la tasa se toman de la calculadora en el momento de compartir; el bloque de arriba es el estado por defecto.
-- El enlace definitivo se confirma en H4. Nunca `bit.ly/alcambio-app` (era del clon).
+- El enlace de v1 es `https://cambiami.app`, centralizado en `AppConfig.shareUrl`. Si H4 cambia el dominio, se actualiza ese único valor. Nunca `bit.ly/alcambio-app` (era del clon).
+- El dominio debe estar publicado antes del build de tienda (H4); el literal no cambia por eso.
 
 ### 13.6 Texto legal (F-12, obligatorio)
 

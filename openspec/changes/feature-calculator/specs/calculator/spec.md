@@ -92,7 +92,7 @@ del sistema de diseño.
 
 #### Scenario: Texto por defecto
 - **WHEN** el usuario comparte sin editar el monto
-- **THEN** el texto es `$ 1,00 = 889,58 Bs` seguido del bloque `Tasa BCV`, `Fecha valor` y `Descarga Cambiami`
+- **THEN** el texto es `$ 1,00 = 889,58 Bs` seguido del bloque `Tasa BCV`, `Fecha valor` y `Descarga Cambiami: https://cambiami.app`
 
 #### Scenario: Monto editado
 - **WHEN** el usuario comparte con `10,00` en el campo de dólares
@@ -127,6 +127,10 @@ abrir.
 #### Scenario: Moneda predeterminada
 - **WHEN** la preferencia guardada es `EUR`
 - **THEN** la calculadora abre con la tasa del euro como ficha y el campo de entrada corresponde a esa moneda
+
+#### Scenario: Etiqueta de moneda
+- **WHEN** la moneda del campo es `EUR` o `USDT`
+- **THEN** el campo se rotula `Euros` o `USDT` según §13.2, no con el `currency_name` del backend
 
 #### Scenario: Cambio de preferencia
 - **WHEN** el usuario cambia la moneda predeterminada en Configuración

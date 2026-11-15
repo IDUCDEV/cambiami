@@ -73,9 +73,9 @@ pantalla SHALL mostrar una franja de frescura con el estado derivado de la vista
 
 ### Requirement: Carga, vacío y error del catálogo (REQ-CAT-004)
 
-La pantalla SHALL dibujar un skeleton durante la carga, SHALL mostrar un estado
-vacío cuando la vista responda sin filas y SHALL ofrecer `Reintentar` cuando no
-haya datos ni cache.
+La pantalla SHALL dibujar un skeleton durante la carga, SHALL mostrar
+`No hay tasas publicadas.` con `Reintentar` cuando la vista responda sin filas y
+SHALL ofrecer `Reintentar` cuando no haya datos ni cache.
 
 #### Scenario: Carga visible
 - **WHEN** el catálogo está en `RatesLoading`
@@ -83,7 +83,11 @@ haya datos ni cache.
 
 #### Scenario: Vista vacía
 - **WHEN** la red responde correctamente con cero filas
-- **THEN** se muestra el estado vacío sin tasas inventadas y sin cache escrito
+- **THEN** se muestra `No hay tasas publicadas.` con `Reintentar`, sin tasas inventadas y sin cache escrito
+
+#### Scenario: Moneda sin fila
+- **WHEN** una moneda del catálogo no tiene fila en `rates_latest`
+- **THEN** no se dibuja su tarjeta y, si es la tasa seleccionada, la selección cae a `USD`/`oficial` como en REQ-CAT-005
 
 #### Scenario: Error sin cache
 - **WHEN** la consulta falla y no hay cache

@@ -2,7 +2,7 @@
 
 - [ ] 1.1 Ejecutar `flutter create` en `apps/mobile` con org `com.cambiami` y verificar que `flutter run` levanta la app por defecto
 - [ ] 1.2 Escribir `pubspec.yaml` con el delta de `docs/FEATURES.md` §10 y verificar que `flutter pub get` resuelve sin conflictos
-- [ ] 1.3 Verificar que `lucide_icons` compila con Flutter 3.47; si no, vendorizar los 17 iconos y registrar la decisión
+- [ ] 1.3 Agregar `lucide_icons_flutter: ^4.0.3` (no `lucide_icons`, que no compila con Flutter 3.47) y verificar que los 17 iconos de `DESIGN_SYSTEM.md` §6 existen y compilan; `flutter analyze` y `flutter build` limpios
 
 ## 2. Tema y tipografía
 
@@ -22,7 +22,7 @@
 - [ ] 4.1 Configurar GetIt + `injectable` con `service_locator.dart` y `external_module.dart`; verificar con un test de humo que resuelve `PreferencesService`
 - [ ] 4.2 Implementar `app_router.dart` con `StatefulShellRoute.indexedStack`, las rutas `/`, `/tasas`, `/configuracion` y `/informacion`; verificar navegación y `pop` en un widget test
 - [ ] 4.3 Implementar `AppTabBar` con tres destinos, FAB central de 60 px y estados activo/inactivo; verificar con golden test a 390 px de ancho
-- [ ] 4.4 Implementar `AppBootstrap` y `SplashPage` con espera mínima de 400 ms, lectura de cache y preferencias antes del primer frame útil y lanzamiento de la red sin esperarla; verificar que el primer frame útil es la calculadora y que no se puede volver al splash
+- [ ] 4.4 Implementar `AppBootstrap` y `SplashPage` con espera mínima de 400 ms, emblema glossy a 160 px sobre `#29243D`, lectura de cache y preferencias antes del primer frame útil y lanzamiento de la red sin esperarla; verificar que el primer frame útil es la calculadora y que no se puede volver al splash
 
 ## 5. Localización
 

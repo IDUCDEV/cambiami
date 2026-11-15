@@ -33,11 +33,13 @@ verifican al instalar, no se copian a ciegas.
 - `environment: sdk: ^3.11.0`, `flutter: ">=3.41.0"`; se instala con 3.47.1.
 - Se quitan `isar_community`, `isar_community_flutter_libs`,
   `isar_community_generator` y `path_provider` (ADR 0003).
-- Se agregan `shared_preferences` y `lucide_icons`.
+- Se agregan `shared_preferences` y `lucide_icons_flutter`.
 - `build_runner` genera solo el archivo de DI (ADR 0002).
-- **Riesgo de versión:** si `lucide_icons` no resuelve con Flutter 3.47, se
-  vendorizan los 17 iconos del sistema de diseño como SVG y se evalúa `flutter_svg`
-  en un ADR aparte. No se cambia el diseño por un paquete.
+- **Paquete de iconos resuelto:** `lucide_icons` 0.257.0 no compila con Flutter
+  3.47 porque `LucideIconData extends IconData` y `IconData` pasó a ser `final`.
+  Se usa `lucide_icons_flutter` 4.0.3 (`sdk: ^3.0.0`), que expone los 17 iconos de
+  §6 con los nombres nuevos (`circleCheck`, `trendingUp`, `share2`). Verificado con
+  `flutter analyze`, test de los 17 iconos y `flutter build web --release`.
 
 ### 2. Tema por tokens
 
@@ -118,7 +120,7 @@ borra la carpeta y falla si quedan imports.
 
 | Riesgo | Mitigación |
 |---|---|
-| `lucide_icons` no resuelve con Flutter 3.47 | Verificar en la tarea 1; si falla, vendorizar SVG y documentar en ADR |
+| `lucide_icons_flutter` cambia de API en una versión menor | Fijar `^4.0.3` y cubrir los 17 iconos con un test de widget que falle si falta un nombre |
 | Nunito no está instalada en el sistema | Bundlear los `.ttf` en `assets/fonts/`; no depender de la fuente del SO |
 | `StatefulShellRoute` con FAB elevado se desalinea | Widget propio con posiciones absolutas y golden test de la barra |
 | `intl` con locale `es_VE` produce símbolos distintos según plataforma | Patrones explícitos y test de tabla, sin confiar en el locale del SO |
@@ -135,6 +137,6 @@ borra la carpeta y falla si quedan imports.
 
 ## Open Questions
 
-- Paquete de iconos definitivo (se resuelve en la tarea 1 con la versión instalada).
-- Si el splash debe mostrar el emblema glossy o el plano: el sistema de diseño dice
-  glossy a 160 px; se usa el PNG exportado y se revisa visualmente.
+- Ninguna bloqueante. El paquete de iconos quedó resuelto en `lucide_icons_flutter`
+  4.0.3 y el splash usa el emblema glossy a 160 px, como fija
+  `DESIGN_SYSTEM.md` §5 y §12; el plano queda para el icono de app.
