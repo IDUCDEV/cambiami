@@ -13,6 +13,7 @@
 
 - [ ] 3.1 Crear la vista `public.rates_latest` con `security_invoker = true`, filtro `effective_from <= now()` y una fila por moneda y tipo; verificar con dos publicaciones que devuelve solo la vigente
 - [ ] 3.2 Habilitar RLS en `currencies`, `sources` y `rate_snapshots` y crear las policies de lectura para `anon` y `authenticated`; verificar que la vista devuelve filas con la clave publicable
+- [ ] 3.3 Habilitar RLS en `collector_runs` sin policies y revocar `select`, `insert`, `update` y `delete` a `anon` y `authenticated`; verificar que la clave publicable recibe error de permiso al consultarla
 
 ## 4. Catálogo
 
@@ -23,7 +24,7 @@
 - [ ] 5.1 Crear `supabase/tests/000_helpers.sql` con helpers de autenticación y aserciones reutilizables; verificar que `supabase test db` los carga sin error
 - [ ] 5.2 Test de estructura: existen las cuatro tablas, la vista, las PK, las FK y el `unique`; verificar que el test falla si se quita una restricción
 - [ ] 5.3 Test de vista: con dos snapshots del mismo tipo devuelve el más reciente vigente y oculta el futuro; verificar los dos escenarios
-- [ ] 5.4 Test de permisos: `anon` puede leer las tres tablas y la vista, y no puede insertar, actualizar ni borrar; verificar los cuatro casos
+- [ ] 5.4 Test de permisos: `anon` puede leer las tres tablas y la vista, no puede insertar, actualizar ni borrar y no puede leer `collector_runs`; verificar los cinco casos
 - [ ] 5.5 Test de variación: la segunda publicación calcula `change_pct` y la primera lo deja nulo; verificar ambos valores
 
 ## 6. Verificación final

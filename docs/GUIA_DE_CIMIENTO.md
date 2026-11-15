@@ -775,7 +775,7 @@ La frescura se calcula en `RateStatusResolver`: `sinConexion` gana si falló la 
 | Módulo | Entidades | Usecases | Pantallas |
 |---|---|---|---|
 | `rates` | `Rate`, `SelectedRate` | `GetCachedRates`, `FetchLatestRates`, `WatchSelectedRate`, `SelectRate`, `SaveCustomRate`, `ClearCustomRate` | 05 Tasas, 09 Monedas, 09b Mi tasa |
-| `calculator` | `Rate`, `SelectedRate`, `Conversion` | `ParseAmount`, `ConvertAmount`, `BuildShareText` | 01 Splash, 02/02b/03/04, 10 Compartir |
+| `calculator` | `Rate`, `SelectedRate`, `Conversion` | `ParseAmount`, `ConvertAmount`, `BuildShareText` | 02/02b/03/04, 10 Compartir |
 | `settings` | `DefaultCurrency` | `GetDefaultCurrency`, `SetDefaultCurrency` | 07 Configuración, 08 Información |
 
 Splash, compartir, formato es-VE y frescura viven en `core`: son transversales, no features. Las páginas de referencia son **05 Tasas**, que consume `rates`, y **02 Calculadora**, que consume `rates`, `calculator` y `settings`. Si la calculadora importara las tripas de `rates`, el corte estaría mal.

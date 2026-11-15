@@ -39,7 +39,7 @@ usecases, estados y reglas.
 | Módulo | Pantallas | HU | Features de producto (F-xx) | Entidades | Usecases | Estados |
 |---|---|---|---|---|---|---|
 | `rates` | 05 Tasas, 09 Monedas, 09b Mi tasa | HU-03, HU-06, HU-11 | F-02, F-05 | `Rate`, `SelectedRate` | 6 | 4 + 2 + 2 |
-| `calculator` | 01 Splash, 02, 02b, 03, 04, 10 | HU-01, HU-02, HU-04, HU-05, HU-10 | F-01, F-03, F-04, F-07 | `Rate`, `SelectedRate`, `Conversion` | 3 | 3 |
+| `calculator` | 02, 02b, 03, 04, 10 | HU-01, HU-02, HU-04, HU-05, HU-10 | F-01, F-03, F-04, F-07 | `Rate`, `SelectedRate`, `Conversion` | 3 | 3 |
 | `settings` | 07 Configuración, 08 Información | HU-07, HU-08 | F-08, F-12 | `DefaultCurrency` | 2 | 2 |
 
 **Dos vocabularios que no hay que mezclar.** Una **feature de producto** (`F-xx`) es
@@ -125,8 +125,8 @@ antes de guardar (diseño §7.10).
 
 **Capacidad:** convertir un monto con la tasa seleccionada, sin red y sin botón.
 
-**Pantallas:** 01 Splash (bootstrap), 02/02b/03/04 (estados de la misma pantalla),
-10 Compartir (sheet).
+**Pantallas:** 02/02b/03/04 (estados de la misma pantalla), 10 Compartir (sheet).
+El splash es bootstrap y vive en `core/app/` (§6).
 
 ### 4.1 Usecases
 
@@ -159,7 +159,8 @@ forma de cumplir §8 sin que `calculator` importe `rates`.
 - Con `sinConexion`, calcula igual con el cache y muestra banner.
 - Al recuperar red, refresca sola sin reiniciar.
 - El resultado se muestra con 2 decimales; la tasa de la ficha conserva todos.
-- El splash dura 400 ms y es la ventana para leer cache y preferencias.
+- El splash dura 400 ms y es la ventana mínima para leer cache y preferencias; la
+  red se lanza sin esperarla.
 
 ### 4.4 Componentes
 
@@ -198,7 +199,7 @@ forma de cumplir §8 sin que `calculator` importe `rates`.
 
 | Pieza | Dónde vive | Por qué no es feature |
 |---|---|---|
-| Splash y bootstrap | `core/app/` | No tiene dominio; solo espera 400 ms y carga cache/preferencias |
+| Splash y bootstrap | `core/app/` | No tiene dominio; espera 400 ms, lee cache y preferencias y lanza la red sin esperarla |
 | Compartir | `core/share/` + `core/widgets/share_sheet.dart` | Lo usan calculadora y tasas; no tiene estado propio |
 | Formato es-VE | `core/formatters/es_ve_formatter.dart` | Función pura; la usan todas las pantallas |
 | Frescura | `core/domain/rate_status_resolver.dart` | Función pura sobre `published_at` y red |

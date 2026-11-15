@@ -20,16 +20,20 @@ el generador queda con una sola responsabilidad.
 - **GetIt + `injectable`** como contenedor. Un `ServiceLocator` en
   `lib/core/di/service_locator.dart`, un módulo externo
   (`external_module.dart`) para lo que no se puede anotar: `SupabaseClient`,
-  `SharedPreferences`, `http.Client` y `PackageInfo`.
+  `SharedPreferencesWithCache`, `http.Client` y `PackageInfo`.
 - **`build_runner` genera solo el archivo de DI** (`injectable_generator`). No se
   usa `freezed`, `json_serializable` ni generadores de cache.
 - **`fromJson`/`toJson` explícitos** en cada modelo. Son cinco campos por modelo,
   no vale la pena un generador.
 - **`Equatable`** para igualdad en entidades y estados. Sin `copyWith` generado:
   se escribe a mano donde haga falta.
-- **Un solo scope de registro.** `@lazySingleton` para repositorios, datasources y
-  servicios; `@injectable` para cubits (una instancia por pantalla);
-  `@singleton` solo para `CacheManager` y el cliente HTTP.
+- **Scopes explícitos por ciclo de vida.**
+  - `@lazySingleton` para repositorios, datasources, servicios y los cubits de
+    estado compartido: `RatesCubit`, `SelectionCubit` y `SettingsCubit`. Su
+    estado sobrevive a la navegación y varios widgets lo escuchan.
+  - `@injectable` para los cubits de pantalla: `CalculatorCubit` y
+    `CustomRateCubit`. Se crean al entrar y se descartan al salir.
+  - `@singleton` solo para `CacheManager` y el cliente HTTP.
 - **El grafo se verifica en `make gen`.** Si falta un registro, el build falla; no
   se descubre en runtime.
 
@@ -66,6 +70,8 @@ el generador queda con una sola responsabilidad.
 - `flutter analyze` con 0 warnings.
 - Un test de humo resuelve `RatesRepository` desde el `ServiceLocator` y falla si
   falta un registro.
+- Un test verifica los scopes: dos resoluciones de `RatesCubit` devuelven la misma
+  instancia y dos de `CalculatorCubit` devuelven instancias distintas.
 
 ## Cuándo revisar
 

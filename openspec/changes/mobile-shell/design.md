@@ -75,8 +75,11 @@ Así el splash no ensucia el historial ni se puede volver a él con `pop`.
 ### 5. Composición
 
 - `ServiceLocator.init()` en `main`, antes de `runApp`.
-- `external_module.dart` registra `SharedPreferences`, `http.Client` y `PackageInfo`.
-- Repositorios y datasources con `@lazySingleton`; cubits con `@injectable`.
+- `external_module.dart` registra `SharedPreferencesWithCache`, `http.Client` y
+  `PackageInfo`.
+- Repositorios, datasources y servicios con `@lazySingleton`; también
+  `RatesCubit`, `SelectionCubit` y `SettingsCubit`. `CalculatorCubit` y
+  `CustomRateCubit` con `@injectable`.
 - Los widgets reciben el cubit por `BlocProvider`; nunca llaman al localizador.
 
 ### 6. Errores y copy

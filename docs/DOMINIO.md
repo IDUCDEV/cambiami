@@ -316,7 +316,9 @@ Errores esperados:
 
 ## 9. Cache local
 
-`shared_preferences` (ADR 0003). Claves versionadas; un cambio de forma sube la
+`shared_preferences` con `SharedPreferencesWithCache` (ADR 0003) y un `allowList`
+cerrado a las cuatro claves de la tabla. Una clave fuera de la lista se rechaza en
+escritura y no se lee. Las claves son versionadas; un cambio de forma sube la
 versión y descarta la anterior.
 
 | Clave | Contenido | Se escribe |
@@ -329,8 +331,20 @@ versión y descarta la anterior.
 Reglas:
 
 - **Escritura:** solo después de una respuesta válida. Nunca se cachea un error.
-- **Lectura:** al arrancar, antes del primer frame de la calculadora. El splash de
-  400 ms es la ventana para leer el cache.
+- **Lectura:** al arrancar se espera el cache y las preferencias antes del primer
+  frame de la calculadora; el splash de 400 ms es la ventana mínima. La red se
+  lanza en paralelo y **no se espera**: el arranque nunca bloquea en la red. Sin
+  cache, el primer estado es `RatesLoading`.
+- **Lectura tolerante:** si `cambiami.rates.v1` no parsea, no es un objeto o
+  `rows` no es una lista, se trata como cache ausente, el error va al log y no se
+  propaga a la interfaz. Si falla una fila suelta, se descarta solo esa fila.
+- **Versión vieja:** solo se lee la versión vigente. Una clave de versión anterior
+  (`cambiami.rates.v0`, etc.) se ignora y se descarta en el primer arranque; no se
+  migra en v1.
+- **Selección huérfana:** si `cambiami.selected_rate.v1` apunta a una moneda o tipo
+  que no está en `rates_latest`, o a `custom` sin `cambiami.custom_rate.v1`, se
+  usa la tasa por defecto (`USD`, `oficial`), se reescribe la preferencia y se
+  registra en el log.
 - **Invalidación:** no hay TTL. El dato viejo se muestra con estado
   `desactualizado` o `sin_conexion`; nunca se borra por tiempo.
 - **Mi tasa** es local y no entra en `cambiami.rates.v1` ni en el catálogo.

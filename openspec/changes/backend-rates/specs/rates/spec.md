@@ -80,8 +80,9 @@ del mismo tipo.
 
 ### Requirement: Lectura pública y escritura restringida
 
-El sistema SHALL permitir la lectura anónima del catálogo y de las tasas, y SHALL
-denegar toda escritura a roles anónimos o autenticados.
+El sistema SHALL permitir la lectura anónima del catálogo y de las tasas, SHALL
+denegar toda escritura a roles anónimos o autenticados y SHALL mantener
+`collector_runs` fuera del alcance de ambos roles.
 
 #### Scenario: Lectura anónima
 - **WHEN** un cliente sin sesión consulta el catálogo o las tasas vigentes
@@ -94,6 +95,10 @@ denegar toda escritura a roles anónimos o autenticados.
 #### Scenario: Escritura del colector
 - **WHEN** el colector escribe con el rol de servicio
 - **THEN** la operación se permite sin depender de una policy de usuario
+
+#### Scenario: Lectura de collector_runs denegada
+- **WHEN** un cliente con la clave publicable consulta `collector_runs`
+- **THEN** recibe un error de permiso y no ve ejecuciones, errores ni métricas del colector
 
 ### Requirement: Registro de ejecuciones del colector
 
