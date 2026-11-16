@@ -59,6 +59,10 @@ pantalla SHALL mostrar una franja de frescura con el estado derivado de la vista
 - **WHEN** se muestra una tasa del BCV
 - **THEN** la ficha indica `Publicado`, `Vigente desde`, la fuente `BCV` y el enlace `bcv.org.ve`
 
+#### Scenario: Variación ausente
+- **WHEN** `change_pct` es nulo porque es la primera publicación de ese tipo
+- **THEN** la fila de variación no se dibuja: ni `0 %` ni `—`, y el resto de la ficha no cambia
+
 #### Scenario: Estado desactualizado
 - **WHEN** la edad del dato supera el umbral de su tipo y la red respondió
 - **THEN** el pill dice `desactualizado` y aparece el banner `Tasa de ayer · se actualiza a las 5:00 p. m.`

@@ -64,7 +64,7 @@ escrito; SHALL rechazar tasas no positivas sin romper la pantalla.
 
 #### Scenario: Tasa inválida
 - **WHEN** la tasa recibida es `0` o negativa
-- **THEN** no se calcula, el resultado queda deshabilitado y se muestra `No pudimos actualizar las tasas.`
+- **THEN** no se calcula, el resultado queda deshabilitado y se muestra `No pudimos calcular con esta tasa.`
 
 ### Requirement: Cálculo sin red (REQ-CAL-004)
 
@@ -134,4 +134,4 @@ abrir.
 
 #### Scenario: Cambio de preferencia
 - **WHEN** el usuario cambia la moneda predeterminada en Configuración
-- **THEN** la calculadora la aplica al volver a abrirse, no en caliente
+- **THEN** la calculadora conserva el monto y la tasa actuales y aplica la nueva moneda solo en el próximo arranque

@@ -65,8 +65,12 @@ create policy "lectura publica" on public.rate_snapshots
 - **El dato es público.** Es aceptable porque no hay PII ni nada privado. Si en
   Fase 2 entra un perfil o una alerta, esa tabla necesita su propia policy por
   `user_id` y este ADR no la cubre.
-- **Sin rate limiting propio.** Se depende de los límites de la plataforma. Si
-  aparece abuso, se agrega un cache o una función intermedia.
+- **Sin rate limiting propio.** Se depende de los límites de la plataforma. La
+  app hace una consulta al abrir y otra por refresco manual: no hay sondeo. El
+  umbral para revisar la decisión es **300 peticiones/minuto sostenidas desde una
+  misma IP** o **50.000 peticiones/día** al proyecto; por debajo, un limiter
+  propio solo agrega latencia y un punto de fallo. Si se cruza, la salida barata
+  es cache en el borde y, si no alcanza, una función intermedia.
 - **La vista es un contrato más.** Cambiar sus columnas rompe la app: por eso está
   documentada en `DOMINIO.md` §8.
 

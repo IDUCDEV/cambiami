@@ -767,6 +767,7 @@ No existen `countries`, `status`, `is_down` ni `official` como columna, tampoco 
 | 0004 · Errores | `Failure` sellada en dominio; `Exception` en datos; `ErrorMapper` único; ARB para copy estático | `Failure` en el estado; mensaje crudo; todo el copy en ARB | `NetworkFailure`, `ServerFailure`, `ParseFailure`, `CacheFailure`, `ValidationFailure` |
 | 0005 · Backend | RLS select-only en `currencies`, `sources` y `rate_snapshots`; vista `security_invoker`; escritura solo `service_role` | RPC `security definer`; Edge Function; login para leer | Sin RPC en v1; la clave secreta no sale del servidor |
 | 0006 · Kernel | `core/domain` con `Rate`, `SelectedRate`, `RateType`, `RateStatus` y `RateStatusResolver` | `Rate` en `features/rates`; duplicarlo; paquete aparte | Solo entra un tipo si lo usan dos o más features |
+| 0007 · Colector | Edge Function + `pg_cron`/`pg_net`; cada 30 min; retención 90/30 días; P2P `buy`/`sell`/`avg`; intermedio TLS de Sectigo embebido | Cron externo; worker en Postgres; fuente puente; promedio ponderado | Secreto en Vault y en `supabase secrets`; escritura solo con `record_rate_snapshot()` |
 
 La frescura se calcula en `RateStatusResolver`: `sinConexion` gana si falló la red; si no, la edad se compara con el umbral. Edad = `now - published_at`, con `fetched_at` como respaldo. Umbrales: **26 h** para `oficial` y **2 h** para `p2p_*`.
 

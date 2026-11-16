@@ -360,6 +360,8 @@ El chip es la identidad de la fuente (§3.6), no su estado. El estado vive en el
 
 **Las tres fechas.** `Publicado` = `published_at`, `Vigente desde` = `effective_from`; la tercera, `fetched_at`, va en la franja (§7.7). Ninguna se repite en dos sitios.
 
+**Variación ausente.** Si `change_pct` es nulo —primera publicación de ese tipo— la fila de variación no se dibuja: ni `0 %` ni `—`. El alto de la ficha baja en esa línea: de **164** a **146** en la ficha completa y de **213** a **195** en la variante USDT. El espacio no se rellena con otro dato.
+
 **USDT.** En las tasas P2P `effective_from` puede coincidir con `published_at`: si coinciden, la segunda columna se oculta y la rejilla pasa a una columna. No se inventa una fecha distinta.
 
 **Variante USDT (`RateCard / Ficha · USDT P2P`).** La ficha se titula **`USDT`** (la moneda), no `Promedio` (la estadística): el nombre de la tarjeta responde a *qué tasa es*, igual que `Dólar` y `Euro`. El valor grande es el promedio y la variación lo declara (`Promedio · +2,19 Bs (+0,22 %)`). Entre la variación y las fechas añade una fila de dos columnas con `Compra` y `Venta`: etiqueta 11/700 `text/secondary`, valor 14/800 `text/primary`, variación 11/700 en su color. Sube a **213 px**. Fondo `bg/surface` como el resto, con borde `brand/primary` 1 px y chip en `bg/brand-soft` con icono `brand/primary-pressed`. La identidad de USDT vive en el chip y el borde, no en un tinte de fondo: así el valor y la variación se leen siempre sobre `bg/surface`.
@@ -710,6 +712,7 @@ El banner **no sustituye** la frescura: cuando hay banner, se muestran los dos. 
 | Error (Tasas) | `No pudimos actualizar las tasas.` + botón ghost `Reintentar` | Icono `cloud-off` 32; dibujado en `Estados · Tasas` |
 | Sin tasas (vista vacía) | `No hay tasas publicadas.` + botón ghost `Reintentar` | La consulta fue correcta y la vista vino sin filas; no se inventan tasas ni se escribe cache |
 | Sin datos de una moneda | sin copy | La tarjeta no se dibuja; si esa moneda es la tasa seleccionada, se cae a `USD`/`oficial` como una selección huérfana (REQ-CAT-005) |
+| Tasa inválida (calculadora) | `No pudimos calcular con esta tasa.` | La tasa recibida es `0` o negativa; el resultado queda deshabilitado y no se ofrece `Reintentar`, porque no es un fallo de red |
 
 ### 13.5 Compartir (mensaje literal)
 

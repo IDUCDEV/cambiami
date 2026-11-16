@@ -165,6 +165,31 @@ Restricciones:
 
 Índice `(source_code, started_at desc)`.
 
+### 4.5 Convención del mercado P2P
+
+Binance publica dos mercados espejo; el nombre del `tradeType` describe al
+anunciante, no al usuario:
+
+| `tradeType` de Binance | Quién compra USDT | `type` publicado |
+|---|---|---|
+| `BUY` | el anunciante (el usuario vende) | `p2p_buy` |
+| `SELL` | el usuario (el anunciante vende) | `p2p_sell` |
+
+El promedio de ambos promedios se publica como `p2p_avg`.
+
+- `p2p_avg` solo existe si ambos lados tienen un promedio positivo (I-04).
+- `effective_from` del P2P es el instante de la corrida truncado al minuto; el
+  mercado no tiene fecha de vigencia propia.
+- El promedio descarta anuncios sin precio válido o con `surplusAmount` no
+  positivo y no se pondera por volumen.
+
+### 4.6 Fechas del BCV
+
+El BCV informa la **fecha valor** pero no la hora de publicación. Por eso el
+colector publica `published_at = effective_from`. En la ficha, `Publicado` y
+`Vigente desde` coinciden; es preferible a inventar una hora. La decisión está en
+el ADR 0007.
+
 ---
 
 ## 5. Vista `rates_latest`
@@ -195,6 +220,7 @@ from public.rate_snapshots s
 join public.currencies c  on c.code = s.currency_code
 join public.sources   src on src.code = s.source_code
 where s.effective_from <= now()
+  and c.is_active
 order by s.currency_code, s.type, s.effective_from desc, s.fetched_at desc;
 ```
 
@@ -203,6 +229,8 @@ Decisiones:
 - **`security_invoker = true`**: la vista respeta las policies del que consulta.
   No hay `security definer` en v1 (ADR 0005).
 - **`effective_from <= now()`**: una tasa programada no se muestra antes de regir.
+- **`c.is_active`**: una moneda inactiva desaparece de la lectura sin borrar su
+  historial. El filtro va en la vista y no en la app.
 - **`official` sale de `sources.kind`**, no de una columna duplicada. Una stablecoin
   nueva entra como fila del grupo que le corresponde sin tocar el esquema.
 - **`distinct on`** exige que el `order by` empiece con las mismas columnas.
