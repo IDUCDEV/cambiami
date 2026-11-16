@@ -38,4 +38,4 @@
 ## 6. Cierre
 
 - [x] 6.1 Ejecutar `openspec validate backend-collector --strict` y corregir cualquier error
-- [ ] 6.2 Confirmar con el usuario antes de archivar el change y verificar que `openspec/specs/collector/spec.md` queda creado
+- [x] 6.2 Confirmar con el usuario antes de archivar el change y verificar que `openspec/specs/collector/spec.md` queda creado
