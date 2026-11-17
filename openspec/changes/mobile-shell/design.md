@@ -5,9 +5,8 @@ Ver `proposal.md`. El repo no tiene app Flutter. El sistema de diseño
 Los ADRs 0002, 0003 y 0006 fijan DI, cache y kernel. Este change crea el cascarón
 que hace cumplir esos contratos.
 
-Restricciones del entorno: Flutter 3.47.1 / Dart 3.13.1 instalados. El scaffold
-original asumía Flutter 3.41 / Dart 3.11, así que las versiones de paquetes se
-verifican al instalar, no se copian a ciegas.
+Restricciones del entorno: Flutter 3.50.0 / Dart 3.14.0 instalados. Las versiones
+de paquetes se verifican al instalar, no se copian a ciegas.
 
 ## Goals / Non-Goals
 
@@ -30,7 +29,7 @@ verifican al instalar, no se copian a ciegas.
 
 ### 1. Versiones y dependencias
 
-- `environment: sdk: ^3.11.0`, `flutter: ">=3.41.0"`; se instala con 3.47.1.
+- `environment: sdk: ^3.14.0`, `flutter: ">=3.50.0"`.
 - Se quitan `isar_community`, `isar_community_flutter_libs`,
   `isar_community_generator` y `path_provider` (ADR 0003).
 - Se agregan `shared_preferences` y `lucide_icons_flutter`.

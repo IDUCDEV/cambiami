@@ -2,7 +2,7 @@
 
 - [X]  1.1 Ejecutar `flutter create` en `apps/mobile` con org `com.cambiami` y verificar que `flutter run` levanta la app por defecto
 - [X]  1.2 Escribir `pubspec.yaml` con el delta de `docs/FEATURES.md` §10 y verificar que `flutter pub get` resuelve sin conflictos
-- [ ]  1.3 Agregar `lucide_icons_flutter: ^4.0.3` (no `lucide_icons`, que no compila con Flutter 3.47) y verificar que los 17 iconos de `DESIGN_SYSTEM.md` §6 existen y compilan; `flutter analyze` y `flutter build` limpios
+- [X]  1.3 Agregar `lucide_icons_flutter: ^4.0.3` (no `lucide_icons`, que no compila con Flutter 3.47) y verificar que los 17 iconos de `DESIGN_SYSTEM.md` §6 existen y compilan; `flutter analyze` y `flutter build` limpios
 
 ## 2. Tema y tipografía
 
