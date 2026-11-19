@@ -195,6 +195,17 @@ final class ShareTapped extends CalculatorEvent {
 - **D11 — Las etiquetas del campo salen de §13.2.** `USD` → `Dólares`, `EUR` →
   `Euros`, `VES` → `Bolívares`, `USDT` → `USDT`. No se usa `currency_name` del
   backend para rotular el campo.
+- **D12 — Teclado decimal sin signo y un solo separador.** `AmountField` usa
+  `keyboardType: const TextInputType.numberWithOptions(decimal: true)` y no
+  `signed`: los montos son positivos y el `−` tipográfico de `EsVeFormatter`
+  es solo de presentación para la variación. `TextInputType.number` no sirve
+  porque no ofrece separador decimal en iOS. En Android el teclado emite `,`
+  o `.` según el locale del dispositivo, por eso la entrada acepta ambos
+  (REQ-CAL-002) y la normalización a coma ocurre solo al mostrar. El campo
+  filtra dígitos y **un** separador como máximo; no acepta agrupamiento de
+  miles: el usuario escribe `1234` y el punto de miles lo añade
+  `EsVeFormatter.bs` al mostrar (D-3 del formateador). El texto crudo sigue en
+  el controlador (D2) y no se reformatea tecla a tecla.
 
 ## Backend Supabase
 
@@ -246,3 +257,6 @@ ShareSheet ──► CalculatorCubit(ShareTapped) ──► BuildShareText ─�
   confirme si el colector puede publicar `0`.
 - Si `SettingsCubit` cambia la moneda mientras la calculadora está montada, se
   aplica en la próxima apertura; confirmar que el usuario no espera efecto inmediato.
+- Delimitar `ParseAmount` frente a `EsVeFormatter.parse`: el usecase impone 12
+  dígitos y debe decidir si "ignorar" caracteres inválidos (REQ-CAL-002) o
+  rechazarlos como hace el formateador. Un solo normalizador por capa.
