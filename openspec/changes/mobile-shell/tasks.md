@@ -6,8 +6,8 @@
 
 ## 2. Tema y tipografía
 
-- [ ]  2.1 Descargar Nunito 400/600/700/800, guardarla en `assets/fonts/` y declararla en `pubspec.yaml`; verificar que el texto se renderiza en Nunito en un dispositivo
-- [ ]  2.2 Implementar `app_colors.dart`, `app_typography.dart`, `app_spacing.dart`, `app_radius.dart` y `app_theme.dart` con los tokens de `DESIGN_SYSTEM.md` §3 a §5; verificar que `Theme.of(context)` devuelve los valores esperados en un widget test
+- [x]  2.1 Descargar Nunito 400/600/700/800, guardarla en `assets/fonts/` y declararla en `pubspec.yaml`; verificar que el texto se renderiza en Nunito en un dispositivo
+- [x]  2.2 Implementar `app_colors.dart`, `app_typography.dart`, `app_spacing.dart`, `app_radius.dart` y `app_theme.dart` con los tokens de `DESIGN_SYSTEM.md` §3 a §5; verificar que `Theme.of(context)` devuelve los valores esperados en un widget test
 - [ ]  2.3 Verificar contraste AA de los pares texto/fondo del tema con un test que calcule la razón; los 3 estados deben superar 4,5:1
 
 ## 3. Core transversal
