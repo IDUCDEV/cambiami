@@ -1,6 +1,8 @@
-# Guía de cimiento: de la HU al código en cinco etapas
+# Guía de cimiento: de la HU al código en seis etapas
 
 **Método 5D** — Dominio, Decisiones, Descomposición, Definición, Desarrollo.
+La sexta etapa, **Guardrails**, no agrega un pilar al método: es la capa que
+vuelve ejecutables los gates de las cinco anteriores.
 
 ## 0. Para qué sirve, cuándo usarla y cuándo no
 
@@ -36,6 +38,10 @@ HU + diseño cerrados
 │ 5. BOOTSTRAP    │  ¿cómo se construye?
 └────────┬────────┘
          ▼
+┌─────────────────┐
+│ 6. GUARDRAILS   │  ¿qué impide que el gate se degrade?
+└────────┬────────┘
+         ▼
       código
          │
          └──► solo se retrocede con un ADR o un cambio de dominio
@@ -48,8 +54,11 @@ HU + diseño cerrados
 | 3. Mapa | Dominio, HU, pantallas, ADRs | `MAPA_DE_FEATURES.md` | Cada HU, entidad y pantalla tiene un dueño | 0,5 día |
 | 4. OpenSpec | Mapa, dominio, ADRs, diseño | `changes/<id>/` completo | Toda requirement tiene tarea y test | 1–3 h por change |
 | 5. Bootstrap | ADRs, mapa, scaffold, primer change | Repo + slice + primer change | Build, test y run verdes; slice borrado | 1–3 días + por change |
+| 6. Guardrails | ADRs, mapa, changes, repo con primer change | Hooks, CI, comandos, plantilla de PR, bitácora | `make check` verde en CI sobre un PR de prueba y hook que rechaza un mensaje inválido | 0,5–1 día |
 
 El orden no es negociable: cada etapa consume la anterior. Retroceder es válido; hacerlo en silencio, no.
+
+La etapa 6 puede empezar en paralelo con la 5 —de hecho conviene, porque el primer PR necesita CI—, pero debe cerrar antes del segundo change. Un repo sin guardrails produce un gate que se cumple por disciplina; con guardrails, el gate se cumple porque el merge no ocurre de otra forma.
 
 ## 2. Reglas transversales
 
@@ -69,7 +78,7 @@ El orden no es negociable: cada etapa consume la anterior. Retroceder es válido
 
 **R8. Contrato no es lo mismo que decisión abierta.** Un contrato obliga a otros artefactos y tests, vive en un ADR aceptado y solo cambia con otro ADR. Una decisión abierta tiene dueño, fecha y default, y se cierra antes de codear. El envelope de error es contrato; la librería de gráficos, una abierta.
 
-## 3. Las cinco etapas
+## 3. Las seis etapas
 
 Cada etapa se compone de pregunta, entradas, salida, procedimiento, plantilla, gate, errores típicos, esfuerzo y encargo a un agente.
 
@@ -273,11 +282,11 @@ inventes: listalo como decisión abierta.
 
 **Pregunta y fallo que evita.** ¿Cómo se construye sin descubrir el cableado al final? Evita el scaffold a medio adaptar: marca de la plantilla en producción, DI faltante, router que falla fuera de la demo y una primera feature que tarda días por la plomería.
 
-**Entradas.** ADRs; mapa; scaffold; tokens y assets; entornos y secretos; CI; primer change.
+**Entradas.** ADRs; mapa; scaffold; tokens y assets; entornos y secretos; primer change.
 
-**Salida.** Repo con CI verde, tema aplicado, router, DI, contrato de errores, un slice descartable probado y borrado, y el primer change aplicado.
+**Salida.** Repo con tema aplicado, router, DI, contrato de errores, un slice descartable probado y borrado, y el primer change aplicado. El CI verde se cierra en la etapa 6; acá solo se exige que los comandos corran en local.
 
-**Procedimiento.** 1. Creá la estructura del ADR de monorepo y sumá `docs/`, `design/` y `openspec/`. 2. Aplicá el scaffold sin personalizar. 3. Sustituí variables en un solo commit. 4. Reemplazá marca y dominio: tema, fuentes, splash, copy legal, rutas, DI y errores. 5. Borrá ejemplos, demo, assets, tests placeholder y deploy ajeno. 6. Corré formato, análisis, tests, build y ejecución. 7. Construí y verificá el slice descartable en un entorno real. 8. Borralo en el mismo PR, conservá el smoke test de DI y router y aplicá el primer change.
+**Procedimiento.** 1. Creá la estructura del ADR de monorepo y sumá `docs/`, `design/` y `openspec/`. 2. Aplicá el scaffold sin personalizar; en greenfield, `flutter create` y nada más. 3. Sustituí variables en un solo commit. 4. Reemplazá marca y dominio: tema, fuentes, splash, copy legal, rutas, DI y errores. 5. Borrá ejemplos, demo, assets, tests placeholder y deploy ajeno. 6. Corré formato, análisis, tests, build y ejecución. 7. Construí y verificá el slice descartable en un entorno real. 8. Borralo en el mismo PR, conservá el smoke test de DI y router y aplicá el primer change.
 
 **Tabla de adaptación del scaffold.**
 
@@ -288,6 +297,8 @@ inventes: listalo como decisión abierta.
 | Dominio | rutas, DI, errores, semilla | Reemplazar por el mapa | Smoke test; clon limpio arranca |
 | Persistencia | motor del scaffold (Isar, Drift, Hive) | Quitar si el ADR eligió otro | Sin dependencias del motor descartado |
 | Borrado | ejemplos, demo, assets, CI ajeno | Borrar | No queda `example`, `demo` ni `sample` |
+
+**Variante greenfield.** Si el proyecto no parte de un scaffold, la tabla se reduce a las filas de Variables, Marca y Dominio: no hay nada que borrar. El slice descartable y el smoke test siguen siendo obligatorios; son la única prueba de que el cableado existe antes de la primera feature. Cambiami es este caso.
 
 **Slice descartable.** Prueba de cableado, no feature. Recorre entidad → datasource → repositorio → usecase → cubit → pantalla → ruta → DI, con un test por capa. Se borra en el mismo PR; sobrevive el smoke test de DI y router. Si llega al primer change real, es deuda.
 
@@ -333,6 +344,92 @@ Aplicá este scaffold y sustituí solo las variables listadas. Reemplazá marca 
 dominio, borrá ejemplos. Creá un slice descartable que toque todas las capas,
 verificá build/test/run y borralo en el mismo PR dejando un smoke test de DI y
 router. No agregues features.
+```
+
+### 3.6 Etapa 6 — Guardrails
+
+**Pregunta y fallo que evita.** ¿Qué impide que el gate se degrade cuando el repo crece, el contexto se pierde o entra otra persona? Evita el verde de mentira: tests que solo corren en la máquina del autor, análisis que se saltea con `--no-verify`, un CI que nadie mira porque tarda cuarenta minutos, secretos pegados en un workflow y un `main` que se rompe un viernes. Las etapas 1–5 definen qué es correcto; la 6 hace que lo incorrecto no pueda entrar.
+
+**Entradas.** ADRs de estructura, test y release; mapa; changes; repo con el primer change aplicado; versiones reales del toolchain; decisiones abiertas de tooling.
+
+**Salida.** Cuatro capas ejecutables —hooks, comandos, CI y contrato escrito— más una bitácora. En concreto: `.githooks/`, `Makefile` con `check` y `check-all`, `.github/workflows/ci.yml`, plantilla de PR, `AGENTS.md`, `docs/BITACORA.md` y Dependabot. Todo versionado y reproducible desde un clon limpio.
+
+**Procedimiento.**
+1. Inventariá lo que ya existe: comandos reales, versiones, targets del `Makefile`, workflows, hooks, lints y tests. Nada se documenta antes de correrlo.
+2. Fijá un solo comando de verdad: `make check`. Si un gate no cabe en un comando, no es un gate.
+3. Escribí el hook `commit-msg` y activalo con `git config core.hooksPath .githooks`. El hook valida formato, no contenido; el contenido lo valida el PR.
+4. Armá el CI con el mismo comando, `permissions: contents: read` y sin secretos. Si el CI necesita un secreto para pasar, el gate está mal diseñado.
+5. Separá lo barato de lo caro: formato, análisis y tests en cada PR; base de datos, build de release y cobertura en `main` o por etiqueta.
+6. Versioná acciones por tag al principio y por SHA antes del primer deploy. Fijá Dependabot para que el pin no envejezca.
+7. Escribí `AGENTS.md` con los comandos, los invariantes y lo prohibido. Es el contrato que leen los agentes y el recordatorio que lee tu yo de dentro de tres meses.
+8. Abrí un PR de prueba que rompa a propósito una regla por capa y confirmá que cada capa lo detiene. Si el PR pasa, la capa no existe.
+9. Cerrá con la bitácora: qué se ejecutó, qué se desvió y qué quedó abierto. Sin bitácora, la etapa 6 se re-discute en cada change.
+
+**Las cuatro capas.**
+
+| Capa | Dónde vive | Qué detiene | Qué no detiene |
+|---|---|---|---|
+| Hook local | `.githooks/commit-msg` | Mensaje fuera de convención | Nada que requiera red o toolchain completo |
+| Comando | `Makefile` (`check`, `check-all`) | Deriva entre lo que corre el autor y lo que corre el CI | Que alguien lo ejecute |
+| CI | `.github/workflows/ci.yml` | Merge de un PR rojo; regresión en `main` | Un `main` protegido solo por disciplina |
+| Contrato | `AGENTS.md`, plantilla de PR, ADR de tooling | Ambigüedad sobre qué comando usar y qué está prohibido | Que se lea; por eso los otros tres existen |
+
+**Decisiones típicas y su default.**
+
+| Decisión | Default recomendado | Alternativa rechazada | Cuándo revisar |
+|---|---|---|---|
+| Validación de mensajes | Hook propio en shell | commitlint + husky | Si entran varias personas y piden reglas por scope |
+| Acciones de CI | Tag ahora, SHA antes del deploy | SHA desde el día uno | Antes del primer workflow con secretos |
+| Cobertura | Artefacto publicado, umbral después del kernel | Umbral 80% desde el inicio | Cuando el kernel tenga tests estables |
+| Versión del SDK | La del `pubspec.yaml`, sin `.fvmrc` | FVM obligatorio | Si aparece una segunda máquina con otra versión |
+| Flavors | Después del package id definitivo | Antes de la primera feature | Al cerrar la decisión de package id |
+| CD | Ninguno; deploy manual documentado | Deploy automático a Supabase | Cuando haya entorno de staging |
+| Base de datos en CI | `make db-check` (`supabase start` + `db reset` + `test db`) | Solo tests de cliente | Si el CI tarda más de diez minutos |
+
+**Plantilla (esqueleto copiable; versión completa en §5.6).**
+
+```markdown
+# Guardrails — {{PRODUCTO}}
+## Inventario
+| Elemento | Existe | Comando | Versión |
+## Comandos
+| Comando | Qué corre | Tiempo | Dónde se usa |
+## Hooks
+| Hook | Regla | Cómo se activa | Cómo se saltea (y por qué no) |
+## CI
+| Workflow | Disparador | Jobs | Permisos | Secretos |
+## Contrato
+- [ ] AGENTS.md con comandos e invariantes
+- [ ] Plantilla de PR
+- [ ] ADR de tooling
+## Prueba de fuego
+| Capa | PR que la viola | Resultado esperado | Resultado real |
+## Firma
+{{Nombre}} · {{Fecha}}
+```
+
+**Gate.**
+- [ ] `make check` corre en un clon limpio sin pasos manuales.
+- [ ] El CI ejecuta exactamente ese comando, no una copia.
+- [ ] El hook rechaza un mensaje inválido y acepta uno válido.
+- [ ] Un PR con formato roto, otro con un warning de análisis y otro con un test fallido se detienen cada uno en su capa.
+- [ ] El CI no requiere secretos para pasar.
+- [ ] Las acciones están fijadas y Dependabot las actualiza.
+- [ ] `AGENTS.md` lista comandos reales, no aspiracionales.
+- [ ] La bitácora registra la fecha y el resultado de la prueba de fuego.
+
+**Errores típicos.** CI que duplica el `Makefile` con comandos distintos. Hook que se saltea con `--no-verify` como norma. Umbral de cobertura antes de tener kernel. Workflow con `write-all`. Dependabot sin agrupar: veinte PRs por semana y nadie los mira. `AGENTS.md` que describe un stack que no está instalado. Guardrails agregados después de la feature tres, cuando ya hay deuda que nadie quiere frenar.
+
+**Esfuerzo y quién.** 0,5–1 día. Lo hace quien mantiene el repo; en solitario, una tarde. Se revisa cuando cambia el toolchain, no en cada change.
+
+**Encargo a un agente.**
+
+```text
+Inventariá los comandos reales del repo y las versiones instaladas. Proponé un
+Makefile con check y check-all, un hook commit-msg, un workflow de CI que use
+esos comandos sin secretos, AGENTS.md y una bitácora. No inventes targets que no
+existan: si algo falta, listalo como decisión abierta. Después abrí un PR de
+prueba que viole una regla por capa y mostrame qué capa lo detuvo.
 ```
 
 ## 4. Matriz de trazabilidad
@@ -665,6 +762,226 @@ abstract interface class {{XRepository}} {
 {{Nombre}} · {{Fecha}}
 ```
 
+### 5.6 Guardrails
+
+Los archivos de esta plantilla se copian tal cual y se ajustan solo las rutas y versiones. El objetivo es que un clon limpio pase `make check` sin leer nada más.
+
+**`Makefile` (raíz)**
+
+```makefile
+SHELL := /bin/bash
+.DEFAULT_GOAL := help
+MOBILE := apps/mobile
+
+.PHONY: help pub-get check check-all format analyze test coverage commitlint db-start db-reset db-test db-check
+
+help: ## Lista los targets disponibles
+	@grep -hE '^[a-zA-Z_-]+:.*?## ' $(MAKEFILE_LIST) \
+		| awk 'BEGIN {FS = ":.*?## "}; {printf "%-12s %s\n", $$1, $$2}'
+
+check: pub-get format analyze test ## Gate de PR
+
+check-all: check db-check ## Gate completo, incluye base de datos
+
+pub-get: ## Resuelve dependencias
+	cd $(MOBILE) && flutter pub get
+
+format: ## Verifica formato sin escribir
+	cd $(MOBILE) && dart format --output=none --set-exit-if-changed lib test
+
+analyze: ## Análisis estricto
+	cd $(MOBILE) && flutter analyze --fatal-warnings --fatal-infos
+
+test: ## Tests con cobertura
+	cd $(MOBILE) && flutter test --coverage
+
+coverage: test ## Cobertura lcov + HTML local
+	genhtml $(MOBILE)/coverage/lcov.info -o $(MOBILE)/coverage/html
+
+commitlint: ## Valida el mensaje del último commit
+	@git log -1 --pretty=%s | grep -qE \
+		'^(feat|fix|refactor|test|docs|chore|ci|build|perf|revert)(\([a-z0-9-]+\))?: [a-záéíóúñ]' \
+		|| { echo "commitlint: mensaje inválido"; exit 1; }
+
+db-start: ## Levanta Supabase local
+	supabase start
+
+db-reset: ## Reaplica migraciones y semilla
+	supabase db reset
+
+db-test: ## Tests de base de datos
+	supabase test db
+
+db-check: db-start db-reset db-test ## Gate de base de datos desde cero
+```
+
+**`.githooks/commit-msg`**
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+first_line="$(head -n 1 "$1")"
+pattern='^(feat|fix|refactor|test|docs|chore|ci|build|perf|revert)(\([a-z0-9-]+\))?: [a-záéíóúñ]'
+
+if [[ ! "$first_line" =~ $pattern ]]; then
+  echo "commit-msg: mensaje inválido" >&2
+  echo "  formato: tipo(scope): descripción en imperativo" >&2
+  echo "  tipos: feat fix refactor test docs chore ci build perf revert" >&2
+  exit 1
+fi
+
+if (( ${#first_line} > 100 )); then
+  echo "commit-msg: la primera línea supera 100 caracteres" >&2
+  exit 1
+fi
+```
+
+Activación, una vez por clon:
+
+```bash
+chmod +x .githooks/commit-msg
+git config core.hooksPath .githooks
+```
+
+El hook valida forma, no contenido: un mensaje correcto puede describir un cambio malo. Eso lo detiene el PR.
+
+**`.github/workflows/ci.yml`**
+
+```yaml
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  mobile:
+    name: Mobile
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.50.0
+          channel: stable
+          cache: true
+      - run: make check
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage
+          path: apps/mobile/coverage/lcov.info
+          if-no-files-found: ignore
+
+  database:
+    name: Database
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - run: make db-check
+```
+
+Notas que evitan dos horas de debugging:
+
+- `flutter-version` debe ser la misma que declara `pubspec.yaml`; si no, el CI resuelve otra y falla por una dependencia que en local existe.
+- El job `database` no usa secretos: `supabase start` levanta el stack local con claves de desarrollo. Si un job necesita un secreto para pasar, el gate está mal.
+- Las acciones van por tag ahora. Antes del primer workflow que use secretos, se fijan por SHA (`pinact run` o a mano) y Dependabot mantiene el pin.
+- El build de APK no va en cada PR: va en `main` o por `workflow_dispatch`, porque agrega minutos sin agregar señal.
+
+**`.github/dependabot.yml`**
+
+```yaml
+version: 2
+updates:
+  - package-ecosystem: pub
+    directory: /apps/mobile
+    schedule:
+      interval: weekly
+    groups:
+      dart:
+        patterns: ["*"]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      actions:
+        patterns: ["*"]
+```
+
+**`AGENTS.md` (raíz)**
+
+```markdown
+# AGENTS
+
+## Comandos
+| Comando | Qué hace |
+|---|---|
+| `make check` | Formato, análisis y tests de la app |
+| `make check-all` | `check` + tests de base de datos |
+| `make coverage` | Cobertura lcov y HTML en `apps/mobile/coverage/` |
+| `make db-reset` | Reaplica migraciones y semilla locales |
+
+## Invariantes
+- Dinero y tasas nunca en `double` sin política; el formato es es-VE.
+- Ningún texto visible fuera de ARB.
+- Ningún secreto en el repo; `.env` está ignorado.
+- Las migraciones no se editan después de aplicadas: se agrega una nueva.
+- Un change de OpenSpec por PR; no se mezcla refactor y feature.
+
+## Prohibido
+- `--no-verify` como norma.
+- Añadir dependencias sin ADR o decisión abierta.
+- Tocar `main` directamente.
+- Copiar código de la app de referencia.
+```
+
+**`.github/pull_request_template.md`**
+
+```markdown
+## Change
+`openspec/changes/{{id}}`
+
+## Requirements cubiertos
+- [ ] R-01
+- [ ] R-02
+
+## Verificación
+- [ ] `make check` en local
+- [ ] CI verde
+- [ ] Tareas marcadas en `tasks.md`
+- [ ] Matriz de trazabilidad actualizada (si cambió una celda)
+
+## Riesgos
+{{...}}
+```
+
+**`docs/BITACORA.md`**
+
+```markdown
+# Bitácora
+
+| Fecha | Etapa | Qué se hizo | Comando o artefacto | Resultado | Desvío |
+|---|---|---|---|---|---|
+| {{AAAA-MM-DD}} | 6 | Hook de mensajes | `.githooks/commit-msg` | Rechaza `update` | Ninguno |
+| {{AAAA-MM-DD}} | 6 | CI móvil | `ci.yml` | Verde en 4 min | Flutter 3.50.0 fijado |
+```
+
+La bitácora no es un diario: es la lista de lo que se ejecutó y de lo que se desvió. Sirve para que la etapa 6 se revise con evidencia y no con recuerdos.
+
 ## 6. Adaptación a otros proyectos
 
 **Sin backend.** El contrato de datos es el esquema del archivo o seed. El ADR de backend pasa a uno de fuente y actualización. Se omite el colector, no los errores ni la frescura.
@@ -695,6 +1012,12 @@ abstract interface class {{XRepository}} {
 | 10 | Dominio inventado por IA | Campos plausibles que la fuente no tiene | Columna “origen” y lista de rechazo firmada |
 | 11 | Caché sin política | Datos viejos mostrados como frescos | ADR de caché con umbrales y estado explícito |
 | 12 | Gate “casi” | “Falta una cosita, pero pasemos” | Binario: un No detiene la etapa |
+| 13 | CI decorativo | El workflow existe, está rojo hace dos semanas y se ignora | `main` protegido; el rojo se arregla el mismo día |
+| 14 | Gate fuera del repo | “Corré estos cuatro comandos” dictado en el chat | Un solo `make check`, versionado |
+| 15 | Hook salteado | `--no-verify` se volvió costumbre | Hook barato; el PR sigue siendo la red |
+| 16 | Secreto en CI | Workflow con `service_role` “para probar” | Stack local; secretos solo en deploy manual |
+| 17 | Cobertura como meta | 80% con tests que no afirman nada | Cobertura como diagnóstico; umbral después del kernel |
+| 18 | Guardrails tardíos | Se agregan en la feature tres, con deuda encima | Etapa 6 antes del segundo change |
 
 ## 8. Checklist final de una página
 
@@ -740,10 +1063,23 @@ PROYECTO: ____________________   FECHA: __________   RESPONSABLE: __________
     [ ] Smoke test de DI y router permanece
     [ ] Gate firmado
 
+[ ] 6. GUARDRAILS
+    [ ] `make check` corre en un clon limpio
+    [ ] El CI usa ese mismo comando
+    [ ] El hook rechaza un mensaje inválido
+    [ ] Un PR roto se detiene en cada capa
+    [ ] El CI no requiere secretos
+    [ ] Acciones fijadas y Dependabot configurado
+    [ ] AGENTS.md con comandos reales
+    [ ] Bitácora con la prueba de fuego
+    [ ] Gate firmado
+
 REGLA: si una casilla queda sin marcar, no se pasa a la etapa siguiente.
 ```
 
 ## 9. Ejemplo trabajado: Cambiami
+
+### 9.1 Artefactos
 
 **Dominio.**
 
@@ -792,3 +1128,150 @@ Splash, compartir, formato es-VE y frescura viven en `core`: son transversales, 
 | 5 | `feature-settings` | Moneda por defecto, legal desde ARB, pie de versión | La preferencia se aplica al reabrir; legal completo; cero emojis; ningún texto fuera de ARB |
 
 El orden va del contrato al cableado y de ahí a las features: primero la base, después el esqueleto, después lectura, cálculo y preferencias. Cambiami llega a doce pantallas, ocho features, tres módulos y un contrato de datos.
+
+### 9.2 Cronología real
+
+| # | Cuándo | Etapa | Qué se hizo | Evidencia |
+|---|---|---|---|---|
+| 1 | — | 1 | Cinco entidades y una vista, glosario, derivados y lista de rechazo | `docs/DOMINIO.md` |
+| 2 | — | 2 | Siete ADRs con alternativa rechazada y contrato | `docs/adr/ADR-0001…0007` |
+| 3 | — | 3 | Ocho features, tres módulos, cinco changes y orden de construcción | `docs/FEATURES.md` |
+| 4 | 16 nov 2026 | 4 | `backend-rates` y `backend-collector` propuestos, implementados y archivados | `openspec/specs/rates`, `openspec/specs/collector` |
+| 5 | 16 nov 2026 | 5 | Backend verificado: dos migraciones, Edge Function de cinco módulos, seis archivos pgTAP | `supabase/` |
+| 6 | 18 nov 2026 | 4/5 | Cuatro issues, board, milestone y dependencias nativas | `IDUCDEV/cambiami` #1–#4 |
+| 7 | 18 nov 2026 | 5 | `mobile-shell` bloque 1: app, `pubspec.yaml`, 17 iconos Lucide | 3/23 tareas |
+| 8 | 18 nov 2026 | 6 | `repo-guardrails` en redacción | `openspec/changes/repo-guardrails` |
+
+La etapa 4 no se ejecutó una vez: se ejecutó por change. El backend se archivó antes de tocar Flutter; `mobile-shell` sigue abierto mientras se construye. Eso es normal: la etapa 4 es un ciclo, no una parada.
+
+### 9.3 Comandos que se corrieron
+
+| Comando | Resultado verificado |
+|---|---|
+| `flutter --version` | 3.50.0 · Dart 3.14.0 |
+| `flutter create --org org.iducdev --project-name cambiami apps/mobile` | Proyecto con contador de ejemplo |
+| `flutter test` | 2/2 en verde |
+| `flutter analyze --fatal-warnings --fatal-infos` | 0 issues |
+| `dart format --output=none --set-exit-if-changed lib test` | 3 archivos, 0 cambiados |
+| `flutter build apk --debug` | OK, 163 MB |
+| `flutter build linux --debug` | OK |
+| `supabase test db` | Seis archivos pgTAP en verde |
+| `openspec validate <change> --strict` | Pasa antes de archivar |
+| `gh issue create`, `gh project item-add` | Cuatro issues enlazados al board |
+
+La lista importa porque es el contrato de la etapa 6: `make check` debe reproducir las filas de formato, análisis y tests, no una versión idealizada.
+
+### 9.4 Desvíos y correcciones
+
+| Desvío | Qué pasó | Corrección | Dónde quedó |
+|---|---|---|---|
+| Scaffold descartado | Very Good CLI generaba estructura y dependencias que el ADR no pedía | `flutter create` + lints propias | Guía §9.4 |
+| No había scaffold | La guía asumía uno; Cambiami arrancó greenfield | La etapa 5 usa solo las filas de Variables, Marca y Dominio; el slice sigue siendo obligatorio | §3.5 |
+| Package id sin ratificar | `org.iducdev.cambiami` en el código; `com.cambiami.app` y `app.cambiami` en documentos | Se difiere a una decisión cerrada antes del primer release | §11 |
+| `build_runner` bloqueado | 2.16.1 no resuelve; 2.17.1 choca con el analyzer | Codegen diferido; `fromJson` explícito | ADR 0002 |
+| `material.dart` deprecado | El import clásico emite aviso en Flutter 3.50 | `package:material_ui/material_ui.dart` | Código y `pubspec.yaml` |
+| OpenSpec 2.0 estricto | Un change de tooling sin delta no valida | `skip_specs: true` o capability `dev-workflow` | `.openspec.yaml` |
+| Falso positivo de secretos | `.env.example` contiene `sb_secret_reemplazar` | Regex real `sb_secret_[A-Za-z0-9_-]{20,}` | Guía §9.4 |
+| Sin emulador Android | Solo Linux desktop y Chrome disponibles | APK debug + Linux como verificación; dispositivo real antes del release | §11 |
+| Sin CD | El deploy remoto es manual | Runbook y CI sin secretos | `docs/SUPABASE_REMOTO.md` |
+
+Los desvíos no se borran: se registran. Un desvío sin registro se convierte en la próxima decisión implícita.
+
+### 9.5 Estado al cerrar esta versión de la guía
+
+- Etapas 1–4 cerradas para backend; `mobile-shell` en 3/23.
+- Backend local verificado; remoto documentado y no ejecutado.
+- `repo-guardrails` en redacción: seis bloques, tres PRs.
+- Siguiente tarea real: fuente Nunito y `OFL.txt`, declarada en `pubspec.yaml`, con cuatro pesos verificados.
+- Nada se commitea sin pedido explícito.
+
+## 10. Extrapolación: otro proyecto con el mismo stack
+
+Esta sección es el atajo para repetir Cambiami en un producto distinto con Flutter, Supabase, GetIt e `injectable`. No reemplaza las etapas: las ordena en el calendario y dice qué se copia, qué se reescribe y qué se descarta.
+
+### 10.1 Qué se copia, qué se reescribe
+
+| Artefacto | Acción | Por qué |
+|---|---|---|
+| Estructura de carpetas | Copiar | `apps/mobile`, `supabase`, `docs`, `design`, `openspec`, `tools` |
+| Plantillas de §5 | Copiar | Dominio, ADR, mapa, change, bootstrap y guardrails son genéricas |
+| `Makefile` y `ci.yml` | Copiar y ajustar versiones | Los comandos son del stack, no del producto |
+| Hook `commit-msg` | Copiar | La convención no depende del dominio |
+| `AGENTS.md` | Reescribir | Los invariantes son del producto |
+| Dominio, ADRs y mapa | Reescribir | Es el trabajo real; copiarlos es inventar dominio |
+| Specs archivadas | No copiar | Solo sirven como ejemplo de forma |
+| Assets, tokens y copy | Reescribir | Vienen del diseño, no del repo anterior |
+| Migraciones | Reescribir | El esquema es del producto |
+
+### 10.2 Plan de diez días
+
+| Día | Etapa | Salida | Gate |
+|---|---|---|---|
+| 1 | 1 | Dominio v1.0 con glosario y lista de rechazo | Cada dato visible tiene campo o fórmula |
+| 2 | 2 | Cinco a ocho ADRs y abiertas con dueño | Toda decisión transversal cubierta |
+| 3 | 3 | Mapa con módulos, usecases y orden | Cero celdas vacías en la matriz |
+| 4 | 4 | `backend-*` y `mobile-shell` en proposal + spec | Validador estricto pasa |
+| 5 | 5 | Backend local: migraciones, RLS, vista y pgTAP | `make db-check` verde |
+| 6 | 5 | Repo, tema, DI, router, errores, slice borrado | Build, test y run verdes |
+| 7 | 5 | Primer change aplicado | Requirements con test |
+| 8 | 6 | `make check`, hook y CI | PR de prueba detenido por capa |
+| 9 | 4 | Segundo y tercer change | Trazabilidad completa |
+| 10 | 6 | Bitácora y revisión de guardrails | Gate firmado |
+
+Un proyecto de una persona puede comprimir 1–2 en un día y 3–4 en medio, pero no puede saltear la lista de rechazo, el ADR de fuente ni la prueba de fuego del CI.
+
+### 10.3 Orden de comandos
+
+```bash
+# 1. Repo y documentación
+git init && mkdir -p docs/adr docs/features design openspec supabase apps
+
+# 2. App
+flutter create --org <org> --project-name <app> apps/mobile
+cd apps/mobile && flutter pub get
+
+# 3. Backend local
+supabase init
+supabase start
+supabase db reset
+
+# 4. OpenSpec
+openspec init
+openspec new change <primer-change>
+openspec validate <primer-change> --strict
+
+# 5. Guardrails
+make check
+git config core.hooksPath .githooks
+```
+
+El orden no es casual: el backend local antes de OpenSpec evita especificar tablas que después no existen; los guardrails después del primer change evitan configurar un CI para comandos que todavía no existen.
+
+### 10.4 Trampas del stack
+
+- **Dos fuentes de versión.** `pubspec.yaml` y el workflow deben declarar la misma versión de Flutter. Si divergen, el CI falla por una dependencia que en local resuelve.
+- **`build_runner` y el analyzer.** Un paquete nuevo puede bloquear el codegen. Fijá el par `build_runner`/`analyzer` y no actualices uno sin el otro.
+- **`shared_preferences` con caché.** Usá `SharedPreferencesWithCache` y `allowList`: sin lista, cualquier clave nueva entra sin revisión.
+- **GetIt en tests.** Registrá dobles antes de `configureDependencies`; un singleton real en un widget test contamina el siguiente.
+- **Supabase local.** `supabase start` consume RAM; en CI conviene un job separado con timeout y sin secretos.
+- **pgTAP.** `supabase test db` necesita `db reset` previo; sin reset, el test corre contra un esquema viejo.
+- **Formato es-VE.** El separador decimal es coma y el símbolo va después (`Bs 1.234,56`). No lo dejes al `intl` por defecto.
+- **Iconos.** Un paquete de iconos se verifica con un test que recorra los nombres usados; si no, un rename rompe la UI en runtime.
+- **OpenSpec 2.0.** Un change sin delta no valida; para tooling usá `skip_specs: true` o una capability real.
+- **Secretos.** El placeholder de `.env.example` hace ruido en búsquedas; usá un regex de longitud para el secreto real.
+
+## 11. Decisiones abiertas de esta guía
+
+| ID | Pregunta | Dueño | Fecha | Default |
+|---|---|---|---|---|
+| G-01 | ¿`org.iducdev.cambiami`, `com.cambiami.app` o `app.cambiami`? | Producto | Antes del primer release | `org.iducdev.cambiami` |
+| G-02 | ¿`very_good_analysis` o `flutter_lints` como base? | Tech lead | Antes del bloque 2 | `very_good_analysis` |
+| G-03 | ¿`l10n.yaml` con `synthetic-package: false` y ARB en `lib/l10n`? | Tech lead | Bloque 2 | Sí, salida versionada |
+| G-04 | ¿Umbral de cobertura y desde qué change? | Tech lead | Después del kernel | Sin umbral; artefacto solamente |
+| G-05 | ¿Se fijan las acciones por SHA antes del primer deploy? | Tech lead | Antes de `docs/SUPABASE_REMOTO.md` | Sí, con `pinact` |
+| G-06 | ¿La bitácora se actualiza por PR o por semana? | Quien mantiene | Al cerrar la etapa 6 | Por PR |
+| G-07 | ¿Flavors antes o después del package id? | Tech lead | Después de G-01 | Después |
+| G-08 | ¿La guía renumera secciones al crecer o agrega al final? | Autor | Al publicar v2 | Agregar §10 y §11 sin renumerar |
+| G-09 | ¿Qué dispositivo Android real se usa para la verificación previa al release? | Tech lead | Antes del primer release | Un dispositivo físico con Android 12 o superior |
+
+Cada abierta tiene dueño, fecha y default: si nadie la cierra, el default se aplica y se registra. Una abierta sin default es una decisión que se tomará en el peor momento posible.
