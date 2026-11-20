@@ -1,31 +1,45 @@
 import 'package:equatable/equatable.dart';
 
-abstract class Failure extends Equatable {
-  const Failure({required this.message, this.code});
-
-  final String message;
-  final int? code;
+/// Fallo de dominio. No contiene texto: el copy vive en `ErrorMapper`.
+sealed class Failure extends Equatable {
+  const Failure();
 
   @override
-  List<Object?> get props => [message, code];
+  List<Object?> get props => const [];
 }
 
-class ServerFailure extends Failure {
-  const ServerFailure({required super.message, required super.code});
+final class NetworkFailure extends Failure {
+  const NetworkFailure();
 }
 
-class NetworkFailure extends Failure {
-  const NetworkFailure({super.message = 'No internet connection', super.code});
+/// [detail] es solo diagnóstico/log, nunca se muestra en UI.
+final class ServerFailure extends Failure {
+  const ServerFailure(this.code, [this.detail]);
+  final int code;
+  final String? detail;
+
+  @override
+  List<Object?> get props => [code, detail];
 }
 
-class CacheFailure extends Failure {
-  const CacheFailure({super.message = 'Cache failure', super.code});
+/// [field] opcional: qué dato no se pudo interpretar (diagnóstico).
+final class ParseFailure extends Failure {
+  const ParseFailure([this.field]);
+  final String? field;
+
+  @override
+  List<Object?> get props => [field];
 }
 
-class ValidationFailure extends Failure {
-  const ValidationFailure({super.message = 'Validation failure', super.code});
+final class CacheFailure extends Failure {
+  const CacheFailure();
 }
 
-class ParseFailure extends Failure {
-  const ParseFailure({super.message = 'Parse failure', super.code});
+/// [field] discrimina el copy: 'amount' | 'rate' (ver ErrorMapper).
+final class ValidationFailure extends Failure {
+  const ValidationFailure([this.field]);
+  final String? field;
+
+  @override
+  List<Object?> get props => [field];
 }

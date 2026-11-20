@@ -10,11 +10,7 @@ typedef _MapCase = ({
   bool expectedCanRetry,
 });
 
-typedef _FromExceptionCase = ({
-  String label,
-  Object exception,
-  Failure expectedFailure,
-});
+typedef _FromCase = ({String label, Object error, Failure expectedFailure});
 
 void main() {
   group('ErrorMapper', () {
@@ -22,67 +18,55 @@ void main() {
       _checkMap(const <_MapCase>[
         (
           label: 'NetworkFailure es reintentable con copy canónico',
-          failure: NetworkFailure(message: ErrorMapper.updateRates),
-          expectedMessage: ErrorMapper.updateRates,
-          expectedCanRetry: true,
-        ),
-        (
-          label: 'NetworkFailure con mensaje por defecto se normaliza',
           failure: NetworkFailure(),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: true,
         ),
         (
           label: 'ServerFailure 401 no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 401),
+          failure: ServerFailure(401),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
         (
           label: 'ServerFailure 403 no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 403),
+          failure: ServerFailure(403),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
         (
           label: 'ServerFailure 404 no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 404),
+          failure: ServerFailure(404),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
         (
           label: 'ServerFailure 422 no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 422),
+          failure: ServerFailure(422),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
         (
           label: 'ServerFailure 500 se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 500),
+          failure: ServerFailure(500),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: true,
         ),
         (
           label: 'ServerFailure 503 se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 503),
+          failure: ServerFailure(503),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: true,
         ),
         (
-          label: 'ServerFailure sin código no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: null),
-          expectedMessage: ErrorMapper.updateRates,
-          expectedCanRetry: false,
-        ),
-        (
           label: 'ServerFailure 0 no se reintenta',
-          failure: ServerFailure(message: ErrorMapper.updateRates, code: 0),
+          failure: ServerFailure(0),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
         (
           label: 'ParseFailure no se reintenta y usa copy canónico',
-          failure: ParseFailure(),
+          failure: ParseFailure('rate_value'),
           expectedMessage: ErrorMapper.updateRates,
           expectedCanRetry: false,
         ),
@@ -95,8 +79,14 @@ void main() {
           expectedCanRetry: false,
         ),
         (
+          label: 'ValidationFailure sin campo usa copy de monto',
+          failure: ValidationFailure(),
+          expectedMessage: ErrorMapper.invalidAmount,
+          expectedCanRetry: false,
+        ),
+        (
           label: 'ValidationFailure de monto usa copy de monto',
-          failure: ValidationFailure(message: ErrorMapper.invalidAmount),
+          failure: ValidationFailure(ErrorMapper.fieldAmount),
           expectedMessage: ErrorMapper.invalidAmount,
           expectedCanRetry: false,
         ),
@@ -104,83 +94,77 @@ void main() {
           label: 'ValidationFailure de tasa usa copy de §13.4',
           // D-1: §13.4 gana sobre ADR 0004
           // ("No pudimos calcular con esta tasa.").
-          failure: ValidationFailure(message: ErrorMapper.invalidRate),
+          failure: ValidationFailure(ErrorMapper.fieldRate),
           expectedMessage: ErrorMapper.invalidRate,
-          expectedCanRetry: false,
-        ),
-        (
-          label: 'ValidationFailure con mensaje por defecto se normaliza',
-          failure: ValidationFailure(),
-          expectedMessage: ErrorMapper.invalidAmount,
           expectedCanRetry: false,
         ),
       ]);
     });
 
-    group('mensajes no vacíos', () {
+    group('cada Failure produce mensaje no vacío al mapear', () {
       final failures = <Failure>[
         const NetworkFailure(),
-        const ServerFailure(message: ErrorMapper.updateRates, code: 401),
-        const ParseFailure(),
+        const ServerFailure(401),
+        const ParseFailure('rate_value'),
         const CacheFailure(),
         const ValidationFailure(),
+        const ValidationFailure(ErrorMapper.fieldRate),
       ];
 
       for (final failure in failures) {
         test('${failure.runtimeType} produce mensaje no vacío', () {
-          expect(failure.message, isNotEmpty);
-          expect(ErrorMapper.map(failure).message, isNotEmpty);
+          final info = ErrorMapper.map(failure);
+          expect(info.message, isNotEmpty);
         });
       }
     });
 
-    group('fromException', () {
-      _checkFromException(const <_FromExceptionCase>[
+    group('from / fromAppException', () {
+      _checkFrom(const <_FromCase>[
         (
-          label: 'NetworkException -> NetworkFailure canónico',
-          exception: NetworkException(message: 'socket error'),
-          expectedFailure: NetworkFailure(message: ErrorMapper.updateRates),
+          label: 'NetworkException -> NetworkFailure',
+          error: NetworkException('socket error'),
+          expectedFailure: NetworkFailure(),
         ),
         (
-          label: 'ServerException conserva statusCode como code',
-          exception: ServerException(
-            message: 'PostgREST: permission denied',
-            statusCode: 401,
-          ),
-          expectedFailure: ServerFailure(
-            message: ErrorMapper.updateRates,
-            code: 401,
-          ),
+          label: 'ServerException conserva code y detail',
+          error: ServerException(401, 'PostgREST: permission denied'),
+          expectedFailure: ServerFailure(401, 'PostgREST: permission denied'),
         ),
         (
           label: 'ServerException 500 conserva code',
-          exception: ServerException(message: 'boom', statusCode: 500),
-          expectedFailure: ServerFailure(
-            message: ErrorMapper.updateRates,
-            code: 500,
-          ),
+          error: ServerException(500, 'boom'),
+          expectedFailure: ServerFailure(500, 'boom'),
         ),
         (
-          label: 'ParseException -> ParseFailure canónico',
-          exception: ParseException(message: 'rate_value'),
-          expectedFailure: ParseFailure(message: ErrorMapper.updateRates),
+          label: 'ParseException conserva field y descarta detail',
+          error: ParseException('fetched_at', 'bad date'),
+          expectedFailure: ParseFailure('fetched_at'),
         ),
         (
-          label: 'CacheException -> CacheFailure canónico',
-          exception: CacheException(message: 'disk'),
-          expectedFailure: CacheFailure(message: ErrorMapper.updateRates),
+          label: 'CacheException -> CacheFailure',
+          error: CacheException('disk'),
+          expectedFailure: CacheFailure(),
+        ),
+        (
+          label: 'ValidationException sin campo -> ValidationFailure sin campo',
+          error: ValidationException(),
+          expectedFailure: ValidationFailure(),
         ),
         (
           label: 'ValidationException de monto',
-          exception: ValidationException(message: 'bad amount'),
-          expectedFailure: ValidationFailure(
-            message: ErrorMapper.invalidAmount,
-          ),
+          error: ValidationException(ErrorMapper.fieldAmount),
+          expectedFailure: ValidationFailure(ErrorMapper.fieldAmount),
         ),
         (
-          label: 'ValidationException de tasa conserva el mensaje canónico',
-          exception: ValidationException(message: ErrorMapper.invalidRate),
-          expectedFailure: ValidationFailure(message: ErrorMapper.invalidRate),
+          label: 'ValidationException de tasa conserva el discriminador',
+          error: ValidationException(ErrorMapper.fieldRate),
+          expectedFailure: ValidationFailure(ErrorMapper.fieldRate),
+        ),
+        (
+          label: 'Objeto no modelado usa fallback único',
+          error: FormatException('inesperado'),
+          expectedFailure: NetworkFailure(),
         ),
       ]);
     });
@@ -188,25 +172,39 @@ void main() {
     group('detalle técnico no filtra a la UI', () {
       test('el body de ServerException no aparece en el mensaje mapeado', () {
         const detail = 'PostgREST: permission denied for table rates';
-        final failure = ErrorMapper.fromException(
-          const ServerException(message: detail, statusCode: 500),
-        );
+        final failure = ErrorMapper.from(const ServerException(500, detail));
         final info = ErrorMapper.map(failure);
 
+        expect(failure, const ServerFailure(500, detail));
+        expect((failure as ServerFailure).detail, detail);
         expect(info.message, isNot(contains('PostgREST')));
         expect(info.message, isNot(contains(detail)));
         expect(info.message, ErrorMapper.updateRates);
       });
 
       test('el detalle de NetworkException no aparece en el mensaje', () {
-        final failure = ErrorMapper.fromException(
-          const NetworkException(message: 'SocketException: timeout'),
+        final failure = ErrorMapper.from(
+          const NetworkException('SocketException: timeout'),
         );
         final info = ErrorMapper.map(failure);
 
+        expect(failure, const NetworkFailure());
         expect(info.message, isNot(contains('SocketException')));
         expect(info.message, ErrorMapper.updateRates);
       });
+    });
+
+    test('fromAppException traduce excepciones modeladas', () {
+      expect(
+        ErrorMapper.fromAppException(const CacheException('disk')),
+        const CacheFailure(),
+      );
+      expect(
+        ErrorMapper.fromAppException(
+          const ValidationException(ErrorMapper.fieldRate),
+        ),
+        const ValidationFailure(ErrorMapper.fieldRate),
+      );
     });
   });
 }
@@ -221,10 +219,10 @@ void _checkMap(List<_MapCase> cases) {
   }
 }
 
-void _checkFromException(List<_FromExceptionCase> cases) {
+void _checkFrom(List<_FromCase> cases) {
   for (final testCase in cases) {
     test(testCase.label, () {
-      final failure = ErrorMapper.fromException(testCase.exception);
+      final failure = ErrorMapper.from(testCase.error);
       expect(failure, testCase.expectedFailure);
     });
   }

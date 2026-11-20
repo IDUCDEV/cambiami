@@ -21,70 +21,70 @@ abstract final class ErrorMapper {
   /// Etiqueta de la acción de reintento.
   static const String retry = 'Reintentar';
 
-  /// Traduce una excepción de datos a un fallo de dominio.
-  ///
-  /// El detalle técnico de la excepción (p. ej. el body HTTP) no se copia al
-  /// [Failure.message]; debe registrarse en el log antes de llamar a este
-  /// método si se necesita conservar.
-  static Failure fromException(Object exception) {
+  /// Discriminadores canónicos para [ValidationFailure]/[ValidationException].
+  static const String fieldAmount = 'amount';
+
+  /// Discriminadores canónicos para [ValidationFailure]/[ValidationException].
+  static const String fieldRate = 'rate';
+
+  /// Entrada pública desde un `catch (Object)`.
+  /// El detalle técnico debe loguearse antes si se necesita conservar.
+  static Failure from(Object error) {
+    if (error is AppException) {
+      return fromAppException(error);
+    }
+    // Fallback único para errores no modelados.
+    return const NetworkFailure();
+  }
+
+  /// Traducción de excepciones de datos modeladas.
+  static Failure fromAppException(AppException exception) {
     if (exception is NetworkException) {
-      return const NetworkFailure(message: updateRates);
+      return const NetworkFailure();
     }
     if (exception is ServerException) {
-      return ServerFailure(message: updateRates, code: exception.statusCode);
+      return ServerFailure(exception.code, exception.detail);
     }
     if (exception is ParseException) {
-      return const ParseFailure(message: updateRates);
+      return ParseFailure(exception.field);
     }
     if (exception is CacheException) {
-      return const CacheFailure(message: updateRates);
+      return const CacheFailure();
     }
     if (exception is ValidationException) {
-      final message = exception.message == invalidRate
-          ? invalidRate
-          : invalidAmount;
-      return ValidationFailure(message: message);
+      return ValidationFailure(exception.field);
     }
 
-    // Excepción no contemplada: se trata como fallo genérico sin reintento
-    // implícito; el copy sigue siendo el canónico.
-    return const CacheFailure(message: updateRates);
+    // Inalcanzable: jerarquía sellada totalmente cubierta.
+    throw StateError('AppException no contemplada: $exception');
   }
 
   /// Convierte un fallo en copy canónico y bandera de reintento.
-  /// fronteta dominio presentacion
   static ErrorInfo map(Failure failure) {
-    return (message: _messageFor(failure), canRetry: _canRetry(failure));
-  }
-
-  static String _messageFor(Failure failure) {
-    if (failure is ValidationFailure) {
-      // Sin `field`, el discriminador es el propio mensaje canónico.
-      return failure.message == invalidRate ? invalidRate : invalidAmount;
+    if (failure is NetworkFailure) {
+      return (message: updateRates, canRetry: true);
     }
-    if (failure is NetworkFailure ||
-        failure is ServerFailure ||
-        failure is ParseFailure ||
-        failure is CacheFailure) {
-      // Siempre copy canónico: evita filtrar mensajes técnicos a la UI.
-      return updateRates;
-    }
-
-    return failure.message.isNotEmpty ? failure.message : updateRates;
-  }
-
-  static bool _canRetry(Failure failure) {
-    if (failure is NetworkFailure) return true;
     if (failure is ServerFailure) {
-      return _serverRetryable(failure.code);
+      return (message: updateRates, canRetry: _serverRetryable(failure.code));
     }
-    return false;
+    if (failure is ParseFailure) {
+      return (message: updateRates, canRetry: false);
+    }
+    if (failure is CacheFailure) {
+      return (message: updateRates, canRetry: false);
+    }
+    if (failure is ValidationFailure) {
+      final message = failure.field == fieldRate ? invalidRate : invalidAmount;
+      return (message: message, canRetry: false);
+    }
+
+    // Inalcanzable: jerarquía sellada totalmente cubierta.
+    throw StateError('Failure no contemplado: $failure');
   }
 
   /// 401/403 son de configuración; 5xx puede resolverse al reintentar.
-  /// 4xx, código nulo y el resto no se reintentan.
-  static bool _serverRetryable(int? code) {
-    if (code == null) return false;
+  /// 4xx y el resto no se reintentan.
+  static bool _serverRetryable(int code) {
     if (code == 401 || code == 403) return false;
     return code >= 500;
   }

@@ -14,6 +14,7 @@
 
 - [x]  3.1 Implementar `EsVeFormatter` con decimales, miles, `Bs`, `$`, menos tipográfico, fechas y horas; verificar con el test de tabla de 11 casos de `DESIGN_SYSTEM.md` §8
 - [x]  3.2 Implementar `Failure`, `Exception` y `ErrorMapper`; verificar que cada `Failure` produce un mensaje no vacío y que `ServerFailure(401)` no se reintenta
+  - Nota: migrado a contrato sellado (ADR 0004) — `Failure` sin `message`, discriminador `field` (`amount`/`rate`), `from(Object)` + `fromAppException`. El mensaje no vacío se verifica sobre `ErrorMapper.map(...).message`.
 - [ ]  3.3 Implementar `PreferencesService` sobre `SharedPreferencesWithCache` con un `allowList` de las cuatro claves versionadas; verificar lectura, escritura, rechazo de una clave fuera de la lista y descarte por cambio de versión con un doble en memoria
 - [ ]  3.4 Implementar `RateStatusResolver` y los enums del kernel (`RateType`, `RateStatus`); verificar los tres estados con reloj inyectado
 

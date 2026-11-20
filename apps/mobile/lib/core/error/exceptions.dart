@@ -1,38 +1,52 @@
-class ServerException implements Exception {
-  const ServerException({required this.message, this.statusCode});
-  final String message;
-  final int? statusCode;
-
-  @override
-  String toString() => message;
+/// Excepciones de la capa de datos. Nunca cruzan a dominio.
+sealed class AppException implements Exception {
+  const AppException();
 }
 
-class NetworkException implements Exception {
-  const NetworkException({required this.message});
-  final String message;
+/// Fallo de red/conectividad. [detail] es técnico (para log), no para UI.
+final class NetworkException extends AppException {
+  const NetworkException([this.detail]);
+  final String? detail;
+
   @override
-  String toString() => message;
+  String toString() => detail ?? 'NetworkException';
 }
 
-class CacheException implements Exception {
-  const CacheException({required this.message});
-  final String message;
+/// Error HTTP/servidor. [code] gobierna el reintento; [detail] (body) no va a UI.
+final class ServerException extends AppException {
+  const ServerException(this.code, [this.detail]);
+  final int code;
+  final String? detail;
 
   @override
-  String toString() => message;
+  String toString() => detail ?? 'ServerException($code)';
 }
 
-class ParseException implements Exception {
-  const ParseException({required this.message});
-  final String message;
+/// Error al parsear/decodificar datos. [field] identifica qué falló.
+final class ParseException extends AppException {
+  const ParseException([this.field, this.detail]);
+  final String? field;
+  final String? detail;
+
   @override
-  String toString() => message;
+  String toString() => detail ?? field ?? 'ParseException';
 }
 
-class ValidationException implements Exception {
-  const ValidationException({required this.message});
-  final String message;
+/// Fallo de lectura/escritura local.
+final class CacheException extends AppException {
+  const CacheException([this.detail]);
+  final String? detail;
 
   @override
-  String toString() => message;
+  String toString() => detail ?? 'CacheException';
+}
+
+/// Entrada inválida. [field] discrimina el caso ('amount' | 'rate').
+final class ValidationException extends AppException {
+  const ValidationException([this.field, this.detail]);
+  final String? field;
+  final String? detail;
+
+  @override
+  String toString() => detail ?? field ?? 'ValidationException';
 }
